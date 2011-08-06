@@ -7,22 +7,39 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/components/com_content/views/category/tmpl/blog_links.php';
+// Joomla! 1.6+ Output
+
+	<div class="items-more">
+
+	<h3><?php echo JText::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
+	<ul>
+	<?php
+		foreach ($this->link_items as &$item) :
+	?>
+		<li>
+			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)); ?>">
+				<?php echo $item->title; ?></a>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+	</div>
+
+<?php	
 }
 else {
+// Joomla! 1.5 Output
 ?>
-
-<div class="items-more">
-	<h3>
-		<?php echo JText::_('More Articles...'); ?>
-	</h3>	
-	<ol>
-		<?php foreach ($this->links as $link) : ?>
-		<li>
-			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($link->slug, $link->catslug, $link->sectionid)); ?>">
-				<?php echo $this->escape($link->title); ?></a>
-		</li>
-		<?php endforeach; ?>
-	</ol>
-</div>
+	<div class="items-more">
+		<h3>
+			<?php echo JText::_('More Articles...'); ?>
+		</h3>	
+		<ol>
+			<?php foreach ($this->links as $link) : ?>
+			<li>
+				<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($link->slug, $link->catslug, $link->sectionid)); ?>">
+					<?php echo $this->escape($link->title); ?></a>
+			</li>
+			<?php endforeach; ?>
+		</ol>
+	</div>
 <?php }

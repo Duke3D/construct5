@@ -454,6 +454,8 @@ if ($googleWebFont3) {
 }
 
 // JavaScript
+$doc->addScript($template.'/js/head.min.js');
+$doc->addScript($template.'/js/modernizr-1.7.min.js');
 $doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
 if ($loadjQuery) {
 	$doc->addScript($loadjQuery);
