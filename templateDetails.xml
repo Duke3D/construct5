@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE install PUBLIC "-//Joomla! 1.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.5/template-install.dtd">
-<install version="1.5" type="template" method="upgrade">
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<install version="1.6" type="template" client="site" method="upgrade">
 	<name>construct5</name>
 	<creationDate>August 6th, 2011</creationDate>
 	<author>Joomla Engineering</author>
-	<copyright>Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.</copyright>
-	<license>GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html</license>
 	<authorEmail>support@joomlaengineering.com</authorEmail>
-	<authorUrl>http://joomlaengineering.com/</authorUrl>
-	<version>0.1</version>
+	<authorUrl>http://joomlaengineering.com</authorUrl>
+	<copyright>Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>0.1</version>	
 	<description><![CDATA[
 	<style type="text/css">
 		.panel {background: #ddd;
@@ -30,67 +30,67 @@
 		table.admintable td.key, table.admintable td.paramlist_key,.pane-sliders .content,.pane-sliders .panel h3, div.panel fieldset {background:none;}
 		div.panel fieldset {margin-bottom:0;padding-bottom:0;}
 		table.admintable td.key, table.admintable td.paramlist_key {border:none;}
-	</style>	
-	<a href="http://joomlaengineering.com/" target="_blank"><img src="../templates/je-construct-community/images/logo.png"/></a>	
+	</style>
+	<a href="http://joomlaengineering.com/" target="_blank"><img src="../templates/construct5/images/logo.png"></a>	
+		<div class="clr"></div>		
 		<div class="t"><div class="t"><div class="t"></div></div></div><!-- top -->		
-		<div class="m">				
-			<h3>Getting Started:</h3>
-			<p>Now that you've installed Construct, getting started is easy. The 40 included module positions occupy the most commonly used areas within a template. With dynamic width logic, the availability of two left and two right columns, the numerous module positions and expanded functionality via template parameters, building your unique Joomla website is greatly simplified with this framework. Once you have your content, components and modules in place, just add your unique style.</p>
-			<p>Adding your unique style is accomplished by adding a custom style sheet to the CSS directory located within this template (/templates/je-construct-community/css/). Once created, just open this template in the Template Manager and select YES next to <em>Use custom style sheet</em> and select the one you added. There is also an example template pack included within this template&rsquo;s installation archive to help you get you started; just extract the example template pack archive to this template&rsquo;s directory.</p>
-			<h4 style="clear:left">Joomla 1.5 Template Development Framework &copy; 2010, 2011 Joomla Engineering&trade;</h4>					
+		<div class="m">									
+			<p>Unified HTML5 Template Development Framework &copy; 2010, 2011 Joomla Engineering&trade;</p>
 			<p>For more information and support, visit <a href="http://joomlaengineering.com/" target="_blank">Joomla Engineering</a></p>
 			<div class="clr"></div>
 		</div><!--end m -->
 	<div class="b"><div class="b"><div class="b"></div></div></div><!-- bottom -->
-	]]></description>
-    <files>
-        <filename>css/diagnostic.css</filename>
+	]]></description>	
+	<files>
+		<filename>css/diagnostic.css</filename>
 		<filename>css/editor.css</filename>
 		<filename>css/ie6.css</filename>
 		<filename>css/index.html</filename>
 		<filename>css/modal.css</filename>
-		<filename>css/overrides.css</filename>
 		<filename>css/print.css</filename>
 		<filename>css/rtl.css</filename>
 		<filename>css/screen.css</filename>
-		<filename>css/wireframe.css</filename>	
-		<filename>elements/googlewebfont.php</filename>				
+		<filename>css/wireframe.css</filename>
+		<filename>elements/onward/googlewebfont.php</filename>
+		<filename>elements/onward/index.html</filename>
+		<filename>elements/onward/jqueryversion.php</filename>		
+		<filename>elements/onward/upgradecheck.php</filename>
+		<filename>elements/present/googlewebfont.php</filename>		
+		<filename>elements/present/index.html</filename>
+		<filename>elements/present/jqueryversion.php</filename>			
+		<filename>elements/present/panel.php</filename>
+		<filename>elements/present/panels.php</filename>
+		<filename>elements/present/upgradecheck.php</filename>
 		<filename>elements/helper.php</filename>		
 		<filename>elements/index.html</filename>
-		<filename>elements/jqueryversion.php</filename>
-		<filename>elements/logic.php</filename>	
-		<filename>elements/panel.php</filename>
-		<filename>elements/panels.php</filename>
-		<filename>elements/upgradecheck.php</filename>
-		<filename>html/index.html</filename>
-        <folder>html</folder>
-        <filename>images/editor-buttons/index.html</filename>
-		<filename>images/editor-buttons/j_button2_blank.png</filename>
-		<filename>images/editor-buttons/j_button2_image.png</filename>
-		<filename>images/editor-buttons/j_button2_left.png</filename>
-		<filename>images/editor-buttons/j_button2_pagebreak.png</filename>
-		<filename>images/editor-buttons/j_button2_readmore.png</filename>
-		<filename>images/editor-buttons/j_button2_right.png</filename>		
-		<filename>images/button-gradient.png</filename>
-		<filename>images/index.html</filename>		
+		<filename>elements/logic.php</filename>		
+		<folder>html</folder>
+		<filename>images/index.html</filename>
 		<filename>images/selector-arrow.png</filename>
 		<filename>images/trans.gif</filename>
-		<folder>images/rounded</folder>
-        <filename>js/DD_belatedPNG_0.0.8a-min.js</filename>
+		<filename>js/DD_belatedPNG_0.0.8a-min.js</filename>
 		<filename>js/index.html</filename>
 		<filename>js/PIE.htc</filename>
 		<filename>js/styleswitch.js</filename>
-		<filename>layouts/index.html</filename>
-		<filename>component.php</filename>		
+		<filename>layouts/index.html</filename>	
+		<filename>component.php</filename>
+		<filename>error.php</filename>
         <filename>favicon.ico</filename>
         <filename>favicon.png</filename>
         <filename>index.html</filename>
         <filename>index.php</filename>
-		<filename>modal.php</filename>					
+		<filename>modal.php</filename>
+		<filename>offline.php</filename>
         <filename>params.ini</filename>
         <filename>template_thumbnail.png</filename>
         <filename>templateDetails.xml</filename>
     </files>
+	
+	<languages>
+		<language tag="en-GB">en-GB.tpl_construct5.ini</language>
+		<language tag="en-GB">en-GB.tpl_construct-5.sys.ini</language>
+	</languages>
+	
 	<positions>
 		<position>analytics</position>
 		<position>breadcrumbs</position>
@@ -140,25 +140,111 @@
 		<position>nav-below-6</position>		
 		<position>offline</position>
 		<position>syndicate</position>		
-</positions>
-	<params addpath="/templates/je-construct-community/elements">
-		<param type="panel" title="General" />
-		<param name="enableSwitcher" type="radio" default="0" label="Layout Aid" description="Enable the ajax style sheet switcher. Defaults to diagnostic and normal options for a visual layout aid.">
+	</positions>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="general" addfieldpath="/templates/construct5/elements/onward" >									
+				<field name="enableSwitcher" type="radio" default="0" label="TPL_CONSTRUCT5_ENABLE_SWITCHER_LABEL" description="TPL_CONSTRUCT5_ENABLE_SWITCHER_DESC">
+					<option value="1">Show</option>
+					<option value="0">Hide</option>
+				</field>
+				<field name="showDiagnostics" type="radio" default="0" label="TPL_CONSTRUCT5_SHOW_DIAGNOSTICS_LABEL" description="TPL_CONSTRUCT5_SHOW_DIAGNOSTICS_DESC">
+					<option value="1">Show</option>
+					<option value="0">Hide</option>
+				</field>	
+				<field name="customStyleSheet" type="filelist" default="example.css" label="TPL_CONSTRUCT5_CUSTOM_STYLE_SHEET_LABEL" directory="templates/construct5/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css|mobile\.css" description="TPL_CONSTRUCT5_CUSTOM_STYLE_SHEET_DESC" />
+				<field name="setGeneratorTag" type="text" default="Joomla Engineering | http://JoomlaEngineering.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />		
+			</fieldset>
+			<fieldset name="IE">
+				<field name="IECSS3" type="radio" default="1" label="TPL_CONSTRUCT5_IE_CSS3_LABEL" description="TPL_CONSTRUCT5_IE_CSS3_DESC">
+		        	<option value="1">Yes</option>
+		        	<option value="0">No</option>
+		    	</field>			
+				<field name="IECSS3Targets" type="textarea" default=".drop-shadow, .outline, .rounded, ul.menu li" label="TPL_CONSTRUCT5_IE_CSS3_TARGETS_LABEL" description="TPL_CONSTRUCT5_IE_CSS3_TARGETS_DESC" rows="5" cols="50" />
+				<field name="IE6TransFix" type="radio" default="1" label="TPL_CONSTRUCT5_IE6_TRANS_FIX_LABEL" description="TPL_CONSTRUCT5_IE6_TRANS_FIX_DESC">
+		        	<option value="1">Yes</option>
+		        	<option value="0">No</option>
+		    	</field>		
+				<field name="IE6TransFixTargets" type="textarea" default="h1 a" label="TPL_CONSTRUCT5_IE6_TRANS_FIX_TARGETS_LABEL" description="TPL_CONSTRUCT5_IE6_TRANS_FIX_TARGETS_DESC" rows="5" cols="50" />
+			</fieldset>			
+			<fieldset name="javascript">									
+				<field name="loadMoo" type="radio" default="1" label="TPL_CONSTRUCT5_LOAD_MOO_LABEL" description="TPL_CONSTRUCT5_LOAD_MOO_DESC">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="loadModal" type="radio" default="1" label="TPL_CONSTRUCT5_LOAD_MODAL_LABEL" description="TPL_CONSTRUCT5_LOAD_MODAL_DESC">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="loadjQuery" type="jqueryversion" default="" label="TPL_CONSTRUCT5_LOAD_JQUERY_LABEL" description="TPL_CONSTRUCT5_LOAD_JQUERY_DESC" />
+			</fieldset>
+			<fieldset name="Layout">				
+				<field name="siteWidth" type="text" default="80.5" label="TPL_CONSTRUCT5_SITE_WIDTH_LABEL" description="TPL_CONSTRUCT5_SITE_WIDTH_DESC" size="10" />	
+				<field name="siteWidthType" type="radio" default="max-width" label="TPL_CONSTRUCT5_SITE_WIDTH_TYPE_LABEL" description="TPL_CONSTRUCT5_SITE_WIDTH_TYPE_DESC">
+					<option value="max-width">Fluid Max Width</option>
+					<option value="width">Fixed Width</option>
+				</field>
+				<field name="siteWidthUnit" type="radio" default="em" label="TPL_CONSTRUCT5_SITE_WIDTH_UNIT_LABEL" description="TPL_CONSTRUCT5_SITE_WIDTH_UNIT_DESC">
+					<option value="em">Em</option>
+					<option value="px">Pixel</option>
+					<option value="%">Percent</option>
+				</field>	
+				<field name="fluidMedia" type="radio" default="0" label="TPL_CONSTRUCT5_FLUID_MEDIA_LABEL" description="TPL_CONSTRUCT5_FLUID_MEDIA_DESC">
+				  <option value="1">Yes</option>
+				  <option value="0">No</option>
+				</field>				
+				<field name="fullWidth" type="radio" default="1" label="TPL_CONSTRUCT5_FULL_WIDTH_LABEL" description="TPL_CONSTRUCT5_FULL_WIDTH_DESC">
+				  <option value="1">Yes</option>
+				  <option value="0">No</option>
+				</field>
+				<field name="useStickyFooter" type="radio" default="1" label="TPL_CONSTRUCT5_USE_STICKY_FOOTER_LABEL" description="TPL_CONSTRUCT5_USE_STICKY_FOOTER_DESC">
+        			<option value="1">On</option>
+        			<option value="0">Off</option>
+		    	</field>
+				<field name="stickyFooterHeight" type="text" default="175" label="TPL_CONSTRUCT5_STICKY_FOOTER_HEIGHT_LABEL" description="TPL_CONSTRUCT5_STICKY_FOOTER_HEIGHT_DESC" size="5" />
+			</fieldset>						
+			<fieldset name="typography">		
+				<field name="googleWebFont" type="googlewebfont" default="" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_DESC" />										
+				<field name="googleWebFontTargets" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_TARGETS_DESC" size="50" />
+				<field name="googleWebFontSize" type="text" default="85%" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />					
+				<field type="spacer" default=" " />				
+				<field name="googleWebFont2" type="googlewebfont" default="" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_DESC" />										
+				<field name="googleWebFontTargets2" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_TARGETS_DESC" size="50"/>
+				<field name="googleWebFontSize2" type="text" default="2.1em" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />					
+				<field type="spacer" default=" " />				
+				<field name="googleWebFont3" type="googlewebfont" default="" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_DESC" />										
+				<field name="googleWebFontTargets3" type="text" default="h1,h2,h3,h4,h5,h6" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_TARGETS_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_TARGETS_DESC" size="50" />
+				<field name="googleWebFontSize3" type="text" default="20px" label="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_SIZE_LABEL" description="TPL_CONSTRUCT5_GOOGLE_WEB_FONT_SIZE_DESC" size="5" />									
+			</fieldset>			
+			<fieldset name="version_check">
+				<field label="TPL_CONSTRUCT5_VERSION_CHECK_LABEL" type="upgradecheck" />
+			</fieldset>	
+		</fields>
+	</config>	
+	
+	<params addpath="/templates/construct5/elements/present">
+		<param type="panel" title="General" />			
+		<param name="enableSwitcher" type="radio" default="0" label="Layout Aid" description="Enable the ajax style sheet switcher to use the diagnostic and wireframe visual layout aids.">
 			<option value="1">Show</option>
 			<option value="0">Hide</option>
 		</param>		
-		<param name="customStyleSheet" type="filelist" default="example.css" label="Custom style sheet" directory="templates/je-construct-community/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />		
+		<param name="showDiagnostics" type="radio" default="0" label="Override Diagnostics" description="Enable display of the current article, item, category, section, and component exteneded template override information.">
+      <option value="1">Show</option>
+    	<option value="0">Hide</option>
+    </param>
+		<param name="customStyleSheet" type="filelist" default="example.css" label="Custom style sheet" directory="templates/construct5/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />		
 		<param name="setGeneratorTag" type="text" default="Joomla Engineering | http://JoomlaEngineering.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />				
-		<param type="panel" title="Internet Explorer" />			
+<param type="panel" title="Internet Explorer" />		
 		<param name="IECSS3" type="radio" default="1" label="Add CSS3 Support to IE" description="Enable the use of PIE (http://css3pie.com/) to add CSS3 support to Internet Explorer version 8 and before. Also adds pie_hover class to non-link items on hover. For performance reason, you must define the tagret elements below.">
-        	<option value="1">Yes</option>
-        	<option value="0">No</option>
-    	</param>			
-		<param name="IECSS3Targets" type="text" default=".drop-shadow, .outline, .rounded, ul.menu li" label="IE CSS3 Support Tragets" description="Enter a comma seprated list of HTML targets to apply PIE to." size="50" />
+      <option value="1">Yes</option>
+    	<option value="0">No</option>
+    </param>
+		<param name="IECSS3Targets" type="text" default=".drop-shadow, .outline, .rounded, ul.menu li" label="IE CSS3 Support Targets" description="Enter a comma seprated list of HTML targets to apply PIE to." size="50" />
 		<param name="IE6TransFix" type="radio" default="1" label="Add IE6 Transparency Fix" description="Enable the use DD_belatedPNG (http://www.dillerdesign.com/experiment/DD_belatedPNG/) to add transparentcy support to IE6. For performance reason, you must define the tagret elements below.">
         	<option value="1">Yes</option>
         	<option value="0">No</option>
-    	</param>		
+    </param>		
 		<param name="IE6TransFixTargets" type="text" default="h1 a" label="IE6 Transparency Fix Targets" description="Enter a comma seprated list of HTML targets to apply DD_belatedPNG to." size="50" />				
 		<param type="panel" title="Javascript" />			
 		<param name="loadMoo" type="radio" default="1" label="Load MooTools" description="Load the MooTools JavaScript library that is included with Joomla.">
@@ -169,7 +255,7 @@
 			<option value="1">Yes</option>
 			<option value="0">No</option>
 		</param>
-		<param name="loadjQuery" type="jqueryversion" default="" label="Load jQuery" description="Load the jQuery JavaScript library, version 1.4.2, hosted by Google." />	
+		<param name="loadjQuery" type="jqueryversion" default="" label="Load jQuery" description="Select the version of the jQuery JavaScript library to load, hosted by Google. jQuery will not load if no version is selected." />
 		<param type="panel" title="Layout" />			
 		<param name="siteWidth" type="text" default="80.5" label="Site Width" description="Define the overall width of the layout. Enter only a number, no units, as you will choose which unit to use below." size="10" />	
 		<param name="siteWidthType" type="radio" default="max-width" label="Site Width Style" description="Set whether to use a fluid max-width or fixed width layout.">
@@ -193,9 +279,9 @@
         	<option value="1">Yes</option>
         	<option value="0">No</option>
     	</param>
-		<param name="stickyFooterHeight" type="text" default="175" label="Sticky Footer Height" description="Set the fixed height, in pixels, of your sticky footer." size="5" />					
+		<param name="stickyFooterHeight" type="text" default="175" label="Sticky Footer Height" description="Set the fixed height, in pixels, of your sticky footer." size="5" />				
 		<param type="panel" title="Typography" />	
-		<param name="googleWebFont" type="googlewebfont" default="" label="Google Web Font" description="The Google Web font to be applied to the designated targets below. Visit http://code.google.com/webfonts for more information." />
+		<param name="googleWebFont" type="googlewebfont" default="" label="Google Web Font" description="The Google Web font to be applied to the designated targets below. Visit http://code.google.com/webfonts for more information." />								
 		<param name="googleWebFontTargets" type="text" default="h1,h2,h3,h4,h5,h6" label="Google Web Font Targets" description="A comma seperated list of the html elements, CSS IDs, and classes to apply the selected Google Web Font to. If targeting the body, be sure to set the Body Font Family to None Selected." size="50" />
 		<param name="googleWebFontSize" type="text" default="2.5em" label="Google Web Font Size" description="Define the font size, including the unit of measure, of the font family defined above. Percentage is preferred. NOTE: Construct's base typography uses a font size of 76%, which is 12px in most modern browsers." size="5" />				
 		<param type="spacer" default=" " />
@@ -205,9 +291,10 @@
 		<param type="spacer" default=" " />
 		<param name="googleWebFont3" type="googlewebfont" default="" label="Google Web Font" description="The Google Web font to be applied to the designated targets below. Visit http://code.google.com/webfonts for more information." />
 		<param name="googleWebFontTargets3" type="text" default="" label="Google Web Font Targets" description="A comma seperated list of A comma seperated list of the html elements, CSS IDs, and classes to apply the selected Google Web Font to. If targeting the body, be sure to set the Body Font Family to None Selected." size="50" />
-		<param name="googleWebFontSize3" type="text" default="" label="Google Web Font Size" description="Define the font size, including the unit of measure, of the font family defined above. Percentage is preferred. NOTE: Construct's base typography uses a font size of 76%, which is 12px in most modern browsers." size="5" />
+		<param name="googleWebFontSize3" type="text" default="" label="Google Web Font Size" description="Define the font size, including the unit of measure, of the font family defined above. Percentage is preferred. NOTE: Construct's base typography uses a font size of 76%, which is 12px in most modern browsers." size="5" />	
 		<param type="panel" title="Version Check" />			
 		<param label="Version Check" type="upgradecheck"/>
 		<param type="panels" />			
 	</params>
+	
 </install>

@@ -1,14 +1,20 @@
-<?php // @version $Id: default.php 10381 2008-06-01 03:35:53Z pasamio $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
 ?>
 
 <?php if (count($list)) : ?>
-<ul class="latestnews<?php echo $params->get('pageclass_sfx'); ?>">
-	<?php foreach ($list as $item) : ?>
-	<li class="latestnews<?php echo $params->get('pageclass_sfx'); ?>">
-		<a href="<?php echo $item->link; ?>" class="latestnews<?php echo $params->get('pageclass_sfx'); ?>">
-			<?php echo $item->text; ?></a>
-	</li>
-	<?php endforeach; ?>
-</ul>
+	<ul class="latest-news<?php echo $params->get('pageclass_sfx'); ?>">
+		<?php foreach ($list as $item) : ?>
+			<li>
+				<a href="<?php echo $item->link; ?>">
+					<?php echo $item->text; ?>
+				</a>
+			</li>
+		<?php endforeach; ?>
+	</ul>
 <?php endif;

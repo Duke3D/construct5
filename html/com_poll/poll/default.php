@@ -1,22 +1,32 @@
-<?php // @version $Id: default.php 11917 2009-05-29 19:37:05Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
 ?>
 
-<?php JHTML::_('stylesheet', 'poll_bars.css', 'components/com_poll/assets/'); ?>
+<div class="poll<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
-<?php if ($this->params->get('show_page_title',1)) : ?>
-<h1 class="componentheading<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
-	<?php echo $this->escape($this->params->get('page_title')); ?>
-</h1>
-<?php endif; ?>
-
-<div class="poll<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
-	<form action="index.php" method="post" name="poll" id="poll">
-		<label for="id">
-			<?php echo JText::_( 'Select Poll' ); ?>&nbsp;<?php echo $this->lists['polls']; ?>
-		</label>
-	</form>
-	<?php if (count($this->votes)) :
-		echo $this->loadTemplate( 'graph' );
-	endif; ?>
+	<?php JHTML::_('stylesheet', 'poll_bars.css', 'components/com_poll/assets/'); ?>
+	
+	<?php if ($this->params->get('show_page_title',1)) : ?>
+	<h1>
+		<?php echo $this->escape($this->params->get('page_title')); ?>
+	</h1>
+	<?php endif; ?>
+	
+	<div>
+		<form action="index.php" method="post" name="poll" id="poll">
+			<fieldset>
+				<label for="poll">
+					<?php echo JText::_( 'Select Poll' ); ?>&nbsp;<?php echo $this->lists['polls']; ?>
+				</label>
+			</fieldset>
+		</form>
+		<?php if (count($this->votes)) : ?>
+			<?php echo $this->loadTemplate( 'graph' ); ?>
+		<?php endif; ?>
+	</div>
 </div>

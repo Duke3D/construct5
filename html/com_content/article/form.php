@@ -1,5 +1,11 @@
-<?php // @version: $Id: form.php 12389 2009-07-01 00:34:45Z ian $
-defined('_JEXEC') or die;
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
 $config =& JFactory::getConfig();
 $publish_up =& JFactory::getDate($this->article->publish_up);
 $publish_up->setOffset($config->getValue('config.offset'));
@@ -13,7 +19,7 @@ if (! isset($this->article->publish_down) || $this->article->publish_down == 'Ne
 	$publish_down = $publish_down->toFormat();
 }
 ?>
-<script language="javascript" type="text/javascript">
+<script type="text/javascript">
 <!--
 function setgood() {
 	// TODO: Put setGood back
@@ -60,136 +66,109 @@ function submitbutton(pressbutton) {
 }
 //-->
 </script>
+<div class="edit item-page<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 <?php if ($this->params->get('show_page_title', 1)) : ?>
-<div class="componentheading<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>"><?php echo $this->escape($this->params->get('page_title')); ?></div>
+	<h1>
+		<?php echo $this->escape($this->params->get('page_title')); ?>
+	</h1>
 <?php endif; ?>
 <form action="<?php echo $this->action ?>" method="post" name="adminForm" onSubmit="setgood();" class="editor">
-<fieldset>
-<legend><?php echo JText::_('Editor'); ?></legend>
-
-		<div>
-			<label for="title">
-				<?php echo JText::_( 'Title' ); ?>:
+	<fieldset>
+		<legend><?php echo JText::_('Editor'); ?></legend>
+			<div class="formelm">
+				<label for="title">
+					<?php echo JText::_( 'Title' ); ?>:
+				</label>
+				<input class="inputbox" type="text" id="title" name="title" size="50" maxlength="100" value="<?php echo $this->escape($this->article->title); ?>" />
+			</div>
+			<div class="formelm-buttons">
+				<button type="button" onclick="submitbutton('save')">
+					<?php echo JText::_('Save') ?>
+				</button>
+				<button type="button" onclick="submitbutton('cancel')" />
+					<?php echo JText::_('Cancel') ?>
+				</button>
+			</div>		
+	
+		<?php echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15');?>
+	</fieldset>
+	
+	<fieldset>
+		<legend><?php echo JText::_('Publishing'); ?></legend>
+		<div class="formelm">	
+			<label for="sectionid">
+				<?php echo JText::_( 'Section' ); ?>:
+			</label>	
+			<?php echo $this->lists['sectionid']; ?>
+		</div>	
+		<div class="formelm">	
+			<label for="catid">
+				<?php echo JText::_( 'Category' ); ?>:
+			</label>	
+			<?php echo $this->lists['catid']; ?>
+		</div>		
+		<?php if ($this->user->authorize('com_content', 'publish', 'content', 'all')) : ?>
+			<div class="formelm">
+				<label for="state" >
+					<span><?php echo JText::_( 'Published' ); ?>:</span>
+				</label>	
+				<?php echo $this->lists['state']; ?>
+			</div>
+		<?php endif; ?>
+		<div class="formelm">
+			<label for="frontpage">
+				<span><?php echo JText::_( 'Show on Front Page' ); ?>:</span>
 			</label>
-			<input class="inputbox" type="text" id="title" name="title" size="50" maxlength="100" value="<?php echo $this->escape($this->article->title); ?>" />
+			<?php echo $this->lists['frontpage']; ?>
+		</div>		
+
+		<div class="formelm">
+			<label for="created_by_alias">
+				<?php echo JText::_( 'Author Alias' ); ?>:
+			</label>
+			<input type="text" id="created_by_alias" name="created_by_alias" size="50" maxlength="100" value="<?php echo $this->escape($this->article->created_by_alias); ?>" class="inputbox" />
+		</div>	
+		<div class="formelm">
+			<label for="publish_up">
+				<?php echo JText::_( 'Start Publishing' ); ?>:
+			</label>
+			<?php echo JHTML::_('calendar', $publish_up, 'publish_up', 'publish_up', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
+		</div>	
+		<div class="formelm">
+			<label for="publish_down">
+				<?php echo JText::_( 'Finish Publishing' ); ?>:
+			</label>
+			<?php echo JHTML::_('calendar', $publish_down, 'publish_down', 'publish_down', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
+		</div>	
+		<div class="formelm">
+			<label for="access">
+				<?php echo JText::_( 'Access Level' ); ?>:
+			</label>	
+			<?php echo $this->lists['access']; ?>
+		</div>	
+		<div class="formelm">
+			<label for="ordering">
+				<?php echo JText::_( 'Ordering' ); ?>:
+			</label>
+			<?php echo $this->lists['ordering']; ?>
 		</div>
-		<div class="save">
-			<button type="button" onclick="submitbutton('save')">
-				<?php echo JText::_('Save') ?>
-			</button>
-			<button type="button" onclick="submitbutton('cancel')" />
-				<?php echo JText::_('Cancel') ?>
-			</button>
+	</fieldset>
+
+	<fieldset>
+		<legend><?php echo JText::_('Metadata'); ?></legend>
+		<div class="formelm-area">
+			<label for="metadesc">
+				<?php echo JText::_( 'Description' ); ?>:
+			</label>
+			<textarea rows="5" cols="50" style="width:500px; height:120px" class="inputbox" id="metadesc" name="metadesc"><?php echo str_replace('&','&amp;',$this->article->metadesc); ?></textarea>
 		</div>
-		<div class="wrap">&nbsp;</div>
-
-<?php
-echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '15');
-?>
-</fieldset>
-<fieldset class="publishing">
-<legend><?php echo JText::_('Publishing'); ?></legend>
-
-	<div>
-		<label for="sectionid">
-			<?php echo JText::_( 'Section' ); ?>:
-		</label>
-
-		<?php echo $this->lists['sectionid']; ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-
-	<div>
-		<label for="catid">
-			<?php echo JText::_( 'Category' ); ?>:
-		</label>
-
-		<?php echo $this->lists['catid']; ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-
-<?php if ($this->user->authorize('com_content', 'publish', 'content', 'all')) : ?>
-
-	<div class="radio">
-		<label for="state" >
-			<span><?php echo JText::_( 'Published' ); ?>:</span>
-		</label>
-
-		<?php echo $this->lists['state']; ?>
-	</div>
-
-
-<?php endif; ?>
-
-	<div class="radio">
-		<label for="frontpage">
-			<span><?php echo JText::_( 'Show on Front Page' ); ?>:</span>
-		</label>
-
-		<?php echo $this->lists['frontpage']; ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-
-	<div>
-		<label for="created_by_alias">
-			<?php echo JText::_( 'Author Alias' ); ?>:
-		</label>
-
-		<input type="text" id="created_by_alias" name="created_by_alias" size="50" maxlength="100" value="<?php echo $this->escape($this->article->created_by_alias); ?>" class="inputbox" />
-
-	</div>
-	<div class="wrap">&nbsp;</div>
-	<div>
-		<label for="publish_up">
-			<?php echo JText::_( 'Start Publishing' ); ?>:
-		</label>
-        <?php echo JHTML::_('calendar', $publish_up, 'publish_up', 'publish_up', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-	<div>
-		<label for="publish_down">
-			<?php echo JText::_( 'Finish Publishing' ); ?>:
-		</label>
-        <?php echo JHTML::_('calendar', $publish_down, 'publish_down', 'publish_down', '%Y-%m-%d %H:%M:%S', array('class'=>'inputbox', 'size'=>'25',  'maxlength'=>'19')); ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-	<div>
-		<label for="access">
-			<?php echo JText::_( 'Access Level' ); ?>:
-		</label>
-
-		<?php echo $this->lists['access']; ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-	<div>
-		<label for="ordering">
-			<?php echo JText::_( 'Ordering' ); ?>:
-		</label>
-
-		<?php echo $this->lists['ordering']; ?>
-	</div>
-	<div class="wrap">&nbsp;</div>
-
-</fieldset>
-
-<fieldset class="metadata">
-<legend><?php echo JText::_('Metadata'); ?></legend>
-
-
-		<label for="metadesc">
-			<?php echo JText::_( 'Description' ); ?>:
-		</label>
-
-		<textarea rows="5" cols="50" style="width:500px; height:120px" class="inputbox" id="metadesc" name="metadesc"><?php echo str_replace('&','&amp;',$this->article->metadesc); ?></textarea>
-
-		<label for="metakey">
-			<?php echo JText::_( 'Keywords' ); ?>:
-		</label>
-
-		<textarea rows="5" cols="50" style="width:500px; height:50px" class="inputbox" id="metakey" name="metakey"><?php echo str_replace('&','&amp;',$this->article->metakey); ?></textarea>
-
-</fieldset>
-
+		<div class="formelm-area">
+			<label for="metakey">
+				<?php echo JText::_( 'Keywords' ); ?>:
+			</label>
+			<textarea rows="5" cols="50" style="width:500px; height:50px" class="inputbox" id="metakey" name="metakey"><?php echo str_replace('&','&amp;',$this->article->metakey); ?></textarea>
+		</div>
+	</fieldset>
 	<input type="hidden" name="option" value="com_content" />
 	<input type="hidden" name="Returnid" value="<?php echo $this->returnid; ?>" />
 	<input type="hidden" name="id" value="<?php echo $this->article->id; ?>" />
@@ -199,4 +178,5 @@ echo $this->editor->display('text', $this->article->text, '100%', '400', '70', '
 	<input type="hidden" name="task" value="" />
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
+</div>
 <?php echo JHTML::_('behavior.keepalive'); ?>

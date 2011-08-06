@@ -1,11 +1,14 @@
-<?php
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
 
-// no direct access
-
-// from http://forum.joomla.org/viewtopic.php?p=2102441#p2102441
-
-defined('_JEXEC') or die('Restricted access');
-
+global $mainframe;
+jimport('joomla.filesystem.file');
+$tparams = new JParameter(JFile::read(JPATH_BASE.DS.'templates'.DS.$mainframe->getTemplate().DS.'params.ini'));
 
 if ( ! defined('CmodMainMenuXMLCallbackDefined') )
 {
@@ -108,4 +111,9 @@ function CmodMainMenuXMLCallback(&$node, $args)
 	define('CmodMainMenuXMLCallbackDefined', true);
 }
 
+// removes span tags that surround the anchor
+// http://stackoverflow.com/questions/398476/joomla-main-menu-html-output
+ob_start();
 modMainMenuHelper::render($params, 'CmodMainMenuXMLCallback');
+$mainMenuContent = ob_get_clean();
+echo str_replace(array('<span>','</span>','<ul class="menu">'), array('','','<ul class="menu" data-role="listview" data-inset="true" data-theme="'.$tparams->get('mNavDataTheme').'">'), $mainMenuContent);

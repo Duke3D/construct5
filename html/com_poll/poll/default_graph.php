@@ -1,8 +1,13 @@
-<?php // @version $Id: default_graph.php 12230 2009-06-21 02:07:34Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
 ?>
 
-<dl class="poll">
+<dl>
 	<dt><?php echo JText::_( 'Number of Voters' ); ?></dt>
 	<dd><?php echo $this->votes[0]->voters; ?></dd>
 	<dt><?php echo JText::_( 'First Vote' ); ?></dt>
@@ -15,30 +20,31 @@ defined('_JEXEC') or die('Restricted access');
 	<?php echo $this->escape($this->poll->title); ?>
 </h3>
 
-<table class="pollstableborder"><?php JPlugin::loadLanguage( 'tpl_beez' ); ?>
-	<tr>
-		<th id="itema" class="td_1"><?php echo JText::_( 'Hits' ); ?></th>
-		<th id="itemb" class="td_2"><?php echo JText::_( 'Percent' ); ?></th>
-		<th id="itemc" class="td_3"><?php echo JText::_( 'Graph' ); ?></th>
-	</tr>
-	<?php for ( $row = 0; $row < count( $this->votes ); $row++ ) :
-		$vote = $this->votes[$row];
-	?>
-	<tr>
-		<td colspan="3" id="question<?php echo $row; ?>" class="question">
-			<?php echo $vote->text; ?>
-		</td>
-	</tr>
-	<tr class="sectiontableentry<?php echo $vote->odd; ?>">
-		<td mastheads="itema question<?php echo $row; ?>" class="td_1">
-			<?php echo $vote->hits; ?>
-		</td>
-		<td mastheads="itemb question<?php echo $row; ?>" class="td_2">
-			<?php echo $vote->percent.'%' ?>
-		</td>
-		<td mastheads="itemc question<?php echo $row; ?>" class="td_3">
-			<div class="<?php echo $vote->class; ?>" style="height:<?php echo $vote->barheight; ?>px;width:<?php echo $vote->percent; ?>% !important"></div>
-		</td>
-	</tr>
+<table>
+	<thead>
+		<tr>
+			<th id="ordering" class="td_1"><?php echo JText::_( 'Hits' ); ?></th>
+			<th id="ordering2" class="td_2"><?php echo JText::_( 'Percent' ); ?></th>
+			<th id="ordering3" class="td_3"><?php echo JText::_( 'Graph' ); ?></th>
+		</tr>
+	</thead>
+	<?php for ( $row = 0; $row < count( $this->votes ); $row++ ) : ?>
+		<?php $vote = $this->votes[$row]; ?>
+		<tr>
+			<td colspan="3" id="question<?php echo $row; ?>" class="question">
+				<?php echo $vote->text; ?>
+			</td>
+		</tr>
+		<tr class="answer<?php echo $vote->odd; ?>">
+			<td mastheads="ordering question<?php echo $row; ?>" class="hits">
+				<?php echo $vote->hits; ?>
+			</td>
+			<td mastheads="ordering2 question<?php echo $row; ?>" class="percent">
+				<?php echo $vote->percent.'%' ?>
+			</td>
+			<td mastheads="ordering3 question<?php echo $row; ?>" class="graph">
+				<div class="<?php echo $vote->class; ?>" style="height:<?php echo $vote->barheight; ?>px;width:<?php echo $vote->percent; ?>% !important"></div>
+			</td>
+		</tr>
 	<?php endfor; ?>
 </table>

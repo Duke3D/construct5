@@ -1,95 +1,148 @@
-<?php // @version $Id: default_address.php 12387 2009-06-30 01:17:44Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+if (substr(JVERSION, 0, 3) >= '1.6') {
+	include JPATH_ROOT.'/components/com_contact/views/contact/tmpl/default_address.php';
+}
+else {
 ?>
 
-<div class="contact_address">
-  <!--open contact_address div -->
-<?php
-
-$show_address = (($this->contact->params->get('address_check') > 0) &&
+<?php $show_address = (($this->contact->params->get('address_check') > 0) &&
 		($this->contact->address || $this->contact->suburb || $this->contact->state || $this->contact->country || $this->contact->postcode)) ||
-		(($this->contact->email_to && $this->contact->params->get('show_email')) || $this->contact->telephone || $this->contact->fax );
+		(($this->contact->email_to && $this->contact->params->get('show_email')) || $this->contact->telephone || $this->contact->fax ); ?>
 
-if ($show_address):
-	echo '<address>';
-endif;
-
-if (($this->contact->params->get('address_check') > 0) && ($this->contact->address || $this->contact->suburb || $this->contact->state || $this->contact->country || $this->contact->postcode)) :
-	if ( $this->contact->params->get('address_check') > 0) :
-		if (( $this->contact->params->get('contact_icons') ==0) || ($this->contact->params->get('contact_icons') ==1)):
-			echo '<span class="marker">'.$this->contact->params->get('marker_address').'</span> <br />';
-		endif;
-	endif;
-
-	if ($this->contact->address && $this->contact->params->get('show_street_address')) :
-		echo nl2br($this->escape($this->contact->address)).'<br />';
-	endif;
-
-	if ($this->contact->suburb && $this->contact->params->get('show_suburb')) :
-		echo $this->escape($this->contact->suburb).'<br />';
-	endif;
-
-	if ($this->contact->state && $this->contact->params->get('show_state')) :
-		echo $this->escape($this->contact->state).'<br />';
-	endif;
-
-	if ($this->contact->country && $this->contact->params->get('show_country')) :
-		echo $this->escape($this->contact->country).'<br />';
-	endif;
-
-	if ($this->contact->postcode && $this->contact->params->get('show_postcode')) :
-		echo $this->escape($this->contact->postcode).'<br />';
-	endif;
-
-endif;
-
-if (($this->contact->email_to && $this->contact->params->get('show_email')) || $this->contact->telephone || $this->contact->fax ) :
-	if ($this->contact->email_to && $this->contact->params->get('show_email')) :
-		if (( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)):
-			echo '<span class="marker">'.$this->contact->params->get('marker_email').'</span>';
-		endif;
-
-		echo $this->contact->email_to.'<br />';
-	endif;
-
-	if ($this->contact->telephone && $this->contact->params->get('show_telephone')) :
-		if (( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)):
-			echo '<span class="marker">'.$this->contact->params->get('marker_telephone').'</span>';
-		endif;
-		echo nl2br($this->escape($this->contact->telephone)).'<br />';
-	endif;
-
-	if ($this->contact->fax && $this->contact->params->get('show_fax')) :
-		if (( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)):
-			echo '<span class="marker">'.$this->contact->params->get('marker_fax').'</span>';
-		endif;
-		echo nl2br($this->escape($this->contact->fax)).'<br />';
-	endif;
-
-	if ( $this->contact->mobile && $this->contact->params->get( 'show_mobile' ) ) :
-		if (( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)):
-			echo '<span class="marker">'.$this->contact->params->get( 'marker_mobile' ).'</span>';
-		endif;
-		echo nl2br($this->escape($this->contact->mobile)).'<br />';
-	endif;
-
-	if ($this->contact->webpage && $this->contact->params->get('show_webpage')) :
-		echo '<a href="'.$this->escape($this->contact->webpage).'" target="_blank"> '.$this->escape($this->contact->webpage).'</a><br />';
-		echo '</address>';
-	endif;
-endif;
-
-if ($show_address):
-	echo '</address>';
-endif; ?>
-
-</div>
-<!--close contact_address div -->
-<?php if ($this->contact->misc && $this->contact->params->get('show_misc')) : ?>
-<p>
-  <?php if (( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)): ?>
-  <span class="marker"><?php echo $this->contact->params->get('marker_misc'); ?></span> <?php echo nl2br($this->contact->misc); ?>
-  <?php endif; ?>
-</p>
+<?php if ($show_address): ?>
+	
 <?php endif; ?>
 
+<?php if (($this->contact->params->get('address_check') > 0) && ($this->contact->address || $this->contact->suburb || $this->contact->state || $this->contact->country || $this->contact->postcode)) : ?>
+	<div class="contact_address">
+	<?php if ( $this->contact->params->get('address_check') > 0) : ?>
+		<?php if (( $this->contact->params->get('contact_icons') ==0) || ($this->contact->params->get('contact_icons') ==1)): ?>
+			<span class="marker">
+				<?php echo $this->contact->params->get('marker_address') ?>
+			</span>
+		<?php endif; ?>
+		<address>
+	<?php endif; ?>
+	
+	<?php if ($this->contact->address && $this->contact->params->get('show_street_address')) : ?>
+		<span class="contact-street">
+			<?php echo nl2br($this->escape($this->contact->address)); ?>
+		</span>
+	<?php endif; ?>
+	
+	<?php if($this->contact->suburb && $this->contact->params->get('show_suburb')) : ?>
+		<span class="contact-suburb">
+			<?php echo $this->escape($this->contact->suburb); ?>
+		</span>
+	<?php endif; ?>
+	
+	<?php if($this->contact->state && $this->contact->params->get('show_state')) : ?>
+		<span class="contact-state">
+			<?php echo $this->escape($this->contact->state); ?>
+		</span>
+	<?php endif; ?>
+	
+	<?php if($this->contact->postcode && $this->contact->params->get('show_postcode')) : ?>
+		<span class="contact-postcode">
+			<?php echo $this->escape($this->contact->postcode); ?>
+		</span>
+	<?php endif; ?>	
+
+	<?php if($this->contact->country && $this->contact->params->get('show_country')) : ?>
+		<span class="contact-country">
+			<?php echo $this->escape($this->contact->country); ?>
+		</span>
+	<?php endif; ?>	
+<?php endif; ?>
+
+<?php if ( $this->contact->params->get('address_check') > 0) : ?>
+		</address>
+	</div>
+<?php endif; ?>
+
+<?php if(($this->contact->email_to && $this->contact->params->get('show_email')) || $this->contact->telephone || $this->contact->fax ) : ?>
+	<div class="contact-contactinfo">
+	<?php if($this->contact->email_to && $this->contact->params->get('show_email')) : ?>
+		<p>
+		<?php if(( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)) : ?>		
+			<span class="marker">
+				<?php echo $this->contact->params->get('marker_email'); ?>
+			</span>
+		<?php endif; ?>
+			<span class="contact-emailto">
+				<?php echo $this->contact->email_to; ?>
+			</span>
+		</p>	
+	<?php endif; ?>
+	
+
+	<?php if($this->contact->telephone && $this->contact->params->get('show_telephone')) : ?>
+		<p>
+		<?php if(( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)): ?>
+			<span class="marker">
+				<?php echo $this->contact->params->get('marker_telephone'); ?>
+			</span>
+		<?php endif; ?>
+			<span class="contact-telephone">
+				<?php echo nl2br($this->escape($this->contact->telephone)); ?>
+			</span>
+		</p>
+		<?php endif; ?>
+
+	<?php if($this->contact->fax && $this->contact->params->get('show_fax')) : ?>
+		<p>
+		<?php if(( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)): ?>
+			<span class="marker">
+				<?php echo $this->contact->params->get('marker_fax'); ?>
+			</span>
+		<?php endif; ?>
+			<span class="contact-fax">
+				<?php echo nl2br($this->escape($this->contact->fax)); ?>
+			</span>
+		</p>
+		<?php endif; ?>
+
+	<?php if( $this->contact->mobile && $this->contact->params->get( 'show_mobile' ) ) : ?>
+		<p>
+		<?php if(( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)): ?>
+			<span class="marker">
+				<?php echo $this->contact->params->get( 'marker_mobile' ); ?>
+			</span>
+		<?php endif; ?>
+			<span class="contact-mobile">
+				<?php echo nl2br($this->escape($this->contact->mobile)); ?>
+			</span>
+		</p>
+		<?php endif; ?>
+
+		<?php if($this->contact->webpage && $this->contact->params->get('show_webpage')) : ?>
+		<p>
+			<span class="contact-webpage">
+				<a href="<?php echo $this->escape($this->contact->webpage); ?>" target="_blank"><?php echo $this->escape($this->contact->webpage); ?></a>
+			</span>
+		</p>	
+		<?php endif; ?>
+	</div>
+<?php endif; ?>
+
+
+<?php if ($this->contact->misc && $this->contact->params->get('show_misc')) : ?>
+	<p>
+	  <?php if (( $this->contact->params->get('contact_icons') ==0) || ( $this->contact->params->get('contact_icons') ==1)): ?>
+		<span class="marker">
+			<?php echo $this->contact->params->get('marker_misc'); ?>
+		</span>
+	 <?php endif; ?>
+		<span class="contact-misc">
+			<?php echo nl2br($this->contact->misc); ?>
+		</span>
+	</p>
+<?php endif;
+}

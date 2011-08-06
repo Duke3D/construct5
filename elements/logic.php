@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Template Framework for Joomla! 1.5
+* @package		Unified Template Framework for Joomla!
 * @author		Joomla Engineering http://joomlaengineering.com
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,20 +17,25 @@ $app 					= JFactory::getApplication();
 $baseUrl 				= JURI::base();
 // Returns a reference to the global document object
 $doc 					= JFactory::getDocument();
-// Define relative shortcut for current template directory
+// Is version 1.6 and later
+$isOnward = (substr(JVERSION, 0, 3) >= '1.6');
+// Is version 1.5
+$isPresent = (substr(JVERSION, 0, 3) == '1.5');
+// Define relative path to the  current template directory
 $template 				= 'templates/'.$this->template;
+// Define absolute path to the template directory
+$templateDir			= JPATH_THEMES.'/'.$this->template;
 // Get the current URL
 $url 					= clone(JURI::getInstance());
 // To access the current user object
 $user 					= JFactory::getUser();
+// Get the current view
+$view     				= JRequest::getCmd('view');
 
 // Define shortcuts for template parameters
 $customStyleSheet 		= $this->params->get('customStyleSheet');
+$detectTablets			= $this->params->get('detectTablets');
 $enableSwitcher 		= $this->params->get('enableSwitcher');
-$IECSS3					= $this->params->get('IECSS3');
-$IECSS3Targets			= $this->params->get('IECSS3Targets');
-$IE6TransFix			= $this->params->get('IE6TransFix');
-$IE6TransFixTargets		= $this->params->get('IE6TransFixTargets');
 $fluidMedia				= $this->params->get('fluidMedia');
 $fullWidth				= $this->params->get('fullWidth');
 $googleWebFont 			= $this->params->get('googleWebFont');
@@ -42,26 +47,47 @@ $googleWebFontTargets2	= $this->params->get('googleWebFontTargets2');
 $googleWebFont3			= $this->params->get('googleWebFont3');
 $googleWebFontSize3		= $this->params->get('googleWebFontSize3');
 $googleWebFontTargets3	= $this->params->get('googleWebFontTargets3');
+$IECSS3					= $this->params->get('IECSS3');
+$IECSS3Targets			= $this->params->get('IECSS3Targets');
+$IE6TransFix			= $this->params->get('IE6TransFix');
+$IE6TransFixTargets		= $this->params->get('IE6TransFixTargets');
+$inheritLayout			= $this->params->get('inheritLayout');
+$inheritStyle			= $this->params->get('inheritStyle');
 $loadMoo 				= $this->params->get('loadMoo');
 $loadModal				= $this->params->get('loadModal');
 $loadjQuery 			= $this->params->get('loadjQuery');
+$mContentDataTheme		= $this->params->get('mContentDataTheme');
 $mdetect 				= $this->params->get('mdetect');
-$mtemplate				= $this->params->get('mtemplate');
-$mtemplateoffline		= $this->params->get('mtemplateoffline');
+$mFooterDataTheme		= $this->params->get('mFooterDataTheme');
+$mHeaderDataTheme		= $this->params->get('mHeaderDataTheme');
+$mNavPosition			= $this->params->get('mNavPosition');
+$mNavDataTheme			= $this->params->get('mNavDataTheme');
+$mPageDataTheme			= $this->params->get('mPageDataTheme');
 $setGeneratorTag		= $this->params->get('setGeneratorTag');
 $showDiagnostics 		= $this->params->get('showDiagnostics');
 $siteWidth				= $this->params->get('siteWidth');
 $siteWidthType			= $this->params->get('siteWidthType');
 $siteWidthUnit			= $this->params->get('siteWidthUnit');
 $stickyFooterHeight		= $this->params->get('stickyFooterHeight');
-$useStickyFooter		= $this->params->get('useStickyFooter');
+$useStickyFooter 		= $this->params->get('useStickyFooter');
+
+// Define absolute paths to files
+$mdetectFile 			= JPATH_THEMES.'/'.$this->template.'/elements/mdetect.php';
+$mTemplate				= JPATH_THEMES.'/'.$this->template.'/mobile.php';
+$alternatemTemplate		= JPATH_THEMES.'/'.$this->template.'/layouts/mobile.php';
 
 // Change generator tag
 $this->setGenerator($setGeneratorTag);
 
 // Enable Mootols
-if ($loadMoo)
+if ( $isOnward && $loadMoo ) {
+	JHTML::_('behavior.framework', true);
+}
+
+// Behavior.mootools is depreciated and may be removed after 1.6
+if ( $isPresent && $loadMoo ) {	
 	JHTML::_('behavior.mootools');
+}
 
 // Enable modal pop-ups - see html/mod_footer/default.php to customize
 if ( $loadMoo && $loadModal ) {	
@@ -74,6 +100,8 @@ if ( !$loadMoo ) {
 	reset($head['scripts']);
 	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools.js']);
 	unset($head['scripts'][$this->baseurl . '/plugins/system/mtupgrade/mootools.js']);
+	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-core.js']);
+	unset($head['scripts'][$this->baseurl . '/media/system/js/mootools-more.js']);		
 	$this->setHeadData($head);
 }
 
@@ -179,8 +207,6 @@ $column4Count = (int) ($this->countModules('column-4') > 0);
 $columnGroupBetaCount = $column3Count + $column4Count;
 if ($columnGroupBetaCount) : $columnGroupBetaClass = 'count-'.$columnGroupBetaCount; endif;
 
-#------------------------------ Column Layout -----------------------------#
-
 $columnLayout= 'main-only';
 	
 if (($columnGroupAlphaCount > 0 ) && ($columnGroupBetaCount == 0)) :
@@ -191,12 +217,197 @@ elseif (($columnGroupAlphaCount == 0) && ($columnGroupBetaCount > 0)) :
 	$columnLayout = 'main-beta-'.$columnGroupBetaCount;
 endif;
 	
-#--------------------------------------------------------------------------#
+#-------------------------------- Item ID ---------------------------------#
+
+$itemId = JRequest::getInt('Itemid', 0);
+
+#------------------------------- Article ID -------------------------------#
+
+if ($view == 'article') 
+$articleId = JRequest::getInt('id');
+else ($articleId = NULL);
+
+#------------------------------- Section ID -------------------------------#
+
+function getSection($id) {
+	  $database = JFactory::getDBO();
+	  if ((substr(JVERSION, 0, 3) >= '1.6')) {
+		  return NULL;
+		}
+	  elseif(JRequest::getCmd('view', 0) == "section") {
+			return $id;
+		}
+	  elseif(JRequest::getCmd('view', 0) == "category") {
+			$sql = "SELECT section FROM #__categories WHERE id = $id ";
+			$database->setQuery( $sql );
+			return $database->loadResult();
+		}
+	  elseif(JRequest::getCmd('view', 0) == "article") {
+			$temp = explode(":",$id);
+			$sql = "SELECT sectionid FROM #__content WHERE id = ".$temp[0];
+			$database->setQuery( $sql );
+			return $database->loadResult();
+		}		
+	}
+	
+$sectionId = getSection(JRequest::getInt('id'));
+
+#------------------------------ Category ID -------------------------------#
+
+function getCategory($id) {
+	$database = JFactory::getDBO();
+	  if(JRequest::getCmd('view', 0) == "section") {
+			return null;
+		}
+	  elseif((JRequest::getCmd('view', 0) == "category") || (JRequest::getCmd('view', 0) == "categories")) {
+			return $id;
+		}		
+	  elseif(JRequest::getCmd('view', 0) == "article") {
+			$temp = explode(":",$id);
+			$sql = "SELECT catid FROM #__content WHERE id = ".$temp[0];
+			$database->setQuery( $sql );
+			return $database->loadResult();
+		}		
+	}
+	
+$catId = getCategory(JRequest::getInt('id'));
+
+#------------------------- Ancestor Category IDs --------------------------#
+
+if ($isOnward && $catId && ($inheritStyle || $inheritLayout)) {
+	
+	function getParentCategory($id) {
+		$database = JFactory::getDBO();	
+		$sql = "SELECT parent_id 
+		FROM #__categories 
+		WHERE id = $id";
+		$database->setQuery( $sql );
+		return $database->loadResult();
+	}
+	
+	$parentCategory = getParentCategory($catId);
+
+	function getAncestorCategories($id) {
+		$database = JFactory::getDBO();	
+		$sql = "SELECT b.id, b.title
+		FROM #__categories a,
+		#__categories b
+		WHERE a.id = $id
+		AND a.lft > b.lft
+		AND a.rgt < b.rgt
+		AND a.id <> b.id
+		AND b.lft > 0";
+		$database->setQuery( $sql );
+		return $database->loadObjectList();		
+	}
+	
+}
+
+#--------------------------------- Alias ----------------------------------#
+
+$currentAlias 								= JSite::getMenu()->getActive()->alias;
+
+#----------------------------- Component Name -----------------------------#
+
+$currentComponent 							= JRequest::getCmd('option');
+
+#------------------Extended Template Style Overrides------------------------#
+
+$styleOverride 								= new ConstructTemplateHelper ();
+
+$styleOverride->includeFile 				= array ();
+
+$styleOverride->includeFile[] 				= $template.'/css/article/'.$overrideTheme.'-article-'.$articleId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/article/article-'.$articleId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/article/article.css';
+$styleOverride->includeFile[] 				= $template.'/css/item/'.$overrideTheme.'-item-'.$itemId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/item/item-'.$itemId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/category/'.$overrideTheme.'-category-'.$catId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/category/category-'.$catId.'.css';
+if ($isOnward && $catId && $inheritStyle) {
+	$styleOverride->includeFile[] 			= $template.'/css/category/category-'.$parentCategory.'.css';	
+
+	$results 								= getAncestorCategories($catId);
+	if (count($results) > 0) {
+		foreach ($results as $result) {			
+			$styleOverride->includeFile[] 	= $template.'/css/category/category-'.$result->id.'.css';
+		}
+	}				
+}
+if ($view == 'category') {						
+	$styleOverride->includeFile[] 			= $template.'/css/category/category.css';
+}
+if ($view == 'categories') {
+	$styleOverride->includeFile[]			= $template.'/css/category/categories.css';
+}
+$styleOverride->includeFile[] 				= $template.'/css/section/'.$overrideTheme.'-section-'.$sectionId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/section/section-'.$sectionId.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/section/section.css';
+$styleOverride->includeFile[] 				= $template.'/css/component/'.$currentComponent.'.css';
+$styleOverride->includeFile[] 				= $template.'/css/component/'.$overrideTheme.'-'.$currentComponent.'.css';
+
+#---------------Mobile Extended Template Style Overrides---------------------#
+
+$mobileStyleOverride 						= new ConstructTemplateHelper ();
+
+$mobileStyleOverride->includeFile 			= array ();
+
+$mobileStyleOverride->includeFile[]			= $template.'/css/article/article-'.$articleId.'-mobile.css';
+$mobileStyleOverride->includeFile[]			= $template.'/css/item/item-'.$itemId.'-mobile.css';
+$mobileStyleOverride->includeFile[]			= $template.'/css/category/category-'.$catId.'-mobile.css';
+$mobileStyleOverride->includeFile[]			= $template.'/css/section/section-'.$sectionId.'-mobile.css';
+$mobileStyleOverride->includeFile[]			= $template.'/css/component/'.$currentComponent.'-mobile.css';
+
+#-------------------Extended Template Layout Overrides-----------------------#
 
 $layoutOverride 							= new ConstructTemplateHelper ();
+
 $layoutOverride->includeFile 				= array ();
+
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/'.$overrideTheme.'-article-'.$articleId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/article-'.$articleId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/article/article.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/item/'.$overrideTheme.'-item-'.$itemId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/item/item-'.$itemId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/category/'.$overrideTheme.'-category-'.$catId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/category/category-'.$catId.'.php';
+if ($isOnward && $catId && $inheritLayout) {
+	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category-'.$parentCategory.'.php';	
+
+	$results 								= getAncestorCategories($catId);
+	if (count($results) > 0) {
+		foreach ($results as $result) {			
+			$layoutOverride->includeFile[] 	= $template.'/layouts/category/category-'.$result->id.'.php';
+		}
+	}				
+}
+if ($view == 'category') {						
+	$layoutOverride->includeFile[] 			= $template.'/layouts/category/category.php';
+}
+if ($view == 'categories') {
+	$layoutOverride->includeFile[]			= $template.'/layouts/category/categories.php';
+}
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/'.$overrideTheme.'-section-'.$sectionId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/section-'.$sectionId.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/section/section.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$overrideTheme.'-'.$currentComponent.'.php';	
+$layoutOverride->includeFile[] 				= $template.'/layouts/component/'.$currentComponent.'.php';	
 $layoutOverride->includeFile[] 				= $template.'/layouts/'.$overrideTheme.'-index.php';
 $layoutOverride->includeFile[] 				= $template.'/layouts/index.php';
+
+#---------------Mobile Extended Template Layout Overrides--------------------#
+
+$mobileLayoutOverride 						= new ConstructTemplateHelper ();
+
+$mobileLayoutOverride->includeFile 			= array ();
+
+$mobileLayoutOverride->includeFile[]	 	= $template.'/layouts/article/article-'.$articleId.'-mobile.php';
+$mobileLayoutOverride->includeFile[] 		= $template.'/layouts/item/item-'.$itemId.'-mobile.php';
+$mobileLayoutOverride->includeFile[]		= $template.'/layouts/category/category-'.$catId.'-mobile.php';
+$mobileLayoutOverride->includeFile[]		= $template.'/layouts/category/category-'.$catId.'-mobile.php';
+$mobileLayoutOverride->includeFile[]		= $template.'/layouts/category/category-'.$catId.'-mobile.php';
+$mobileLayoutOverride->includeFile[]		= $template.'/layouts/component/'.$currentComponent.'-mobile.php';
+$mobileLayoutOverride->includeFile[]		= $template.'/layouts/mobile.php';
 
 #---------------------------- Head Elements --------------------------------#
 
@@ -204,16 +415,22 @@ $layoutOverride->includeFile[] 				= $template.'/layouts/index.php';
 $doc->addCustomTag('<meta name="copyright" content="'.$app->getCfg('sitename').'" />');
 
 // Transparent favicon
-$doc->addFavicon($template.'/favicon.png', 'image/png','icon');
+$doc->addFavicon($template.'/favicon.png','image/png','icon');
 
 // Style sheets
 $doc->addStyleSheet($template.'/css/screen.css','text/css','screen');
-$doc->addStyleSheet($template.'/css/overrides.css','text/css','screen');
 $doc->addStyleSheet($template.'/css/print.css','text/css','print');
-if ($customStyleSheet !='-1')
+if ($customStyleSheet !='-1') {
 	$doc->addStyleSheet($template.'/css/'.$customStyleSheet,'text/css','screen');
-if ($this->direction == 'rtl')
+}
+if ($this->direction == 'rtl') {
 	$doc->addStyleSheet($template.'/css/rtl.css','text/css','screen');
+}
+// Override style sheet returned from our template helper
+$cssFile = $styleOverride->getIncludeFile ();
+if ($cssFile) {
+	$doc->addStyleSheet($cssFile,'text/css','screen');
+}
 
 // Style sheet switcher
 if ($enableSwitcher) {
@@ -222,7 +439,7 @@ if ($enableSwitcher) {
 	$doc->addScript($template.'/js/styleswitch.js');
 } 	
 
-// Typography	
+// Typography
 if ($googleWebFont) {
 	$doc->addStyleSheet('http://fonts.googleapis.com/css?family='.$googleWebFont.'');
 	$doc->addStyleDeclaration('  '.$googleWebFontTargets.' {font-family:'.$googleWebFontFamily.', serif;font-size:'.$googleWebFontSize.';}');
@@ -238,17 +455,21 @@ if ($googleWebFont3) {
 
 // JavaScript
 $doc->addCustomTag("\n".'  <script type="text/javascript">window.addEvent(\'domready\',function(){new SmoothScroll({duration:1200},window);});</script>');
-if ($loadjQuery)
+if ($loadjQuery) {
 	$doc->addScript($loadjQuery);
+}
 
 // Layout Declarations
-if ($siteWidth)
+if ($siteWidth) {
 	$doc->addStyleDeclaration("\n".'  #body-container, #header-above {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.'}');
-if (($siteWidthType == 'max-width') && $fluidMedia )
-	$doc->addStyleDeclaration("\n".'  img, object {max-width:100%}');		
-if (!$fullWidth)
+}
+if (($siteWidthType == 'max-width') && $fluidMedia ) {
+	$doc->addStyleDeclaration("\n".'  img, object {max-width:100%}');
+}
+if (!$fullWidth) {
 	$doc->addStyleDeclaration("\n".'  #header, #footer {'.$siteWidthType.':'.$siteWidth.$siteWidthUnit.'; margin:0 auto}');
-	
+}
+
 // Internet Explorer Fixes	
 if ($IECSS3) {
   $doc->addCustomTag("\n".'  <!--[if !IE 9]>

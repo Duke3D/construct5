@@ -1,63 +1,78 @@
-<?php // @version $Id: default_items.php 11917 2009-05-29 19:37:05Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+if (substr(JVERSION, 0, 3) >= '1.6') {
+	include JPATH_ROOT.'/components/com_newsfeeds/views/category/tmpl/default_items.php';
+}
+else {
 ?>
 
 <?php if ( $this->params->get( 'show_limit' ) ) : ?>
-<div class="display">
-	<form action="index.php" method="post" name="adminForm">
-		<label for="limit"><?php echo JText::_( 'Display Num' ); ?>&nbsp;</label>
-		<?php echo $this->pagination->getLimitBox(); ?>
-	</form>
-</div>
+	<div class="display">
+		<form action="index.php" method="post" name="adminForm" id="adminForm">
+			<label for="limit"><?php echo JText::_( 'Display Num' ); ?>&nbsp;</label>
+			<?php echo $this->pagination->getLimitBox(); ?>
+		</form>
+	</div>
 <?php endif; ?>
 
 
-<table class="newsfeeds">
-
+<table class="category">
 	<?php if ( $this->params->get( 'show_headings' ) ) : ?>
-	<tr>
-
-		<th class="sectiontablemasthead<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>" width="5" id="num">
-			<?php echo JText::_( 'Num' ); ?>
-		</th>
-
-		<?php if ( $this->params->get( 'show_name' ) ) : ?>
-		<th width="90%" class="sectiontablemasthead<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>" id="name">
-			<?php echo JText::_( 'Feed Name' ); ?>
-		</th>
-		<?php endif; ?>
-
-		<?php if ( $this->params->get( 'show_articles' ) ) : ?>
-		<th width="10%" class="sectiontablemasthead<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>" nowrap="nowrap" id="num_a">
-			<?php echo JText::_('Num Articles'); ?>
-		</th>
-		<?php endif; ?>
-
-	</tr>
+		<thead>
+			<tr>	
+				<th class="sectiontablemasthead" id="num">
+					<?php echo JText::_( 'Num' ); ?>
+				</th>				
+				<?php if ( $this->params->get( 'show_name' ) ) : ?>
+					<th class="item-title" id="tableOrdering">
+						<?php echo JText::_( 'Feed Name' ); ?>
+					</th>
+				<?php endif; ?>
+				<?php if ( $this->params->get( 'show_articles' ) ) : ?>
+					<th class="item-num-art" id="tableOrdering2">
+						<?php echo JText::_('Num Articles'); ?>
+					</th>
+				<?php endif; ?>				
+			</tr>
+		</thead>
 	<?php endif; ?>
 
 	<?php foreach ( $this->items as $item ) : ?>
-	<tr class="sectiontableentry<?php echo $item->odd + 1; ?>">
-
-		<td align="center" width="5" mastheads="num">
+	<tr class="cat-list-row<?php echo $item->odd + 1; ?>">
+		<td class="item-num" mastheads="num">
 			<?php echo $item->count + 1; ?>
-		</td>
-
-		<td width="90%" mastheads="name">
-			<a href="<?php echo $item->link; ?>" class="category<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
-				<?php echo $this->escape($item->name); ?></a>
-		</td>
-
+		</td>		
+		<?php if ( $this->params->get( 'show_name' ) ) : ?>
+			<td class="item-title" mastheads="tableOrdering">
+				<a href="<?php echo $item->link; ?>">
+					<?php echo $this->escape($item->name); ?>
+				</a>
+			</td>
+		<?php endif; ?>	
 		<?php if ( $this->params->get( 'show_articles' ) ) : ?>
-		<td width="10%" mastheads="num_a"><?php echo $item->numarticles; ?></td>
+			<td class="item-num-art" mastheads="tableOrdering2">
+				<?php echo $item->numarticles; ?>
+			</td>
 		<?php endif; ?>
-
 	</tr>
 	<?php endforeach; ?>
-
 </table>
 
-<p class="counter">
-	<?php echo $this->pagination->getPagesCounter(); ?>
-</p>
-<?php echo $this->pagination->getPagesLinks(); ?>
+<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
+	<div class="pagination">
+		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
+			<p class="counter">
+				<?php echo $this->pagination->getPagesCounter(); ?>
+			</p>
+		<?php endif; ?>
+		<?php echo $this->pagination->getPagesLinks(); ?>
+	</div>
+<?php endif; ?>
+
+<?php }

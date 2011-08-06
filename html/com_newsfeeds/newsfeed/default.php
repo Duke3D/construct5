@@ -1,75 +1,79 @@
-<?php // @version $Id: default.php 11917 2009-05-29 19:37:05Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+if (substr(JVERSION, 0, 3) >= '1.6') {
+	include JPATH_ROOT.'/components/com_newsfeeds/views/newsfeed/tmpl/default.php';
+}
+else {
 ?>
 
 <?php
-		$lang = &JFactory::getLanguage();
-		$myrtl =$this->newsfeed->rtl;
-		 if ($lang->isRTL() && $myrtl==0){
-		   $direction= "direction:rtl !important;";
-		   $align= "text-align:right !important;";
-		   }
-		 else if ($lang->isRTL() && $myrtl==1){
-		   $direction= "direction:ltr !important;";
-		   $align= "text-align:left !important;";
-		   }
-		  else if ($lang->isRTL() && $myrtl==2){
-		   $direction= "direction:rtl !important;";
-		   $align= "text-align:right !important;";
-		   }
-		else if ($myrtl==0) {
-		$direction= "direction:ltr !important;";
-		   $align= "text-align:left !important;";
-		   }
-		else if ($myrtl==1) {
-		$direction= "direction:ltr !important;";
-		   $align= "text-align:left !important;";
-		   }
-		else if ($myrtl==2) {
-		   $direction= "direction:rtl !important;";
-		   $align= "text-align:right !important;";
-		   }
+	$lang = &JFactory::getLanguage();
+	$myrtl =$this->newsfeed->rtl;
+	if ($lang->isRTL() && $myrtl == 0) {
+		$direction = " redirect-rtl";
+	} elseif ($lang->isRTL() && $myrtl == 1) {
+		$direction = " redirect-ltr";
+	} elseif ($lang->isRTL() && $myrtl == 2) {
+		$direction = " redirect-rtl";
+	} elseif ($myrtl == 0) {
+		$direction = " redirect-ltr";
+	} elseif ($myrtl == 1) {
+		$direction = " redirect-ltr";
+	} elseif ($myrtl == 2) {
+		$direction = " redirect-rtl";
+	}
 ?>
-<?php if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
-<h1 style="<?php echo $direction; ?><?php echo $align; ?>" class="componentheading<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
-	<?php echo $this->escape($this->params->get('page_title')); ?>
-</h1>
-<?php endif; ?>
 
-<h2 style="<?php echo $direction; ?><?php echo $align; ?>" class="componentheading<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
-	<a href="<?php echo $this->newsfeed->channel['link']; ?>" target="_blank">
-		<?php echo str_replace('&apos;', "'", $this->escape($this->newsfeed->channel['title'])); ?></a>
-</h2>
+<div class="newsfeed<?php echo $this->escape($this->params->get('pageclass_sfx')); ?><?php echo $direction; ?>">
 
-<?php if ( $this->params->get( 'show_feed_description' ) )  : ?>
-<div style="<?php echo $direction; ?><?php echo $align; ?>" class="feed_description">
-	<?php echo str_replace('&apos;', "'", $this->newsfeed->channel['description']); ?>
+	<?php if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
+		<h1 class="<?php echo $direction; ?>">
+			<?php echo $this->escape($this->params->get('page_title')); ?>
+		</h1>
+	<?php endif; ?>
+
+	<h2 class="<?php echo $direction; ?>">
+		<a href="<?php echo $this->newsfeed->channel['link']; ?>" target="_blank">
+			<?php echo str_replace('&apos;', "'", $this->escape($this->newsfeed->channel['title'])); ?></a>
+	</h2>
+
+	<?php if ( $this->params->get( 'show_feed_description' ) )  : ?>
+		<div class="feed-description">
+			<?php echo str_replace('&apos;', "'", $this->newsfeed->channel['description']); ?>
+		</div>
+	<?php endif; ?>
+
+	<?php if ( isset( $this->newsfeed->image['url'] ) && isset( $this->newsfeed->image['title'] ) && $this->params->get( 'show_feed_image' ) ) : ?>
+		<div>
+			<img src="<?php echo $this->escape($this->newsfeed->image['url']); ?>" alt="<?php echo $this->escape($this->newsfeed->image['title']); ?>" />
+		</div>
+	<?php endif; ?>
+
+	<?php if ( count( $this->newsfeed->items ) ) : ?>
+	<ol>
+		<?php foreach ( $this->newsfeed->items as $item ) : ?>
+		<li>
+			<?php if ( !is_null( $item->get_link() ) ) : ?>
+				<a href="<?php echo $this->escape($item->get_link()); ?>" target="_blank">
+					<?php echo $this->escape($item->get_title()); ?>
+				</a>
+			<?php endif; ?>
+			
+			<?php if ( $this->params->get( 'show_item_description' ) && $item->get_description() ) : ?>
+				<div class="feed-item-description">
+					<?php $text = $this->limitText( $item->get_description(), $this->params->get( 'feed_word_count' ) ); ?>
+					<?php echo str_replace('&apos;', "'", $text); ?>
+				</div>
+			<?php endif; ?>
+		</li>
+		<?php endforeach; ?>
+	</ol>
+	<?php endif; ?>
 </div>
-<?php endif; ?>
-
-<?php if ( isset( $this->newsfeed->image['url'] ) && isset( $this->newsfeed->image['title'] ) && $this->params->get( 'show_feed_image' ) ) : ?>
-<p style="<?php echo $direction; ?><?php echo $align; ?>">
-<img src="<?php echo $this->escape($this->newsfeed->image['url']); ?>" alt="<?php echo $this->escape($this->newsfeed->image['title']); ?>" />
-</p>
-<?php endif; ?>
-
-<?php if ( count( $this->newsfeed->items ) ) : ?>
-<div style="<?php echo $direction; ?><?php echo $align; ?>">
-<ul style="<?php echo $direction; ?><?php echo $align; ?>">
-	<?php foreach ( $this->newsfeed->items as $item ) : ?>
-	<li style="<?php echo $direction; ?><?php echo $align; ?>">
-		<?php if ( !is_null( $item->get_link() ) ) : ?>
-		<a href="<?php echo $this->escape($item->get_link()); ?>" target="_blank">
-			<?php echo $this->escape($item->get_title()); ?></a>
-		<?php endif; ?>
-		<?php if ( $this->params->get( 'show_item_description' ) && $item->get_description() ) : ?>
-		<br />
-		<?php $text = $this->limitText( $item->get_description(), $this->params->get( 'feed_word_count' ) );
-		echo str_replace('&apos;', "'", $text); ?>
-		<br /><br />
-		<?php endif; ?>
-	</li>
-	<?php endforeach; ?>
-</ul>
-</div>
-<?php endif;
+<?php }

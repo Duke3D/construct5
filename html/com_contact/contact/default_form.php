@@ -1,5 +1,15 @@
-<?php // @version $Id: default_form.php 11917 2009-05-29 19:37:05Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+if (substr(JVERSION, 0, 3) >= '1.6') {
+	include JPATH_ROOT.'/components/com_contact/views/contact/tmpl/default_form.php';
+}
+else {
 ?>
 
 <script type="text/javascript">
@@ -19,36 +29,54 @@ defined('_JEXEC') or die('Restricted access');
 	}
 </script>
 
-<form action="<?php echo JRoute::_('index.php'); ?>" class="form-validate" method="post" name="emailForm" id="emailForm">
-	<div class="contact_email<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
-		<label for="contact_name">
-		<?php echo JText::_( 'Enter your name' ); ?>:</label>
-		<input type="text" name="name" id="contact_name" size="30" class="inputbox" value="" />
-	</div>
-	<div class="contact_email<?php echo  $this->escape($this->params->get( 'pageclass_sfx' )); ?>"><label id="contact_emailmsg" for="contact_email">
-		<?php echo JText::_( 'Email address' ); ?>*:</label>
-		<input type="text" id="contact_email" name="email" size="30" value="" class="inputbox required validate-email" maxlength="100" />
-	</div>
-	<div class="contact_email<?php echo  $this->escape($this->params->get( 'pageclass_sfx' )); ?>"><label for="contact_subject">
-		<?php echo JText::_( 'Message subject' ); ?>:</label>
-		<input type="text" name="subject" id="contact_subject" size="30" class="inputbox" value="" />
-	</div>
-		<div class="contact_email<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>"><label id="contact_textmsg" for="contact_text" class="textarea">
-		<?php echo JText::_( 'Enter your message' ); ?>*:</label>
-		<textarea name="text" id="contact_text" class="inputbox required" rows="10" cols="40"></textarea>
-	</div>
-	<?php if ($this->contact->params->get( 'show_email_copy' )): ?>
-	<div class="contact_email_checkbox<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
-	<input type="checkbox" name="email_copy" id="contact_email_copy" value="1"  />
-	<label for="contact_email_copy" class="copy">
-	<?php echo JText::_( 'EMAIL_A_COPY' ); ?>
-	</label>
-	</div>
-	<?php endif; ?>
-	<button class="button validate" type="submit"><?php echo JText::_('Send'); ?></button>
-	<input type="hidden" name="option" value="com_contact" />
-	<input type="hidden" name="view" value="contact" />
-	<input type="hidden" name="id" value="<?php echo (int)$this->contact->id; ?>" />
-	<input type="hidden" name="task" value="submit" />
-	<?php echo JHTML::_( 'form.token' ); ?>
-</form>
+<div class="contact-form">
+
+	<form action="<?php echo JRoute::_('index.php'); ?>" class="form-validate" method="post" name="emailForm" id="emailForm">
+		<fieldset>
+			<div class="contact-email">
+				<div>
+					<label for="contact-formname">
+						<?php echo JText::_( 'Enter your name' ); ?>:
+					</label>
+					<input type="text" name="name" id="contact-formname" size="30" class="inputbox" value="" />
+				</div>
+				<div>
+					<label id="contact-emailmsg" for="contact-email">
+						<?php echo JText::_( 'Email address' ); ?>*:
+					</label>
+					<input type="text" id="contact-email" name="email" size="30" value="" class="inputbox required validate-email" maxlength="100" />
+				</div>
+				<div>
+					<label for="contact-subject">
+						<?php echo JText::_( 'Message subject' ); ?>:
+					</label>
+					<input type="text" name="subject" id="contact-subject" size="30" class="inputbox" value="" />
+				</div>
+				<div>
+					<label id="contact-textmsg" for="contact-text" class="textarea">
+						<?php echo JText::_( 'Enter your message' ); ?>*:
+					</label>
+					<textarea name="text" id="contact-text" class="inputbox required" rows="10" cols="50"></textarea>
+				</div>
+			
+				<?php if ($this->contact->params->get( 'show_email_copy' )): ?>
+					<div>
+						<input type="checkbox" name="email_copy" id="contact-email-copy" value="1"  />
+						<label for="contact-email-copy" class="copy">
+							<?php echo JText::_( 'EMAIL_A_COPY' ); ?>
+						</label>
+					</div>
+				<?php endif; ?>
+				<div>
+					<button class="button validate" type="submit"><?php echo JText::_('Send'); ?></button>
+				</div>
+			</div>
+		</fieldset>
+		<input type="hidden" name="option" value="com_contact" />
+		<input type="hidden" name="view" value="contact" />
+		<input type="hidden" name="id" value="<?php echo (int)$this->contact->id; ?>" />
+		<input type="hidden" name="task" value="submit" />
+		<?php echo JHTML::_( 'form.token' ); ?>	
+	</form>
+</div>
+<?php } 

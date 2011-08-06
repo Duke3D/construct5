@@ -1,11 +1,17 @@
-<?php // @version $Id: default_message.php 11917 2009-05-29 19:37:05Z ian $
-defined( '_JEXEC' ) or die( 'Restricted access' );
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
 ?>
 
-<h3>
-	<?php echo $this->escape($this->message->title); ?>
-</h3>
-
-<p class="message">
-	<?php echo $this->escape($this->message->text); ?>
-</p>
+<div class="registration-complete<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
+	<h1>
+		<?php echo $this->escape($this->message->title); ?>
+	</h1>	
+	<p class="message">
+		<?php echo $this->escape($this->message->text); ?>
+	</p>
+</div>

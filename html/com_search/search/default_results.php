@@ -1,47 +1,52 @@
-	<?php // @version $Id: default_results.php 11917 2009-05-29 19:37:05Z ian $
-defined('_JEXEC') or die('Restricted access');
+<?php defined('_JEXEC') or die;
+/**
+* @package		Unified Template Framework for Joomla!
+* @author		Joomla Engineering http://joomlaengineering.com
+* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
+* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
+if (substr(JVERSION, 0, 3) >= '1.6') {
+	include JPATH_ROOT.'/components/com_search/views/search/tmpl/default_results.php';
+}
+else {
 ?>
 
-<?php if (!empty($this->searchword)) : ?>
-<div class="searchintro<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-	<p>
-		<?php echo JText::_('Search Keyword') ?> <strong><?php echo $this->escape($this->searchword) ?></strong>
-		<?php echo $this->result ?>
-	</p>
-	<p>
-		<a href="#form1" onclick="document.getElementById('search_searchword').focus();return false" onkeypress="document.getElementById('search_searchword').focus();return false" ><?php echo JText::_('Search_again') ?></a>
-	</p>
-</div>
-<?php endif; ?>
+<h3><?php echo JText :: _('Search_result'); ?></h3>	
 
-<?php if (count($this->results)) : ?>
-<div class="results">
-	<h3><?php echo JText :: _('Search_result'); ?></h3>
-	<?php $start = $this->pagination->limitstart + 1; ?>
-	<ol class="list<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>" start="<?php echo (int)$start ?>">
-		<?php foreach ($this->results as $result) : ?>
-		<li>
+<dl class="search-results">		
+	<?php foreach ($this->results as $result) : ?>
+		<dt class="result-title">
+			<?php echo $this->pagination->limitstart + $result->count.'. ';?>
 			<?php if ($result->href) : ?>
-			<h4>
 				<a href="<?php echo JRoute :: _($result->href) ?>" <?php echo ($result->browsernav == 1) ? 'target="_blank"' : ''; ?> >
-					<?php echo $this->escape($result->title); ?></a>
-			</h4>
+					<?php echo $this->escape($result->title); ?>
+				</a>
+			<?php else : ?>
+				<?php echo $this->escape($result->title); ?>
 			<?php endif; ?>
-			<?php if ($result->section) : ?>
-			<p><?php echo JText::_('Category') ?>:
-				<span class="small<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
+		</dt>
+		<?php if ($result->section) : ?>
+			<dd class="result-category">
+				<?php echo JText::_('Category') ?>:
+				<span>
 					<?php echo $this->escape($result->section); ?>
-				</span>
-			</p>
-			<?php endif; ?>
-
+				</span>	
+			</dd>				
+		<?php endif; ?>		
+		<dd class="result-text">
 			<?php echo $result->text; ?>
-			<span class="small<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-				<?php echo $this->escape($result->created); ?>
-			</span>
-		</li>
-		<?php endforeach; ?>
-	</ol>
+		</dd>
+		<?php if ( $this->params->get( 'show_date' )) : ?>
+			<dd class="result-created">
+				<?php echo $result->created; ?>	
+			</dd>
+		<?php endif; ?>
+	<?php endforeach; ?>
+</dl>
+
+<div class="pagination">
 	<?php echo $this->pagination->getPagesLinks(); ?>
 </div>
-<?php endif; ?>
+
+<?php }
