@@ -46,7 +46,7 @@ else {
 // Joomla 1.5
 ?>
 
-	<div class="breadcrumbs<?php echo $params->get('moduleclass_sfx') ?>">
+	<nav class="breadcrumbs<?php echo $params->get('moduleclass_sfx') ?>">
 
 		<span class="showHere">You are here:</span>	
 		<?php for ($i = 0; $i < $count; $i ++) :	
@@ -63,5 +63,5 @@ else {
 				echo '<span>'.$list[$i]->name.'</span>';
 			}	
 		endfor; ?>	
-	</div>
+	</nav>
 <?php }
