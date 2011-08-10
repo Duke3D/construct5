@@ -151,10 +151,8 @@
 				</div><!-- end header-below -->
 			<?php endif; ?>
 		
-			<?php if ($this->countModules('breadcrumbs')) : ?>		
-				<nav id="breadcrumbs">
-					<jdoc:include type="module" name="breadcrumbs" />
-				</nav>
+			<?php if ($this->countModules('breadcrumbs')) : ?>						
+				<jdoc:include type="module" name="breadcrumbs" />				
 			<?php endif; ?>		
 			
 			<?php if ($this->countModules('nav')) : ?>
