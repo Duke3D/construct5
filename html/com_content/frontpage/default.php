@@ -59,7 +59,7 @@
 	<?php endif; ?>
 
 	<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-		<div class="pagination">
+		<nav class="pagination">
 			<?php if( $this->pagination->get('pages.total') > 1 ) : ?>
 			<p class="counter">
 				<?php echo $this->pagination->getPagesCounter(); ?>
@@ -68,6 +68,6 @@
 			<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 				<?php echo $this->pagination->getPagesLinks(); ?>
 			<?php endif; ?>
-		</div>
+		</nav>
 	<?php endif; ?>
 </div>

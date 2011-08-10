@@ -100,9 +100,9 @@ $params = &$this->params;
 <?php endforeach; ?>
 </ul>
 
-<div class="pagination">
+<nav class="pagination">
 	<p class="counter">
 		<?php echo $this->pagination->getPagesCounter(); ?>
 	</p>
 	<?php echo $this->pagination->getPagesLinks(); ?>
-</div>
+</nav>

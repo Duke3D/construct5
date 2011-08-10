@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_content/views/category/tmpl/default_articles.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <script type="text/javascript">
@@ -136,12 +137,12 @@ document.adminForm.submit( task );
 	</table>
 	
 	<?php if ($this->params->get('show_pagination')) : ?>
-	<div class="pagination">
+	<nav class="pagination">
 		<p class="counter">
 			<?php echo $this->pagination->getPagesCounter(); ?>
 		</p>
 		<?php echo $this->pagination->getPagesLinks(); ?>
-	</div>
+	</nav>
 	<?php endif; ?>
 	<input type="hidden" name="id" value="<?php echo (int)$this->category->id; ?>" />
 	<input type="hidden" name="sectionid" value="<?php echo (int)$this->category->sectionid; ?>" />

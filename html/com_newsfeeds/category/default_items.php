@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_newsfeeds/views/category/tmpl/default_items.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <?php if ( $this->params->get( 'show_limit' ) ) : ?>
@@ -65,7 +66,7 @@ else {
 </table>
 
 <?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-	<div class="pagination">
+	<nav class="pagination">
 		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 			<p class="counter">
 				<?php echo $this->pagination->getPagesCounter(); ?>

@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_search/views/search/tmpl/default_results.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <h3><?php echo JText :: _('Search_result'); ?></h3>	
@@ -45,8 +46,8 @@ else {
 	<?php endforeach; ?>
 </dl>
 
-<div class="pagination">
+<nav class="pagination">
 	<?php echo $this->pagination->getPagesLinks(); ?>
-</div>
+</nav>
 
 <?php }

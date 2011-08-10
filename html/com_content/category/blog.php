@@ -108,7 +108,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 		<?php endif; ?>
 
 	<?php if (($this->params->def('show_pagination', 1) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
-			<div class="pagination">
+			<nav class="pagination">
 							<?php  if ($this->params->def('show_pagination_results', 1)) : ?>
 							<p class="counter">
 									<?php echo $this->pagination->getPagesCounter(); ?>
@@ -116,7 +116,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 					<?php endif; ?>
 					<?php echo $this->pagination->getPagesLinks(); ?>
-			</div>
+			</nav>
 	<?php  endif; ?>
 
 	</div>
@@ -188,14 +188,14 @@ else {
 		<?php endif; ?>
 
 		<?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-			<div class="pagination">
+			<nav class="pagination">
 				<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 					<p class="counter">
 						<?php echo $this->pagination->getPagesCounter(); ?>
 					</p>
 				<?php endif; ?>
 				<?php echo $this->pagination->getPagesLinks(); ?>
-			</div>
+			</nav>
 		<?php endif; ?>
 	</div>
 <?php }

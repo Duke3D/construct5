@@ -76,7 +76,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 <?php endif; ?>
 
 <?php if ($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2 && $this->pagination->get('pages.total') > 1)) : ?>
-	<div class="pagination">
+	<nav class="pagination">
 
 		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 			<p class="counter">
@@ -84,7 +84,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 			</p>
 		<?php  endif; ?>
 				<?php echo $this->pagination->getPagesLinks(); ?>
-	</div>
+	</nav>
 <?php endif; ?>
 
 </div>
