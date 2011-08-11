@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/mod_feed/tmpl/default.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 	<?php

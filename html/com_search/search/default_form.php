@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_search/views/search/tmpl/default_form.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <form id="search-form" action="<?php echo JRoute::_( 'index.php?option=com_search#content' ) ?>" method="post">

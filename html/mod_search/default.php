@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/modules/mod_search/tmpl/default.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <div class="search">

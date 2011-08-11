@@ -11,6 +11,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_weblinks/views/form/tmpl/edit.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <div class="edit weblink<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">

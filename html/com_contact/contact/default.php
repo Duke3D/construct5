@@ -10,8 +10,10 @@ $cparams = JComponentHelper::getParams ('com_media');
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_contact/views/contact/tmpl/default.php';
+
 }
 else {
+// Joomla 1.5 
 ?>
 
 <div class="contact<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">

@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_mailto/views/sent/tmpl/default.php';
 }
 else {
+// Joomla 1.5 
 ?>
 <div style="padding: 10px;">
 	<div style="text-align:right">

@@ -12,6 +12,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_newsfeeds/views/category/tmpl/default.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <div class="newsfeed-category<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">

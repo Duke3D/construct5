@@ -10,6 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	include JPATH_ROOT.'/components/com_contact/views/contact/tmpl/default_address.php';
 }
 else {
+// Joomla 1.5 
 ?>
 
 <?php $show_address = (($this->contact->params->get('address_check') > 0) &&
