@@ -7,7 +7,11 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/components/com_contact/views/contact/tmpl/default_address.php';
+// Joomla 1.6+ ?>
+
+/*Continue here*/
+
+<?php
 }
 else {
 // Joomla 1.5 

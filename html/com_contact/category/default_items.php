@@ -1,6 +1,6 @@
 <?php defined('_JEXEC') or die;
 /**
-* @package		Unified Template Framework for Joomla! 1.5,1.6+
+* @package		Unified Template Framework for Joomla!
 * @author		Joomla Engineering http://joomlaengineering.com
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,7 +22,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	<form action="<?php echo JFilterOutput::ampReplace(JFactory::getURI()->toString()); ?>" method="post" name="adminForm" id="adminForm">
 	<?php if ($this->params->get('show_pagination_limit')) : ?>
 		<fieldset class="filters">
-		<legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
+			<legend class="hidelabeltxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
 
 			<div class="display-limit">
 				<?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>&#160;
@@ -32,56 +32,57 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	<?php endif; ?>
 		<table class="category">
 			<?php if ($this->params->get('show_headings')) : ?>
-			<thead><tr>
+			<thead>
+				<tr>
 
-				<th class="item-title">
-					<?php echo JHtml::_('grid.sort', 'COM_CONTACT_CONTACT_EMAIL_NAME_LABEL', 'a.name', $listDirn, $listOrder); ?>
-				</th>
-				<?php if ($this->params->get('show_position_headings')) : ?>
-				<th class="item-position">
-					<?php echo JHtml::_('grid.sort', 'COM_CONTACT_POSITION', 'a.con_position', $listDirn, $listOrder); ?>
-				</th>
-				<?php endif; ?>
-				<?php if ($this->params->get('show_email_headings')) : ?>
-				<th class="item-email">
-					<?php echo JText::_('JGLOBAL_EMAIL'); ?>
-				</th>
-				<?php endif; ?>
-				<?php if ($this->params->get('show_telephone_headings')) : ?>
-				<th class="item-phone">
-					<?php echo JText::_('COM_CONTACT_TELEPHONE'); ?>
-				</th>
-				<?php endif; ?>
+					<th class="item-title">
+						<?php echo JHtml::_('grid.sort', 'COM_CONTACT_CONTACT_EMAIL_NAME_LABEL', 'a.name', $listDirn, $listOrder); ?>
+					</th>
+					<?php if ($this->params->get('show_position_headings')) : ?>
+					<th class="item-position">
+						<?php echo JHtml::_('grid.sort', 'COM_CONTACT_POSITION', 'a.con_position', $listDirn, $listOrder); ?>
+					</th>
+					<?php endif; ?>
+					<?php if ($this->params->get('show_email_headings')) : ?>
+					<th class="item-email">
+						<?php echo JText::_('JGLOBAL_EMAIL'); ?>
+					</th>
+					<?php endif; ?>
+					<?php if ($this->params->get('show_telephone_headings')) : ?>
+					<th class="item-phone">
+						<?php echo JText::_('COM_CONTACT_TELEPHONE'); ?>
+					</th>
+					<?php endif; ?>
 
-				<?php if ($this->params->get('show_mobile_headings')) : ?>
-				<th class="item-phone">
-					<?php echo JText::_('COM_CONTACT_MOBILE'); ?>
-				</th>
-				<?php endif; ?>
+					<?php if ($this->params->get('show_mobile_headings')) : ?>
+					<th class="item-phone">
+						<?php echo JText::_('COM_CONTACT_MOBILE'); ?>
+					</th>
+					<?php endif; ?>
 
-				<?php if ($this->params->get('show_fax_headings')) : ?>
-				<th class="item-phone">
-					<?php echo JText::_('COM_CONTACT_FAX'); ?>
-				</th>
-				<?php endif; ?>
+					<?php if ($this->params->get('show_fax_headings')) : ?>
+					<th class="item-phone">
+						<?php echo JText::_('COM_CONTACT_FAX'); ?>
+					</th>
+					<?php endif; ?>
 
-				<?php if ($this->params->get('show_suburb_headings')) : ?>
-				<th class="item-suburb">
-					<?php echo JHtml::_('grid.sort', 'COM_CONTACT_SUBURB', 'a.suburb', $listDirn, $listOrder); ?>
-				</th>
-				<?php endif; ?>
+					<?php if ($this->params->get('show_suburb_headings')) : ?>
+					<th class="item-suburb">
+						<?php echo JHtml::_('grid.sort', 'COM_CONTACT_SUBURB', 'a.suburb', $listDirn, $listOrder); ?>
+					</th>
+					<?php endif; ?>
 
-				<?php if ($this->params->get('show_state_headings')) : ?>
-				<th class="item-state">
-					<?php echo JHtml::_('grid.sort', 'COM_CONTACT_STATE', 'a.state', $listDirn, $listOrder); ?>
-				</th>
-				<?php endif; ?>
+					<?php if ($this->params->get('show_state_headings')) : ?>
+					<th class="item-state">
+						<?php echo JHtml::_('grid.sort', 'COM_CONTACT_STATE', 'a.state', $listDirn, $listOrder); ?>
+					</th>
+					<?php endif; ?>
 
-				<?php if ($this->params->get('show_country_headings')) : ?>
-				<th class="item-state">
-					<?php echo JHtml::_('grid.sort', 'COM_CONTACT_COUNTRY', 'a.country', $listDirn, $listOrder); ?>
-				</th>
-				<?php endif; ?>
+					<?php if ($this->params->get('show_country_headings')) : ?>
+					<th class="item-state">
+						<?php echo JHtml::_('grid.sort', 'COM_CONTACT_COUNTRY', 'a.country', $listDirn, $listOrder); ?>
+					</th>
+					<?php endif; ?>
 
 				</tr>
 			</thead>
@@ -177,46 +178,47 @@ else {
 // Joomla 1.5 
 ?>
 
-<?php foreach ($this->items as $item) : ?>
-<tr>
-	<td class="item-count">
-		<?php echo (int)$item->count + 1; ?>
-	</td>
+	<?php foreach ($this->items as $item) : ?>
+	<tr>
+		<td class="item-count">
+			<?php echo (int)$item->count + 1; ?>
+		</td>
 
-	<?php if ($this->params->get('show_position')) : ?>
-	<td class="item-position">
-		<?php echo $this->escape($item->con_position); ?>
-	</td>
-	<?php endif; ?>
+		<?php if ($this->params->get('show_position')) : ?>
+		<td class="item-position">
+			<?php echo $this->escape($item->con_position); ?>
+		</td>
+		<?php endif; ?>
 
-	<td class="item-name">
-		<a href="<?php echo $item->link; ?>">
-			<?php echo $this->escape($item->name); ?></a>
-	</td>
+		<td class="item-name">
+			<a href="<?php echo $item->link; ?>">
+				<?php echo $this->escape($item->name); ?></a>
+		</td>
 
-	<?php if ($this->params->get('show_email')) : ?>
-	<td class="item-email">
-		<?php echo $item->email_to; ?>
-	</td>
-	<?php endif; ?>
+		<?php if ($this->params->get('show_email')) : ?>
+		<td class="item-email">
+			<?php echo $item->email_to; ?>
+		</td>
+		<?php endif; ?>
 
-	<?php if ($this->params->get('show_telephone')) : ?>
-	<td class="item-phone">
-		<?php echo $this->escape($item->telephone); ?>
-	</td>
-	<?php endif; ?>
+		<?php if ($this->params->get('show_telephone')) : ?>
+		<td class="item-phone">
+			<?php echo $this->escape($item->telephone); ?>
+		</td>
+		<?php endif; ?>
 
-	<?php if ($this->params->get('show_mobile')) : ?>
-	<td class="item-mobile">
-		<?php echo $this->escape($item->mobile); ?>
-	</td>
-	<?php endif; ?>
+		<?php if ($this->params->get('show_mobile')) : ?>
+		<td class="item-mobile">
+			<?php echo $this->escape($item->mobile); ?>
+		</td>
+		<?php endif; ?>
 
-	<?php if ($this->params->get('show_fax')) : ?>
-	<td class="item-fax">
-		<?php echo $this->escape($item->fax); ?>
-	</td>
-	<?php endif; ?>
-</tr>
-<?php endforeach; 
+		<?php if ($this->params->get('show_fax')) : ?>
+		<td class="item-fax">
+			<?php echo $this->escape($item->fax); ?>
+		</td>
+		<?php endif; ?>
+	</tr>
+	<?php endforeach; 
+	
 }
