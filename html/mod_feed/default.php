@@ -27,10 +27,10 @@ else {
 			?>
 			
 				
-					<h4>
-						<a href="<?php echo str_replace( '&', '&amp', $feed->link ); ?>" target="_blank">
+					<h5>
+						<a href="<?php echo str_replace( '&', '&amp', $feed->link ); ?>">
 							<?php echo $feed->title; ?></a>
-					</h4>
+					</h5>
 				
 			
 			<?php
@@ -79,19 +79,19 @@ else {
 					?>
 					<?php if (!is_null($feed->title) && $params->get('rsstitle', 1))
 	
-						{ echo '<h5 class="feed-link">';}
+						{ echo '<h6 class="feed-link">';}
 					else
 					{
-					echo '<h4 class="feed-link">';
+					echo '<h5 class="feed-link">';
 					}
 					?>				
-						<a href="<?php echo $currItem->get_link(); ?>" target="_blank">
+						<a href="<?php echo $currItem->get_link(); ?>">
 						<?php echo $currItem->get_title(); ?></a>
 						<?php if (!is_null($feed->title) && $params->get('rsstitle', 1))
 	
-						{ echo '</h5>';}
+						{ echo '</h6>';}
 							else
-							{ echo '</h4>';}
+							{ echo '</h5>';}
 					?>
 					<?php
 					}
