@@ -40,7 +40,7 @@
 					</label>
 				</dt>
 				<dd>
-					<input class="inputbox" type="text" id="name" name="name" value="<?php echo $this->escape($this->user->get('name')); ?>" size="40" />
+					<input class="inputbox" type="text" id="name" name="name" value="<?php echo $this->escape($this->user->get('name')); ?>" size="40">
 				</dd>
 				<dt>
 					<label for="email">
@@ -48,7 +48,7 @@
 					</label>
 				</dt>
 				<dd>
-					<input class="inputbox required validate-email" type="text" id="email" name="email" value="<?php echo $this->escape($this->user->get('email'));?>" size="40" />
+					<input class="inputbox required validate-email" type="email" id="email" name="email" value="<?php echo $this->escape($this->user->get('email'));?>" size="40">
 				</dd>	
 				<?php if($this->user->get('password')) : ?>
 					<dt>
@@ -57,7 +57,7 @@
 						</label>
 					</dt>
 					<dd>
-						<input class="inputbox validate-password" type="password" id="password" name="password" value="" size="40" />
+						<input class="inputbox validate-password" type="password" id="password" name="password" value="" size="40">
 					</dd>
 					<dt>
 						<label for="verifyPass">
@@ -65,7 +65,7 @@
 						</label>
 					</dt>
 					<dd>
-						<input class="inputbox validate-passverify" type="password" id="password2" name="password2" size="40" />
+						<input class="inputbox validate-passverify" type="password" id="password2" name="password2" size="40">
 					</dd>
 				<?php endif; ?>
 				<?php if(isset($this->params)) : ?>
@@ -78,11 +78,11 @@
 				</button>
 			</div>	
 		</fieldset>		
-		<input type="hidden" name="username" value="<?php echo $this->escape($this->user->get('username'));?>" />
-		<input type="hidden" name="id" value="<?php echo (int)$this->user->get('id');?>" />
-		<input type="hidden" name="gid" value="<?php echo (int)$this->user->get('gid');?>" />
-		<input type="hidden" name="option" value="com_user" />
-		<input type="hidden" name="task" value="save" />
+		<input type="hidden" name="username" value="<?php echo $this->escape($this->user->get('username'));?>">
+		<input type="hidden" name="id" value="<?php echo (int)$this->user->get('id');?>">
+		<input type="hidden" name="gid" value="<?php echo (int)$this->user->get('gid');?>">
+		<input type="hidden" name="option" value="com_user">
+		<input type="hidden" name="task" value="save">
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>

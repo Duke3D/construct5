@@ -7,16 +7,18 @@
 */
 ?>
 
-<div class="profile<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
+<section class="profile<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
 	<?php if($this->params->get('show_page_title',1)) : ?>
-		<h1>
+	<header>
+		<h2>
 			<?php echo $this->escape($this->params->get('page_title')) ?>
-		</h1>
+		</h2>
+	</header>
 	<?php endif; ?>
-	<h2>
+	<p>
 		<?php echo JText::_('Welcome!'); ?>
-	</h2>
+	</p>
 	<p>
 		<?php echo $this->params->get('welcome_desc', JText::_( 'WELCOME_DESC' ));; ?>
 	</p>
-</div>
+</section>
