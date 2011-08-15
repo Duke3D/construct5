@@ -20,24 +20,24 @@ else {
 				<?php echo JText::_('search') ?>
 			</label>
 			<?php
-					$output = '<input name="searchword" id="mod_search_searchword" maxlength="20" class="inputbox" type="text" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';" />';
+					$output = '<input name="searchword" id="mod_search_searchword" maxlength="20" class="inputbox" type="search" size="'.$width.'" value="'.$text.'"  onblur="if(this.value==\'\') this.value=\''.$text.'\';" onfocus="if(this.value==\''.$text.'\') this.value=\'\';">';
 		
 					if ($button) :
 						if ($imagebutton) :
-							$button = '<input type="image" value="'.$button_text.'" class="button" src="'.$img.'"/>';
+							$button = '<button type="submit" class="button">'.$img.' '.$button_text.'</button>';
 						else :
-							$button = '<input type="submit" value="'.$button_text.'" class="button"/>';
+							$button = '<button type="submit" value="'.$button_text.'" class="button"></button>';
 						endif;
 					endif;
 		
 					switch ($button_pos) :
 						case 'top' :
-							$button = $button.'<br />';
+							$button = $button.'<br>';
 							$output = $button.$output;
 							break;
 		
 						case 'bottom' :
-							$button = '<br />'.$button;
+							$button = '<br>'.$button;
 							$output = $output.$button;
 							break;
 		
