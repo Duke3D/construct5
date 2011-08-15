@@ -17,9 +17,11 @@ else {
 <div class="edit weblink<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
 
 	<?php if($this->params->get('show_page_title',1)) : ?>
-	<h1>
-			<?php echo $this->escape($this->params->get('page_title')) ?>
-	</h1>
+	<header>
+		<h2>
+				<?php echo $this->escape($this->params->get('page_title')) ?>
+		</h2>
+	</header>
 	<?php endif; ?>
 	<script type="text/javascript">
 	   //<![CDATA[
@@ -49,20 +51,20 @@ else {
 		<fieldset class="publishing">
 			<legend><?php echo JText::_( 'Submit A Web Link' );?></legend>
 			<div class="formelm">
-			<label for="jformtitle"><?php echo JText::_( 'Name' ); ?>:</label>
-			 <input class="inputbox" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>" />
+				<label for="jformtitle"><?php echo JText::_( 'Name' ); ?>:</label>
+				 <input class="inputbox" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>">
 			</div>
 			<div class="formelm">
-			<label for="jformcatid"><?php echo JText::_( 'Category' ); ?>:</label>
-			<?php echo $this->lists['catid']; ?>
+				<label for="jformcatid"><?php echo JText::_( 'Category' ); ?>:</label>
+				<?php echo $this->lists['catid']; ?>
 			</div>
 			<div class="formelm">
-			<label for="jformurl"><?php echo JText::_( 'URL' ); ?>:</label>
-			<input class="inputbox" type="text" id="jformurl" name="jform[url]" value="<?php echo $this->escape($this->weblink->url); ?>" size="50" maxlength="250" />
+				<label for="jformurl"><?php echo JText::_( 'URL' ); ?>:</label>
+				<input class="inputbox" type="url" id="jformurl" name="jform[url]" value="<?php echo $this->escape($this->weblink->url); ?>" size="50" maxlength="250">
 			</div>
 			<div class="formelm">
-			<label for="jformdescription"><?php echo JText::_( 'Description' ); ?>:</label>
-			<textarea class="inputbox" cols="30" rows="6" id="jformdescription" name="jform[description]" style="width:300px"><?php echo htmlspecialchars( $this->weblink->description, ENT_QUOTES );?></textarea>
+				<label for="jformdescription"><?php echo JText::_( 'Description' ); ?>:</label>
+				<textarea class="inputbox" cols="30" rows="6" id="jformdescription" name="jform[description]" style="width:300px"><?php echo htmlspecialchars( $this->weblink->description, ENT_QUOTES );?></textarea>
 			</div>
 		</fieldset>
 	
@@ -91,12 +93,12 @@ else {
 				</button>
 			</fieldset>
 		</div>
-		<input type="hidden" name="jform[id]" value="<?php echo (int)$this->weblink->id; ?>" />
-		<input type="hidden" name="jform[ordering]" value="<?php echo (int)$this->weblink->ordering; ?>" />
-		<input type="hidden" name="jform[approved]" value="<?php echo $this->weblink->approved; ?>" />
-		<input type="hidden" name="option" value="com_weblinks" />
-		<input type="hidden" name="controller" value="weblink" />
-		<input type="hidden" name="task" value="" />
+		<input type="hidden" name="jform[id]" value="<?php echo (int)$this->weblink->id; ?>">
+		<input type="hidden" name="jform[ordering]" value="<?php echo (int)$this->weblink->ordering; ?>">
+		<input type="hidden" name="jform[approved]" value="<?php echo $this->weblink->approved; ?>">
+		<input type="hidden" name="option" value="com_weblinks">
+		<input type="hidden" name="controller" value="weblink">
+		<input type="hidden" name="task" value="">
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>
