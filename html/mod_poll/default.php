@@ -18,7 +18,7 @@
 					</label>
 				</dt>
 				<dd>				
-					<input type="radio" name="voteid" id="voteid<?php echo $options[$i]->id; ?>" value="<?php echo $options[$i]->id; ?>" alt="<?php echo $options[$i]->id; ?>" />
+					<input type="radio" name="voteid" id="voteid<?php echo $options[$i]->id; ?>" value="<?php echo $options[$i]->id; ?>" alt="<?php echo $options[$i]->id; ?>">
 				</dd>
 			<?php endfor; ?>
 		</dl>
@@ -31,8 +31,8 @@
 			</a>
 		</div>
 	</fieldset>
-	<input type="hidden" name="option" value="com_poll" />
-	<input type="hidden" name="id" value="<?php echo $poll->id; ?>" />
-	<input type="hidden" name="task" value="vote" />
+	<input type="hidden" name="option" value="com_poll">
+	<input type="hidden" name="id" value="<?php echo $poll->id; ?>">
+	<input type="hidden" name="task" value="vote">
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
