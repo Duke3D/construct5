@@ -8,14 +8,14 @@
 ?>
 
 <?php if ($params->get('item_title')) : ?>
-	<h4>
+	<h5>
 		<?php if ($params->get('link_titles') && (isset($item->linkOn))) : ?>
 		<a href="<?php echo JRoute::_($item->linkOn); ?>" class="newsflash-title<?php echo $params->get('moduleclass_sfx'); ?>">
 			<?php echo $item->title; ?></a>
 		<?php else :
 			echo $item->title;
 		endif; ?>
-	</h4>
+	</h5>
 <?php endif; ?>
 
 <?php if (!$params->get('intro_only')) : ?>
@@ -32,7 +32,7 @@
 <?php if (isset($item->linkOn) && $item->readmore && $params->get('readmore')) : ?>
 	<p class="readmore">
 		<a href="<?php echo $item->linkOn; ?>">
-			<?php echo $readmoretxt.' ' . $item->title; ?>
+			<?php echo $readmoretxt.' '.$item->title; ?>
 		</a>
 	</p>
 <?php endif; ?>
