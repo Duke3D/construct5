@@ -35,9 +35,9 @@ if ($type == 'logout') : ?>
 				</button>	
 			</div>	
 		</fieldset>		
-		<input type="hidden" name="option" value="com_user" />
-		<input type="hidden" name="task" value="logout" />
-		<input type="hidden" name="return" value="<?php echo $return; ?>" />		
+		<input type="hidden" name="option" value="com_user">
+		<input type="hidden" name="task" value="logout">
+		<input type="hidden" name="return" value="<?php echo $return; ?>">		
 	</form>
 <?php else : ?>
 <form action="<?php echo JRoute::_( 'index.php', true, $params->get('usesecure')); ?>" method="post" id="login-form">
@@ -56,7 +56,7 @@ if ($type == 'logout') : ?>
 				</label>
 			</dt>
 			<dd>
-				<input name="username" id="mod_login_username" type="text" class="inputbox" alt="<?php echo JText::_('Username'); ?>" />
+				<input name="username" id="mod_login_username" type="text" class="inputbox" alt="<?php echo JText::_('Username'); ?>">
 			</dd>
 			<dt>
 				<label id="form-login-password" for="mod_login_password">
@@ -64,7 +64,7 @@ if ($type == 'logout') : ?>
 				</label>
 			</dt>
 			<dd>
-				<input type="password" id="mod_login_password" name="passwd" class="inputbox"  alt="<?php echo JText::_('Password'); ?>" />
+				<input type="password" id="mod_login_password" name="passwd" class="inputbox"  alt="<?php echo JText::_('Password'); ?>">
 			</dd>
 			<dt>
 				<label id="form-login-remember" for="mod_login_remember" class="remember">
@@ -109,9 +109,9 @@ if ($type == 'logout') : ?>
 			</p>
 		</div>
 	</fieldset>
-	<input type="hidden" name="option" value="com_user" />
-	<input type="hidden" name="task" value="login" />
-	<input type="hidden" name="return" value="<?php echo $return; ?>" />
+	<input type="hidden" name="option" value="com_user">
+	<input type="hidden" name="task" value="login">
+	<input type="hidden" name="return" value="<?php echo $return; ?>">
 	<?php echo JHTML::_( 'form.token' ); ?>
 </form>
 <?php endif; ?>
