@@ -8,11 +8,11 @@
 ?>
 
 <div class="reset-complete<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-
-	<h1>
-		<?php echo JText::_('Reset your Password'); ?>
-	</h1>
-	
+	<header>
+		<h2>
+			<?php echo JText::_('Reset your Password'); ?>
+		</h2>
+	</header>
 	<form action="<?php echo JRoute::_( 'index.php?option=com_user&task=completereset' ); ?>" method="post" class="josForm form-validate">
 		<fieldset>
 			<p><?php echo JText::_('RESET_PASSWORD_COMPLETE_DESCRIPTION'); ?></p>
@@ -35,9 +35,7 @@
 				</dd>
 			</dl>
 		</fieldset>
-		<div>	
-			<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
-		</div>
+		<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>

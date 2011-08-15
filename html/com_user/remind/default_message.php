@@ -8,9 +8,11 @@
 ?>
 
 <div class="remind<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-	<h1>
-		<?php echo $this->escape($this->message->title); ?>
-	</h1>	
+	<header>
+		<h2>
+			<?php echo $this->escape($this->message->title); ?>
+		</h2>
+	</header>
 	<p class="message">
 		<?php echo $this->escape($this->message->text); ?>
 	</p>
