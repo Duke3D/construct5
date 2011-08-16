@@ -12,10 +12,8 @@ defined('_JEXEC') or die;
 
 JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 
-// If the page class is defined, add to class as suffix.
-// It will be a separate class if the user starts it with a space
 ?>
-<div class="blog-featured<?php echo $this->pageclass_sfx;?>">
+<section class="blog-featured<?php echo $this->pageclass_sfx;?>">
 <?php if ($this->params->get('show_page_heading')!=0 ): ?>
 	<h1>
 	<?php echo $this->escape($this->params->get('page_heading')); ?>
@@ -35,5 +33,4 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 	</nav>
 <?php endif; ?>
 
-</div>
-
+</section>
