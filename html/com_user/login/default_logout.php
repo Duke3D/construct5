@@ -10,9 +10,11 @@
 <div class="logout<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
 
 	<?php if ( $this->params->get( 'show_logout_title' ) ) : ?>
-		<h1>
+	<header>
+		<h2>
 			<?php echo $this->params->get( 'masthead_logout' ); ?>
-		</h1>
+		</h2>
+	</header>
 	<?php endif; ?>
 	
 	<?php if ( $this->params->get( 'description_logout' ) || isset( $this->image ) ) : ?>
@@ -30,8 +32,8 @@
 		<fieldset>	
 			<button type="submit" name="submit" class="button"><?php echo JText::_( 'Logout' ); ?></button>
 		</fieldset>
-		<input type="hidden" name="option" value="com_user" />
-		<input type="hidden" name="task" value="logout" />
-		<input type="hidden" name="return" value="<?php echo $this->return; ?>" />		
+		<input type="hidden" name="option" value="com_user">
+		<input type="hidden" name="task" value="logout">
+		<input type="hidden" name="return" value="<?php echo $this->return; ?>">		
 	</form>
 </div>

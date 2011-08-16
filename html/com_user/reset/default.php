@@ -10,9 +10,11 @@
 <div class="reset<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
 
 	<?php if($this->params->get('show_page_title',1)) : ?>
-		<h1>
+	<header>
+		<h2>
 			<?php echo $this->escape($this->params->get('page_title')) ?>
-		</h1>
+		</h2>
+	</header>
 	<?php endif; ?>
 	
 	<form id="user-registration" action="<?php echo JRoute::_( 'index.php?option=com_user&task=requestreset' ); ?>" method="post" class="josForm form-validate">
@@ -25,13 +27,11 @@
 					</label>
 				</dt>
 				<dd>
-					<input id="email" name="email" type="text" class="required validate-email" />
+					<input id="email" name="email" type="email" class="required validate-email">
 				</dd>
 			</dl>
-		</fieldset>
-		<div>	
-			<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
-		</div>
+		</fieldset>	
+		<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>

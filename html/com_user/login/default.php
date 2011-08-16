@@ -8,9 +8,11 @@
 ?>
 
 <?php if($this->params->get('show_page_title',1)) : ?>
-	<h1>
+<header>
+	<h2>
 		<?php echo $this->params->get('page_title') ?>
-	</h1>
+	</h2>
+</header>
 <?php endif; ?>
 
 <?php echo $this->loadTemplate( $this->type ); ?>
