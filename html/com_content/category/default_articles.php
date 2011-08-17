@@ -167,7 +167,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	<?php echo JHtml::_('icon.create', $article, $article->params); ?>
 <?php  endif; ?>
 	<?php if (($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
-	<section class="pagination">
+	<nav class="pagination">
 
 		<?php if ($this->params->def('show_pagination_results', 1)) : ?>
 		 	<p class="counter">
@@ -176,6 +176,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		<?php endif; ?>
 
 		<?php echo $this->pagination->getPagesLinks(); ?>
-	</section>
+	</nav>
 	<?php endif; ?>
 <?php endif; ?>
