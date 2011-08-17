@@ -236,6 +236,7 @@ ul.menu-horizontal li{float:left} /* Use -horizontal menu class suffix */
 .pagination{margin:10px 0 0;padding:10px 0}
 .pagination{list-style-type:none;margin:0;padding:0}
 .pagination li{display:inline;margin:0;padding:2px 5px 0 0}
+.pagination .counter {margin-bottom:0;}
 .pagenav li {margin:0;list-style:none;margin:0;}
 .pagenav-next {text-align:right;float:right;}
 .pagenav-prev {float:left}
