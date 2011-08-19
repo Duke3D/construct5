@@ -274,7 +274,7 @@ $catId = getCategory(JRequest::getInt('id'));
 
 #------------------------- Ancestor Category IDs --------------------------#
 
-if ($isOnward && $catId && ($inheritStyle || $inheritLayout)) {
+if ($isOnward && $catId) {
 	
 	function getParentCategory($id) {
 		$database = JFactory::getDBO();	
@@ -305,7 +305,9 @@ if ($isOnward && $catId && ($inheritStyle || $inheritLayout)) {
 
 #--------------------------------- Alias ----------------------------------#
 
-$currentAlias 								= JSite::getMenu()->getActive()->alias;
+if ($itemId) {
+    $currentAlias 							= JSite::getMenu()->getActive()->alias;
+}
 
 #----------------------------- Component Name -----------------------------#
 
