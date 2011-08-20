@@ -14,13 +14,12 @@ else {
 ?>
 
 <section class="weblink-category<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
-
 	<?php if ($this->params->get('show_page_title', 1)) : ?>
-		<header>
-			<h2>
-				<?php echo $this->escape($this->params->get('page_title')); ?>
-			</h2>
-		</header>
+	<header>
+		<h2>
+			<?php echo $this->escape($this->params->get('page_title')); ?>
+		</h2>
+	</header>
 	<?php endif; ?>
 
 	<?php if ( $this->category->image || $this->category->description) : ?>
@@ -33,7 +32,6 @@ else {
 			</p>
 		</div>
 	<?php endif; ?>
-
 	<?php echo $this->loadTemplate('items'); ?>
 
 </section>

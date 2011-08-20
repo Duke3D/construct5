@@ -29,7 +29,6 @@ function CmodMainMenuXMLCallback(&$node, $args)
 			}
 		}
 	}
-
 	
 // first and last class
 	if ($node->name() == 'ul') {

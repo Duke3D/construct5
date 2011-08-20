@@ -54,8 +54,8 @@ else {
 					echo $output;
 			?>
 		</fieldset>
-		<input type="hidden" name="option" value="com_search" />
-		<input type="hidden" name="task"   value="search" />
+		<input type="hidden" name="option" value="com_search">
+		<input type="hidden" name="task"   value="search">
 	</form>
 </div>
 <?php }

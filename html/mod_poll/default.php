@@ -10,26 +10,18 @@
 <h4><?php echo $poll->title; ?></h4>
 <form name="form2" method="post" action="index.php" class="poll">
 	<fieldset>
-		<dl>
-			<?php for ($i = 0, $n = count($options); $i < $n; $i++) : ?>
-				<dt>
-					<label for="voteid<?php echo $options[$i]->id; ?>">
-						<?php echo $options[$i]->text; ?>
-					</label>
-				</dt>
-				<dd>				
-					<input type="radio" name="voteid" id="voteid<?php echo $options[$i]->id; ?>" value="<?php echo $options[$i]->id; ?>" alt="<?php echo $options[$i]->id; ?>">
-				</dd>
-			<?php endfor; ?>
-		</dl>
+		<?php for ($i = 0, $n = count($options); $i < $n; $i++) : ?>
+		<label for="voteid<?php echo $options[$i]->id; ?>">
+			<?php echo $options[$i]->text; ?>				
+			<input type="radio" name="voteid" id="voteid<?php echo $options[$i]->id; ?>" value="<?php echo $options[$i]->id; ?>" alt="<?php echo $options[$i]->id; ?>">
+		</label>
+		<?php endfor; ?>
 		<button type="submit" name="task_button" class="button">
 			<?php echo JText::_('Vote'); ?>
-		</button>
-		<div>	
-			<a href="<?php echo JRoute::_('index.php?option=com_poll&id='.$poll->slug.$itemid.'#content'); ?>">
-				<?php echo JText::_('Results'); ?>
-			</a>
-		</div>
+		</button>	
+		<a href="<?php echo JRoute::_('index.php?option=com_poll&id='.$poll->slug.$itemid.'#content'); ?>">
+			<?php echo JText::_('Results'); ?>
+		</a>
 	</fieldset>
 	<input type="hidden" name="option" value="com_poll">
 	<input type="hidden" name="id" value="<?php echo $poll->id; ?>">

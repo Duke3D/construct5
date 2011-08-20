@@ -28,53 +28,29 @@
 			<?php $this->display('message'); ?>
 		<?php endif; ?>
 		<fieldset>
-		<p><?php echo JText::_('REGISTER_REQUIRED'); ?></p>
-			<dl>
-				<dt>
-					<label id="namemsg" for="name">
-						<?php echo JText::_('Name'); ?>: *
-					</label>
-				</dt>
-				<dd>
-					<input type="text" name="name" id="name" value="<?php echo $this->escape($this->user->get('name')); ?>" class="inputbox validate required none namemsg" maxlength="50">
-				</dd>			
-				<dt>
-					<label id="usernamemsg" for="username">
-						<?php echo JText::_('Username'); ?>: *
-					</label>
-				</dt>
-				<dd>				
-					<input type="text" id="username" name="username"  value="<?php echo $this->escape($this->user->get('username')); ?>" class="inputbox validate required username usernamemsg" maxlength="25">
-				</dd>
-				<dt>
-					<label id="emailmsg" for="email">
-						<?php echo JText::_('Email'); ?>: *
-					</label>
-				</dt>
-				<dd>				
-					<input type="email" id="email" name="email"  value="<?php echo $this->escape($this->user->get('email')); ?>" class="inputbox validate required email emailmsg" maxlength="100">
-				</dd>
-				<dt>
-					<label id="pwmsg" for="password">
-						<?php echo JText::_('Password'); ?>: *
-					</label>				
-				</dt>
-				<dd>				
-					<input type="password" id="password" name="password" value="" class="inputbox required validate-password">
-				</dd>
-				<dt>
-					<label id="pw2msg" for="password2">
-						<?php echo JText::_('Verify Password'); ?>: *
-					</label>
-				</dt>
-				<dd>				
-					<input type="password" id="password2" name="password2" value="" class="inputbox required validate-passverify">
-				</dd>
-			</dl>
+			<p><?php echo JText::_('REGISTER_REQUIRED'); ?></p>
+			<label id="namemsg" for="name">
+				<?php echo JText::_('Name'); ?>: *
+				<input type="text" name="name" id="name" value="<?php echo $this->escape($this->user->get('name')); ?>" class="inputbox validate required none namemsg" maxlength="50">
+			</label>
+			<label id="usernamemsg" for="username">
+				<?php echo JText::_('Username'); ?>: *
+				<input type="text" id="username" name="username"  value="<?php echo $this->escape($this->user->get('username')); ?>" class="inputbox validate required username usernamemsg" maxlength="25">
+			</label>
+			<label id="emailmsg" for="email">
+				<?php echo JText::_('Email'); ?>: *
+				<input type="email" id="email" name="email"  value="<?php echo $this->escape($this->user->get('email')); ?>" class="inputbox validate required email emailmsg" maxlength="100">
+			</label>
+			<label id="pwmsg" for="password">
+				<?php echo JText::_('Password'); ?>: *
+				<input type="password" id="password" name="password" value="" class="inputbox required validate-password">
+			</label>
+			<label id="pw2msg" for="password2">
+				<?php echo JText::_('Verify Password'); ?>: *
+				<input type="password" id="password2" name="password2" value="" class="inputbox required validate-passverify">
+			</label>
 		</fieldset>
-		<fieldset>
-			<button class="button validate" type="submit"><?php echo JText::_('Register'); ?></button>		
-		</fieldset>
+		<button class="button validate" type="submit"><?php echo JText::_('Register'); ?></button>		
 		<input type="hidden" name="task" value="register_save">
 		<input type="hidden" name="id" value="0">
 		<input type="hidden" name="gid" value="0">

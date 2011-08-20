@@ -29,9 +29,7 @@
 	<?php endif; ?>	
 	
 	<form action="<?php echo JRoute::_( 'index.php' ); ?>" method="post">
-		<fieldset>	
-			<button type="submit" name="submit" class="button"><?php echo JText::_( 'Logout' ); ?></button>
-		</fieldset>
+		<button type="submit" name="submit" class="button"><?php echo JText::_( 'Logout' ); ?></button>
 		<input type="hidden" name="option" value="com_user">
 		<input type="hidden" name="task" value="logout">
 		<input type="hidden" name="return" value="<?php echo $this->return; ?>">		

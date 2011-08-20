@@ -21,8 +21,7 @@ else {
 			document.adminForm.submit(task);
 		}
 	</script>
-	
-	
+
 	<form action="<?php echo $this->escape($this->action); ?>" method="post" name="adminForm">
 		<fieldset>
 			<?php echo JText :: _('Display Num'); ?>&nbsp;
@@ -31,8 +30,6 @@ else {
 		<input type="hidden" name="filter_order" value="<?php echo $this->lists['order'] ?>" />
 		<input type="hidden" name="filter_order_Dir" value="" />
 	</form>
-	
-	
 	
 	<table class="category">
 		<?php if ($this->params->def('show_headings', 1)) : ?>

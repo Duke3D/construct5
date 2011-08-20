@@ -18,9 +18,11 @@ else {
 <div class="categories-list<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 	<?php if ($this->params->get('show_page_title',1)) : ?>
-	<h2>
-		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</h2>
+	<header>
+		<h2>
+			<?php echo $this->escape($this->params->get('page_title')); ?>
+		</h2>
+	</header>
 	<?php endif; ?>
 	
 	<?php if ($this->params->def( 'show_comp_description', 1 ) || $this->params->get( 'image', -1 ) != -1) : ?>

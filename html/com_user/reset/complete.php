@@ -16,24 +16,14 @@
 	<form action="<?php echo JRoute::_( 'index.php?option=com_user&task=completereset' ); ?>" method="post" class="josForm form-validate">
 		<fieldset>
 			<p><?php echo JText::_('RESET_PASSWORD_COMPLETE_DESCRIPTION'); ?></p>
-			<dl>
-				<dt>
-					<label for="password1" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_PASSWORD1_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_PASSWORD1_TIP_TEXT'); ?>">
-						<?php echo JText::_('Password'); ?>:
-					</label>
-				</dt>
-				<dd>
-					<input id="password1" name="password1" type="password" class="required validate-password" />
-				</dd>
-				<dt>
-					<label for="password2" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_PASSWORD2_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_PASSWORD2_TIP_TEXT'); ?>">
-						<?php echo JText::_('Verify Password'); ?>:
-					</label>
-				</dt>
-				<dd>
-					<input id="password2" name="password2" type="password" class="required validate-password" />
-				</dd>
-			</dl>
+			<label for="password1" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_PASSWORD1_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_PASSWORD1_TIP_TEXT'); ?>">
+				<?php echo JText::_('Password'); ?>:
+				<input id="password1" name="password1" type="password" class="required validate-password" />
+			</label>
+			<label for="password2" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_PASSWORD2_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_PASSWORD2_TIP_TEXT'); ?>">
+				<?php echo JText::_('Verify Password'); ?>:
+				<input id="password2" name="password2" type="password" class="required validate-password" />
+			</label>
 		</fieldset>
 		<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
 		<?php echo JHTML::_( 'form.token' ); ?>

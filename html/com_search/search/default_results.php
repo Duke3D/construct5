@@ -20,28 +20,28 @@ else {
 		<h4 class="result-title">
 			<?php echo $this->pagination->limitstart + $result->count.'. ';?>
 			<?php if ($result->href) : ?>
-				<a href="<?php echo JRoute :: _($result->href) ?>">
+			<a href="<?php echo JRoute :: _($result->href) ?>">
 					<?php echo $this->escape($result->title); ?>
-				</a>
+			</a>
 			<?php else : ?>
 				<?php echo $this->escape($result->title); ?>
 			<?php endif; ?>
 		</h4>
 		<?php if ($result->section) : ?>
-			<div class="result-category">
-				<?php echo JText::_('Category') ?>:
-				<span>
-					<?php echo $this->escape($result->section); ?>
-				</span>	
-			</div>				
+		<div class="result-category">
+			<?php echo JText::_('Category') ?>:
+			<span>
+				<?php echo $this->escape($result->section); ?>
+			</span>	
+		</div>			
 		<?php endif; ?>
 		<p class="result-text">
 			<?php echo $result->text; ?>
 		</p>
 		<?php if ( $this->params->get( 'show_date' )) : ?>
-			<time class="result-created">
-				<?php echo $result->created; ?>	
-			</time>
+		<time class="result-created">
+			<?php echo $result->created; ?>	
+		</time>
 		<?php endif; ?>
 	<?php endforeach; ?>
 </section>

@@ -15,9 +15,11 @@ else {
 
 <div class="search<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
 	<?php if($this->params->get('show_page_title',1)) : ?>
+	<header>
 		<h2>
 			<?php echo $this->escape($this->params->get('page_title')) ?>
 		</h2>
+	</header>
 	<?php endif; ?>
 	
 	<?php echo $this->loadTemplate('form'); ?>

@@ -34,9 +34,11 @@ else {
 <div class="newsfeed<?php echo $this->escape($this->params->get('pageclass_sfx')); ?><?php echo $direction; ?>">
 
 	<?php if ( $this->params->get( 'show_page_title', 1 ) ) : ?>
+	<header>
 		<h2 class="<?php echo $direction; ?>">
 			<?php echo $this->escape($this->params->get('page_title')); ?>
 		</h2>
+	</header>
 	<?php endif; ?>
 
 	<h3 class="<?php echo $direction; ?>">

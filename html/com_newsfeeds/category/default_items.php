@@ -14,34 +14,31 @@ else {
 ?>
 
 <?php if ( $this->params->get( 'show_limit' ) ) : ?>
-	<div class="display">
-		<form action="index.php" method="post" name="adminForm" id="adminForm">
-			<label for="limit"><?php echo JText::_( 'Display Num' ); ?>&nbsp;</label>
-			<?php echo $this->pagination->getLimitBox(); ?>
-		</form>
-	</div>
+	<form action="index.php" method="post" name="adminForm" id="adminForm">
+		<label for="limit"><?php echo JText::_( 'Display Num' ); ?> </label>
+		<?php echo $this->pagination->getLimitBox(); ?>
+	</form>
 <?php endif; ?>
-
 
 <table class="category">
 	<?php if ( $this->params->get( 'show_headings' ) ) : ?>
-		<thead>
-			<tr>	
-				<th class="sectiontablemasthead" id="num">
-					<?php echo JText::_( 'Num' ); ?>
-				</th>				
-				<?php if ( $this->params->get( 'show_name' ) ) : ?>
-					<th class="item-title" id="tableOrdering">
-						<?php echo JText::_( 'Feed Name' ); ?>
-					</th>
-				<?php endif; ?>
-				<?php if ( $this->params->get( 'show_articles' ) ) : ?>
-					<th class="item-num-art" id="tableOrdering2">
-						<?php echo JText::_('Num Articles'); ?>
-					</th>
-				<?php endif; ?>				
-			</tr>
-		</thead>
+	<thead>
+		<tr>	
+			<th class="sectiontablemasthead" id="num">
+				<?php echo JText::_( 'Num' ); ?>
+			</th>				
+			<?php if ( $this->params->get( 'show_name' ) ) : ?>
+				<th class="item-title" id="tableOrdering">
+					<?php echo JText::_( 'Feed Name' ); ?>
+				</th>
+			<?php endif; ?>
+			<?php if ( $this->params->get( 'show_articles' ) ) : ?>
+				<th class="item-num-art" id="tableOrdering2">
+					<?php echo JText::_('Num Articles'); ?>
+				</th>
+			<?php endif; ?>				
+		</tr>
+	</thead>
 	<?php endif; ?>
 
 	<?php foreach ( $this->items as $item ) : ?>
@@ -73,7 +70,7 @@ else {
 			</p>
 		<?php endif; ?>
 		<?php echo $this->pagination->getPagesLinks(); ?>
-	</div>
+	</nav>
 <?php endif; ?>
 
 <?php }

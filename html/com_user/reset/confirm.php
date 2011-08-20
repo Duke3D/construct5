@@ -17,24 +17,14 @@
 	<form action="<?php echo JRoute::_( 'index.php?option=com_user&task=confirmreset' ); ?>" method="post" class="josForm form-validate">
 		<fieldset>
 			<p><?php echo JText::_('RESET_PASSWORD_CONFIRM_DESCRIPTION'); ?></p>
-			<dl>
-				<dt>
-					<label for="username" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_USERNAME_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_USERNAME_TIP_TEXT'); ?>">
-						<?php echo JText::_('User Name'); ?>:
-					</label>
-				</dt>
-				<dd>
-					<input id="username" name="username" type="text" class="required" size="36">
-				</dd>
-				<dt>
-					<label for="token" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_TOKEN_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_TOKEN_TIP_TEXT'); ?>">
-						<?php echo JText::_('Token'); ?>:
-					</label>
-				</dt>
-				<dd>
-					<input id="token" name="token" type="text" class="required" size="36">
-				</dd>
-			</dl>
+			<label for="username" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_USERNAME_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_USERNAME_TIP_TEXT'); ?>">
+				<?php echo JText::_('User Name'); ?>:
+				<input id="username" name="username" type="text" class="required" size="36">
+			</label>
+			<label for="token" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_TOKEN_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_TOKEN_TIP_TEXT'); ?>">
+				<?php echo JText::_('Token'); ?>:
+				<input id="token" name="token" type="text" class="required" size="36">
+			</label>
 		</fieldset>
 		<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
 		<?php echo JHTML::_( 'form.token' ); ?>

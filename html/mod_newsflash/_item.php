@@ -30,10 +30,7 @@
 <?php $readmoretxt=$itemparams->get('readmore',JText::_('Read more text')); ?>
 
 <?php if (isset($item->linkOn) && $item->readmore && $params->get('readmore')) : ?>
-	<p class="readmore">
-		<a href="<?php echo $item->linkOn; ?>">
-			<?php echo $readmoretxt.' '.$item->title; ?>
-		</a>
-	</p>
+	<a href="<?php echo $item->linkOn; ?>">
+		<?php echo $readmoretxt.' '.$item->title; ?>
+	</a>
 <?php endif; ?>
-<div class="item-separator"></div>

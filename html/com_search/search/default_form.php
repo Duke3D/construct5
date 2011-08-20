@@ -20,8 +20,8 @@ else {
 	<fieldset class="word">
 		<label for="search-searchword">
 			<?php echo JText::_('Search Keyword') ?>
+			<input type="search" name="searchword" id="search-searchword"  maxlength="20" value="<?php echo $this->escape($this->searchword) ?>" class="inputbox">
 		</label>
-		<input type="search" name="searchword" id="search-searchword"  maxlength="20" value="<?php echo $this->escape($this->searchword) ?>" class="inputbox" />
 		<button name="Search" onclick="this.form.submit()" class="button">
 			<?php echo JText::_( 'Search' );?>
 		</button>		
@@ -29,10 +29,8 @@ else {
 	
 	<?php if (!empty($this->searchword)) : ?>
 		<div class="searchintro">
-			<p>
 				<?php echo JText::_('Search Keyword') ?> <?php echo $this->escape($this->searchword) ?>
 				<?php echo $this->result ?>
-			</p>
 		</div>
 	<?php endif; ?>
 	
@@ -58,8 +56,8 @@ else {
 		</legend>
 		<?php foreach ($this->searchareas['search'] as $val => $txt) : ?>
 			<?php $checked = is_array($this->searchareas['active']) && in_array($val, $this->searchareas['active']) ? 'checked="true"' : ''; ?>
-			<input type="checkbox" name="areas[]" value="<?php echo $val ?>" id="area-<?php echo $val ?>" <?php echo $checked ?>>
 			<label for="area-<?php echo $val ?>">
+			<input type="checkbox" name="areas[]" value="<?php echo $val ?>" id="area-<?php echo $val ?>" <?php echo $checked ?>>
 				<?php echo JText::_($txt); ?>
 			</label>
 		<?php endforeach; ?>

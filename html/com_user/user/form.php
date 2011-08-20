@@ -10,9 +10,11 @@
 <div class="profile-edit<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
 
 	<?php if($this->params->get('show_page_title',1)) : ?>
-		<h1>
+	<header>
+		<h2>
 			<?php echo $this->escape($this->params->get('page_title')) ?>
-		</h1>
+		</h2>
+	</header>
 	<?php endif; ?>
 	
 	<script type="text/javascript">
@@ -25,59 +27,35 @@
 
 	<form id="member-profile" action="<?php echo JRoute::_( 'index.php' ); ?>" method="post" name="userform" autocomplete="off" class="user">
 		<fieldset>
-			<dl>
-				<dt>
-					<label for="username">
-						<?php echo JText::_( 'User Name' ); ?>:
-					</label>					
-				</dt>
-				<dd>
-					<?php echo $this->escape($this->user->get('username')); ?>
-				</dd>
-				<dt>
-					<label for="name">
-						<?php echo JText::_( 'Your Name' ); ?>:
-					</label>
-				</dt>
-				<dd>
-					<input class="inputbox" type="text" id="name" name="name" value="<?php echo $this->escape($this->user->get('name')); ?>" size="40">
-				</dd>
-				<dt>
-					<label for="email">
-						<?php echo JText::_( 'email' ); ?>:
-					</label>
-				</dt>
-				<dd>
-					<input class="inputbox required validate-email" type="email" id="email" name="email" value="<?php echo $this->escape($this->user->get('email'));?>" size="40">
-				</dd>	
-				<?php if($this->user->get('password')) : ?>
-					<dt>
-						<label for="password">
-							<?php echo JText::_( 'Password' ); ?>:
-						</label>
-					</dt>
-					<dd>
-						<input class="inputbox validate-password" type="password" id="password" name="password" value="" size="40">
-					</dd>
-					<dt>
-						<label for="verifyPass">
-							<?php echo JText::_( 'Verify Password' ); ?>:
-						</label>
-					</dt>
-					<dd>
-						<input class="inputbox validate-passverify" type="password" id="password2" name="password2" size="40">
-					</dd>
-				<?php endif; ?>
-				<?php if(isset($this->params)) : ?>
-					<?php echo $this->params->render( 'params' ); ?>
-				<?php endif; ?>
-			</dl>
-			<div>	
-				<button class="button validate" type="submit" onclick="submitbutton( this.form );return false;">
-					<?php echo JText::_( 'Save' ); ?>
-				</button>
-			</div>	
-		</fieldset>		
+			<label for="username">
+				<?php echo JText::_( 'User Name' ); ?>:
+				<?php echo $this->escape($this->user->get('username')); ?>
+			</label>
+			<label for="name">
+				<?php echo JText::_( 'Your Name' ); ?>:
+				<input class="inputbox" type="text" id="name" name="name" value="<?php echo $this->escape($this->user->get('name')); ?>" size="40">
+			</label>
+			<label for="email">
+				<?php echo JText::_( 'email' ); ?>:
+				<input class="inputbox required validate-email" type="email" id="email" name="email" value="<?php echo $this->escape($this->user->get('email'));?>" size="40">
+			</label>
+			<?php if($this->user->get('password')) : ?>
+				<label for="password">
+					<?php echo JText::_( 'Password' ); ?>:
+					<input class="inputbox validate-password" type="password" id="password" name="password" value="" size="40">
+				</label>
+				<label for="verifyPass">
+					<?php echo JText::_( 'Verify Password' ); ?>:
+					<input class="inputbox validate-passverify" type="password" id="password2" name="password2" size="40">
+				</label>
+			<?php endif; ?>
+			<?php if(isset($this->params)) : ?>
+			<?php echo $this->params->render( 'params' ); ?>
+			<?php endif; ?>
+			<button class="button validate" type="submit" onclick="submitbutton( this.form );return false;">
+				<?php echo JText::_( 'Save' ); ?>
+			</button>
+		</fieldset>
 		<input type="hidden" name="username" value="<?php echo $this->escape($this->user->get('username'));?>">
 		<input type="hidden" name="id" value="<?php echo (int)$this->user->get('id');?>">
 		<input type="hidden" name="gid" value="<?php echo (int)$this->user->get('gid');?>">
