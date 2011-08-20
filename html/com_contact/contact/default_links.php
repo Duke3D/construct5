@@ -16,7 +16,7 @@ else :
 endif;
 ?>
 
-<div class="contact-links">
+<section class="contact-links">
 	<ul>
 		<?php
 		    foreach(range('a', 'e') as $char) :// letters 'a' to 'e'
@@ -40,5 +40,5 @@ endif;
 			</li>
 		<?php endforeach; ?>
 	</ul>
-</div>
+</section>
 

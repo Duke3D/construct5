@@ -11,7 +11,7 @@ defined('_JEXEC') or die;
 ?>
 <?php if (JPluginHelper::isEnabled('user', 'profile')) :
 	$fields = $this->item->profile->getFieldset('profile'); ?>
-<div class="contact-profile" id="users-profile-custom">
+<section class="contact-profile" id="users-profile-custom">
 	<dl>
 	<?php foreach ($fields as $profile) :
 		if ($profile->value) :
@@ -36,5 +36,5 @@ defined('_JEXEC') or die;
 		endif;
 	endforeach; ?>
 	</dl>
-</div>
+</section>
 <?php endif; ?>

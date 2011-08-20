@@ -10,8 +10,7 @@
 defined('_JEXEC') or die;
 ?>
 <?php if ($this->params->get('show_articles')) : ?>
-<div class="contact-articles">
-
+<section class="contact-articles">
 	<ol>
 		<?php foreach ($this->item->articles as $article) :	?>
 			<li>
@@ -22,5 +21,5 @@ defined('_JEXEC') or die;
 			</li>
 		<?php endforeach; ?>
 	</ol>
-</div>
+</section>
 <?php endif; ?>
