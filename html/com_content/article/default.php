@@ -295,7 +295,6 @@ else {
 					<?php echo JHTML::_('date', $this->article->created, JText::_('DATE_FORMAT_LC2')); ?>
 				</time>
 				<?php endif; ?>
-			
 				<?php if ($this->params->get('show_url') && $this->article->urls) : ?>
 				<span class="hits">
 					<a href="<?php echo $this->escape($this->article->urls); ?>">
@@ -314,4 +313,16 @@ else {
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	
 	</article>
+<?php }
+	<?php endif; ?>	
+
+	<?php if (isset ($this->article->toc)) :
+		echo $this->article->toc;
+	endif; ?>
+
+	<?php echo JFilterOutput::ampReplace($this->article->text); ?>
+
+	<?php echo $this->article->event->afterDisplayContent; ?>
+
+	</div>
 <?php }
