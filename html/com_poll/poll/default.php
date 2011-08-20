@@ -12,16 +12,16 @@
 	<?php JHTML::_('stylesheet', 'poll_bars.css', 'components/com_poll/assets/'); ?>
 	
 	<?php if ($this->params->get('show_page_title',1)) : ?>
-	<h1>
+	<h2>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</h1>
+	</h2>
 	<?php endif; ?>
 	
 	<div>
 		<form action="index.php" method="post" name="poll" id="poll">
 			<fieldset>
 				<label for="poll">
-					<?php echo JText::_( 'Select Poll' ); ?>&nbsp;<?php echo $this->lists['polls']; ?>
+					<?php echo JText::_( 'Select Poll' ); ?> <?php echo $this->lists['polls']; ?>
 				</label>
 			</fieldset>
 		</form>

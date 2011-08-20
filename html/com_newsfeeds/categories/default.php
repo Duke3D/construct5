@@ -18,15 +18,15 @@ else {
 <div class="categories-list<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 	<?php if ($this->params->get('show_page_title',1)) : ?>
-	<h1>
+	<h2>
 		<?php echo $this->escape($this->params->get('page_title')); ?>
-	</h1>
+	</h2>
 	<?php endif; ?>
 	
 	<?php if ($this->params->def( 'show_comp_description', 1 ) || $this->params->get( 'image', -1 ) != -1) : ?>
 		<div class="category-desc base-desc">
 			<?php if ($this->params->get( 'image', -1 ) != -1) : ?>
-				<img src="<?php echo $this->baseurl . '/' . $this->escape($cparams->get('image_path')).'/'.$this->escape($this->params->get('image')); ?>" class="image_<?php echo $this->escape($this->params->get( 'image_align' )); ?>" />
+				<img src="<?php echo $this->baseurl . '/' . $this->escape($cparams->get('image_path')).'/'.$this->escape($this->params->get('image')); ?>" class="image_<?php echo $this->escape($this->params->get( 'image_align' )); ?>">
 			<?php endif; ?>
 			<?php echo $this->params->get( 'comp_description' ); ?>
 		</div>
@@ -36,13 +36,13 @@ else {
 	<ul>
 		<?php foreach ( $this->categories as $category ) : ?>
 		<li>
-			<span class="item-title"><a href="<?php echo $category->link; ?>">
+			<h3 class="item-title"><a href="<?php echo $category->link; ?>">
 				<?php echo $this->escape($category->title); ?></a>
-			</span>
+			</h3>
 			<?php if ( $this->params->def( 'show_cat_description', 1 ) && $category->description) : ?>
-				<div class="category-desc">
+				<p class="category-desc">
 					<?php echo $category->description; ?>
-				</div>
+				</p>
 			<?php endif; ?>		
 			<?php if ( $this->params->get( 'show_cat_items' ) ) : ?>
 				<dl class="newsfeed-count">

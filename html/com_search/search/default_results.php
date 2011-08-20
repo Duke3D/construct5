@@ -15,36 +15,36 @@ else {
 
 <h3><?php echo JText :: _('Search_result'); ?></h3>	
 
-<dl class="search-results">		
+<section class="search-results">		
 	<?php foreach ($this->results as $result) : ?>
-		<dt class="result-title">
+		<h4 class="result-title">
 			<?php echo $this->pagination->limitstart + $result->count.'. ';?>
 			<?php if ($result->href) : ?>
-				<a href="<?php echo JRoute :: _($result->href) ?>" <?php echo ($result->browsernav == 1) ? 'target="_blank"' : ''; ?> >
+				<a href="<?php echo JRoute :: _($result->href) ?>">
 					<?php echo $this->escape($result->title); ?>
 				</a>
 			<?php else : ?>
 				<?php echo $this->escape($result->title); ?>
 			<?php endif; ?>
-		</dt>
+		</h4>
 		<?php if ($result->section) : ?>
-			<dd class="result-category">
+			<div class="result-category">
 				<?php echo JText::_('Category') ?>:
 				<span>
 					<?php echo $this->escape($result->section); ?>
 				</span>	
-			</dd>				
-		<?php endif; ?>		
-		<dd class="result-text">
+			</div>				
+		<?php endif; ?>
+		<p class="result-text">
 			<?php echo $result->text; ?>
-		</dd>
+		</p>
 		<?php if ( $this->params->get( 'show_date' )) : ?>
-			<dd class="result-created">
+			<time class="result-created">
 				<?php echo $result->created; ?>	
-			</dd>
+			</time>
 		<?php endif; ?>
 	<?php endforeach; ?>
-</dl>
+</section>
 
 <nav class="pagination">
 	<?php echo $this->pagination->getPagesLinks(); ?>

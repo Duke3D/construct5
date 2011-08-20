@@ -15,13 +15,13 @@ else {
 
 <form id="search-form" action="<?php echo JRoute::_( 'index.php?option=com_search#content' ) ?>" method="post">
 
-	<h3><?php echo JText::_('search_again'); ?></h3>
+	<div><?php echo JText::_('search_again'); ?></div>
 
 	<fieldset class="word">
 		<label for="search-searchword">
 			<?php echo JText::_('Search Keyword') ?>
 		</label>
-		<input type="text" name="searchword" id="search-searchword"  maxlength="20" value="<?php echo $this->escape($this->searchword) ?>" class="inputbox" />
+		<input type="search" name="searchword" id="search-searchword"  maxlength="20" value="<?php echo $this->escape($this->searchword) ?>" class="inputbox" />
 		<button name="Search" onclick="this.form.submit()" class="button">
 			<?php echo JText::_( 'Search' );?>
 		</button>		
@@ -30,7 +30,7 @@ else {
 	<?php if (!empty($this->searchword)) : ?>
 		<div class="searchintro">
 			<p>
-				<?php echo JText::_('Search Keyword') ?> <strong><?php echo $this->escape($this->searchword) ?></strong>
+				<?php echo JText::_('Search Keyword') ?> <?php echo $this->escape($this->searchword) ?>
 				<?php echo $this->result ?>
 			</p>
 		</div>
@@ -58,7 +58,7 @@ else {
 		</legend>
 		<?php foreach ($this->searchareas['search'] as $val => $txt) : ?>
 			<?php $checked = is_array($this->searchareas['active']) && in_array($val, $this->searchareas['active']) ? 'checked="true"' : ''; ?>
-			<input type="checkbox" name="areas[]" value="<?php echo $val ?>" id="area-<?php echo $val ?>" <?php echo $checked ?> />
+			<input type="checkbox" name="areas[]" value="<?php echo $val ?>" id="area-<?php echo $val ?>" <?php echo $checked ?>>
 			<label for="area-<?php echo $val ?>">
 				<?php echo JText::_($txt); ?>
 			</label>
@@ -79,6 +79,6 @@ else {
 			</p>
 		</fieldset>
 	<?php endif; ?>
-	<input type="hidden" name="task"   value="search" />
+	<input type="hidden" name="task" value="search">
 </form>
 <?php }
