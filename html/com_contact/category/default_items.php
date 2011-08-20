@@ -164,11 +164,9 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 			<?php endif; ?>
 			<?php echo $this->pagination->getPagesLinks(); ?>
 		</nav>
-		<?php endif; ?>
-		<div>
-			<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
-			<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />
-		</div>
+		<?php endif; ?>		
+		<input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>" />
+		<input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>" />		
 	</form>
 	<?php endif; ?>
 

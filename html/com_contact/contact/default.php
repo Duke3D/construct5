@@ -115,12 +115,14 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 					</h3>
 				<?php endif; ?>
 						<section class="contact-miscinfo">
-							<div class="<?php echo $this->params->get('marker_class'); ?>">
-								<?php echo $this->params->get('marker_misc'); ?>
-							</div>
-							<div class="contact-misc">
-								<?php echo $this->contact->misc; ?>
-							</div>
+						    <dl>
+							    <dt class="<?php echo $this->params->get('marker_class'); ?>">
+								    <?php echo $this->params->get('marker_misc'); ?>
+							    </dt>
+							    <dd class="contact-misc">
+								    <?php echo $this->contact->misc; ?>
+							    </dd>
+							</dl>
 						</section>
 			<?php endif; ?>
 			<?php if ($this->params->get('presentation_style')!='plain'){?>

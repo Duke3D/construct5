@@ -82,13 +82,11 @@ else {
 		</script>
 
 		<form action="<?php echo $this->action; ?>" method="post" name="adminForm">
-			<fieldset>		
 				<?php if ($this->params->get('display')) : ?>
-				<div class="display">
+				<p class="display">
 					<?php echo JText::_('Display Num'); ?>&nbsp;
-				</div>
+				</p>
 				<?php endif; ?>
-			</fieldset>
 			<input type="hidden" name="catid" value="<?php echo (int)$this->category->id; ?>" />
 			<input type="hidden" name="filter_order" value="<?php echo $this->lists['order']; ?>" />
 			<input type="hidden" name="filter_order_Dir" value="" />			
