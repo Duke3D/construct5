@@ -9,26 +9,25 @@
 $cparams = JComponentHelper::getParams ('com_media');
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla! 1.6+ Output
+// Joomla! 1.6+
 
-JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
-?>
+    JHtml::addIncludePath(JPATH_COMPONENT.'/helpers'); ?>
 
-	<div class="blog<?php echo $this->pageclass_sfx;?>">
+	<section class="blog<?php echo $this->pageclass_sfx;?>">
 	<?php if ($this->params->get('show_page_heading', 1)) : ?>
 		<hgroup>
-		<h1>
-			<?php echo $this->escape($this->params->get('page_heading')); ?>
-		</h1>
-		<?php endif; ?>
+		    <h1>
+			    <?php echo $this->escape($this->params->get('page_heading')); ?>
+		    </h1>
+		    <?php endif; ?>
 
-		<?php if ($this->params->get('show_category_title', 1) OR $this->params->get('page_subheading')) : ?>
-		<h2>
-			<?php echo $this->escape($this->params->get('page_subheading')); ?>
-			<?php if ($this->params->get('show_category_title')) : ?>
-				<span class="subheading-category"><?php echo $this->category->title;?></span>
-			<?php endif; ?>
-		</h2>
+		    <?php if ($this->params->get('show_category_title', 1) OR $this->params->get('page_subheading')) : ?>
+		    <h2>
+			    <?php echo $this->escape($this->params->get('page_subheading')); ?>
+			    <?php if ($this->params->get('show_category_title')) : ?>
+				    <span class="subheading-category"><?php echo $this->category->title;?></span>
+			    <?php endif; ?>
+		    </h2>
 		</hgroup>
 		<?php endif; ?>
 
@@ -45,19 +44,19 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 	<?php $leadingcount=0 ; ?>
 	<?php if (!empty($this->lead_items)) : ?>
-	<div class="items-leading">
-		<?php foreach ($this->lead_items as &$item) : ?>
-			<div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
-				<?php
-					$this->item = &$item;
-					echo $this->loadTemplate('item');
-				?>
-			</div>
-			<?php
-				$leadingcount++;
-			?>
-		<?php endforeach; ?>
-	</div>
+	    <section class="items-leading">
+		    <?php foreach ($this->lead_items as &$item) : ?>
+			    <div class="leading-<?php echo $leadingcount; ?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+				    <?php
+					    $this->item = &$item;
+					    echo $this->loadTemplate('item');
+				    ?>
+			    </div>
+			    <?php
+				    $leadingcount++;
+			    ?>
+		    <?php endforeach; ?>
+	    </section>
 	<?php endif; ?>
 	<?php
 		$introcount=(count($this->intro_items));
@@ -66,26 +65,19 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 	<?php if (!empty($this->intro_items)) : ?>
 
 		<?php foreach ($this->intro_items as $key => &$item) : ?>
-		<?php
-			$key= ($key-$leadingcount)+1;
-			$rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
-			$row = $counter / $this->columns ;
+		    <?php
+			    $key= ($key-$leadingcount)+1;
+			    $rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
+			    $row = $counter / $this->columns ;
 
-			if ($rowcount==1) : ?>
-		<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>">
-		<?php endif; ?>
-		<div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
-			<?php
-				$this->item = &$item;
-				echo $this->loadTemplate('item');
-			?>
-		</div>
-		<?php $counter++; ?>
-		<?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
-					<span class="row-separator"></span>
-					</div>
-
-				<?php endif; ?>
+			    if ($rowcount==1) : ?>
+		            <div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>">
+		        <?php endif; ?>
+		        <div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
+			        <?php $this->item = &$item; ?>
+				    <?php echo $this->loadTemplate('item'); ?>
+		        </div>
+		    <?php $counter++; ?>		    
 		<?php endforeach; ?>
 
 
@@ -100,26 +92,26 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 		<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
 			<div class="cat-children">
-			<h3>
-	<?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>
-	</h3>
+			    <h3>
+	                <?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>
+	            </h3>
 				<?php echo $this->loadTemplate('children'); ?>
 			</div>
 		<?php endif; ?>
 
-	<?php if (($this->params->def('show_pagination', 1) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
+	    <?php if (($this->params->def('show_pagination', 1) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
 			<nav class="pagination">
-							<?php  if ($this->params->def('show_pagination_results', 1)) : ?>
-							<p class="counter">
-									<?php echo $this->pagination->getPagesCounter(); ?>
-							</p>
-
-					<?php endif; ?>
-					<?php echo $this->pagination->getPagesLinks(); ?>
+                <?php  if ($this->params->def('show_pagination_results', 1)) : ?>
+                <p class="counter">
+                    <?php echo $this->pagination->getPagesCounter(); ?>
+                </p>
+                <?php endif; ?>
+                
+                <?php echo $this->pagination->getPagesLinks(); ?>
 			</nav>
-	<?php  endif; ?>
+	    <?php  endif; ?>
 
-	</div>
+	</section>
 
 <?php
 }
@@ -127,7 +119,7 @@ else {
 // Joomla! 1.5 Output
 ?>
 
-	<div class="blog<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+	<section class="blog<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 		<?php if ($this->params->get('show_page_title')) : ?>
 			<h1>
@@ -155,7 +147,6 @@ else {
 					<?php $this->item =& $this->getItem($i, $this->params);
 					echo $this->loadTemplate('item'); ?>
 				</div>
-				<span class="item-separator">&nbsp;</span>		
 			<?php endfor; ?>
 		</div>
 
@@ -174,9 +165,7 @@ else {
 							<?php $this->item =& $this->getItem($i, $this->params);
 							echo $this->loadTemplate('item'); ?>
 						</div>
-						<span class="article-separator">&nbsp;</span>
 					<?php endfor; ?>
-					<span class="row-separator">&nbsp;</span>
 				</div>
 			<?php endfor;
 		endif; ?>
@@ -197,5 +186,6 @@ else {
 				<?php echo $this->pagination->getPagesLinks(); ?>
 			</nav>
 		<?php endif; ?>
-	</div>
+	</section>
+	
 <?php }

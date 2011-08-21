@@ -141,5 +141,4 @@
 </p>
 <?php endif; ?>
 
-<div class="item-separator"></div>
 <?php echo $this->item->event->afterDisplayContent;

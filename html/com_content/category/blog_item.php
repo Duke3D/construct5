@@ -160,7 +160,6 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	</div>
 	<?php endif; ?>
 
-	<div class="item-separator"></div>
 	<?php echo $this->item->event->afterDisplayContent; ?>
 
 <?php
@@ -303,6 +302,5 @@ else {
 	</p>
 	<?php endif; ?>
 
-	<div class="item-separator"></div>
 	<?php echo $this->item->event->afterDisplayContent;
 }

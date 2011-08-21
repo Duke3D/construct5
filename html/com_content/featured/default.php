@@ -62,7 +62,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');
 		</div>
 		<?php $counter++; ?>
 			<?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
-				<span class="row-separator"></span>
+
 				</div>
 
 			<?php endif; ?>

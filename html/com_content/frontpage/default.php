@@ -24,7 +24,6 @@
 				<?php $this->item =& $this->getItem($i, $this->params);
 				echo $this->loadTemplate('item'); ?>
 			</div>
-			<span class="item-separator">&nbsp;</span>
 		<?php endfor; ?>
 	</div>
 
@@ -43,9 +42,7 @@
 						<?php $this->item =& $this->getItem($i, $this->params); ?>
 						<?php echo $this->loadTemplate('item'); ?>
 					</div>
-					<span class="article-separator">&nbsp;</span>
 				<?php endfor; ?>
-				<span class="row-separator">&nbsp;</span>
 			</div>
 		<?php endfor; ?>
 	<?php endif; ?>
