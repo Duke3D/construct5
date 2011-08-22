@@ -20,6 +20,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	<?php if ($this->item->state == 0) : ?>
 	<div class="system-unpublished">
 	<?php endif; ?>
+	
 	<?php if ($params->get('show_title')) : ?>
 		<h2>
 			<?php if ($params->get('link_titles') && $params->get('access-view')) : ?>
@@ -165,7 +166,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla! 1.5 Output
+// Joomla! 1.5
 ?>
 
 	<?php if ($this->item->params->get('show_title')) : ?>

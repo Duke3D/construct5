@@ -6,12 +6,6 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/components/com_content/views/category/tmpl/default_articles.php';
-}
-else {
-// Joomla 1.5 
-?>
 
 <script type="text/javascript">
 <!--
@@ -32,12 +26,12 @@ document.adminForm.submit( task );
 			
 			<legend class="hidelabeltxt">
 				<?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?>
-			</legend>
-		
-			<div class="filter-search">
-				<label class="filter-search-lbl" for="filter-search"><?php echo JText::_($this->escape($this->params->get('filter_type')) . ' ' . 'Filter').'&nbsp;'; ?></label>
-				<input type="text" name="filter-search" value="<?php echo $this->escape($this->lists['filter']); ?>" class="inputbox" onchange="document.adminForm.submit();" />
-			</div>
+			</legend>		
+
+			<label class="filter-search-lbl" for="filter-search"><?php echo JText::_($this->escape($this->params->get('filter_type')) . ' ' . 'Filter').'&nbsp;'; ?>
+                <input type="text" name="filter-search" value="<?php echo $this->escape($this->lists['filter']); ?>" class="inputbox" onchange="document.adminForm.submit();" />				
+			</label>	
+
 			
 			<?php if ($this->params->get('show_pagination_limit')) : ?>
 				<div class="display-limit">
@@ -151,4 +145,3 @@ document.adminForm.submit( task );
 	<input type="hidden" name="filter_order_Dir" value="" />
 	<input type="hidden" name="limitstart" value="0" />
 </form>
-<?php }

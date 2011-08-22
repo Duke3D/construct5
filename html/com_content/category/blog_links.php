@@ -7,29 +7,28 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla! 1.6+ Output
-
-	<div class="items-more">
-
-	<h3><?php echo JText::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
-	<ul>
-	<?php
-		foreach ($this->link_items as &$item) :
-	?>
-		<li>
-			<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)); ?>">
-				<?php echo $item->title; ?></a>
-		</li>
-	<?php endforeach; ?>
-	</ul>
-	</div>
+// Joomla! 1.6+
+?>
+	<nav class="items-more">
+	    <h3><?php echo JText::_('COM_CONTENT_MORE_ARTICLES'); ?></h3>
+	    <ol>
+	    <?php
+		    foreach ($this->link_items as &$item) :
+	    ?>
+		    <li>
+			    <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)); ?>">
+				    <?php echo $item->title; ?></a>
+		    </li>
+	    <?php endforeach; ?>
+	    </ol>
+	</nav>
 
 <?php	
 }
 else {
-// Joomla! 1.5 Output
+// Joomla! 1.5
 ?>
-	<div class="items-more">
+	<nav class="items-more">
 		<h3>
 			<?php echo JText::_('More Articles...'); ?>
 		</h3>	
@@ -41,5 +40,5 @@ else {
 			</li>
 			<?php endforeach; ?>
 		</ol>
-	</div>
+	</nav>
 <?php }

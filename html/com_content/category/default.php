@@ -9,7 +9,7 @@
 $cparams = JComponentHelper::getParams ('com_media');
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla! 1.6+ Output
+// Joomla! 1.6+
 
 	//Access template parameters
 	$templateParams = JFactory::getApplication()->getTemplate(true)->params; 
@@ -74,10 +74,10 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php 	
 }
 else {
-// Joomla! 1.5 Output
+// Joomla! 1.5
 ?>
 
-	<div class="category-list<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+	<section class="category-list<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 		<?php if ($this->params->get('show_page_title',1)) : ?>
 		<h1>
 			<?php echo $this->escape($this->params->get('page_title')); ?>
@@ -97,11 +97,11 @@ else {
 			</div>
 			<?php endif; ?>
 		
-		<div class="cat-items">	
+		<section class="cat-items">	
 			<?php $this->items =& $this->getItems(); ?>
 			<?php echo $this->loadTemplate('items'); ?>
-		</div>
+		</section>
 		
-	</div>
+	</section>
 	
 <?php }

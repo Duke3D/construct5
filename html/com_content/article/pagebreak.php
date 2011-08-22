@@ -25,27 +25,27 @@ defined( '_JEXEC' ) or die( 'Restricted access' ); ?>
 		</script>
 
 		<form>
-		<table width="100%" align="center">
-			<tr width="40%">
-				<td class="key" align="right">
-					<label for="title">
-						<?php echo JText::_( 'PGB PAGE TITLE' ); ?>
-					</label>
-				</td>
-				<td>
-					<input type="text" id="title" name="title" />
-				</td>
-			</tr>
-			<tr width="60%">
-				<td class="key" align="right">
-					<label for="alias">
-						<?php echo JText::_( 'PGB TOC ALIAS PROMPT' ); ?>
-					</label>
-				</td>
-				<td>
-					<input type="text" id="alt" name="alt" />
-				</td>
-			</tr>
-		</table>
+		    <table width="100%" align="center">
+			    <tr width="40%">
+				    <td class="key" align="right">
+					    <label for="title">
+						    <?php echo JText::_( 'PGB PAGE TITLE' ); ?>
+					    </label>
+				    </td>
+				    <td>
+					    <input type="text" id="title" name="title" />
+				    </td>
+			    </tr>
+			    <tr width="60%">
+				    <td class="key" align="right">
+					    <label for="alias">
+						    <?php echo JText::_( 'PGB TOC ALIAS PROMPT' ); ?>
+					    </label>
+				    </td>
+				    <td>
+					    <input type="text" id="alt" name="alt" />
+				    </td>
+			    </tr>
+		    </table>
 		</form>
 		<button onclick="insertPagebreak();"><?php echo JText::_( 'PGB INS PAGEBRK' ); ?></button>
