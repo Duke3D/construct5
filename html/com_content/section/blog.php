@@ -32,14 +32,14 @@ $cparams = JComponentHelper::getParams ('com_media');
 
 	<?php $i = $this->pagination->limitstart;
 	$rowcount = $this->params->def('num_leading_articles', 1);?>
-	<div class="items-leading">
+	<section class="items-leading">
 		<?php for ($y = 0; $y < $rowcount && $i < $this->total; $y++, $i++) : ?>
-			<div class="leading-<?php echo $y ;?>">
+			<article class="leading-<?php echo $y ;?>">
 				<?php $this->item =& $this->getItem($i, $this->params); ?>
 				<?php echo $this->loadTemplate('item'); ?>
-			</div>
+			</article>
 		<?php endfor; ?>
-	</div>
+	</section>
 
 	<?php $introcount = (int)$this->params->def('num_intro_articles', 4);
 	if ($introcount) :
