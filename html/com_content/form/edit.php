@@ -29,107 +29,108 @@ $params = $this->state->get('params');
 		}
 	}
 </script>
-<div class="edit item-page<?php echo $this->pageclass_sfx; ?>">
-<?php if ($params->get('show_page_heading', 1)) : ?>
-<h1>
-	<?php echo $this->escape($params->get('page_heading')); ?>
-</h1>
-<?php endif; ?>
 
-<form action="<?php echo JRoute::_('index.php?option=com_content&a_id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
-	<fieldset>
-		<legend><?php echo JText::_('JEDITOR'); ?></legend>
+    <section class="edit item-page<?php echo $this->pageclass_sfx; ?>">
+        <?php if ($params->get('show_page_heading', 1)) : ?>
+        <h1>
+	        <?php echo $this->escape($params->get('page_heading')); ?>
+        </h1>
+        <?php endif; ?>
 
-			<div class="formelm">
-			<?php echo $this->form->getLabel('title'); ?>
-			<?php echo $this->form->getInput('title'); ?>
-			</div>
+        <form action="<?php echo JRoute::_('index.php?option=com_content&a_id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="adminForm" class="form-validate">
+	        <fieldset>
+		        <legend><?php echo JText::_('JEDITOR'); ?></legend>
 
-		<?php if (is_null($this->item->id)):?>
-			<div class="formelm">
-			<?php echo $this->form->getLabel('alias'); ?>
-			<?php echo $this->form->getInput('alias'); ?>
-			</div>
-		<?php endif; ?>
+			        <div class="formelm">
+			        <?php echo $this->form->getLabel('title'); ?>
+			        <?php echo $this->form->getInput('title'); ?>
+			        </div>
 
-			<div class="formelm-buttons">
-			<button type="button" onclick="Joomla.submitbutton('article.save')">
-				<?php echo JText::_('JSAVE') ?>
-			</button>
-			<button type="button" onclick="Joomla.submitbutton('article.cancel')">
-				<?php echo JText::_('JCANCEL') ?>
-			</button>
-			</div>
+		        <?php if (is_null($this->item->id)):?>
+			        <div class="formelm">
+			        <?php echo $this->form->getLabel('alias'); ?>
+			        <?php echo $this->form->getInput('alias'); ?>
+			        </div>
+		        <?php endif; ?>
 
-			<?php echo $this->form->getInput('articletext'); ?>
+			        <div class="formelm-buttons">
+			        <button type="button" onclick="Joomla.submitbutton('article.save')">
+				        <?php echo JText::_('JSAVE') ?>
+			        </button>
+			        <button type="button" onclick="Joomla.submitbutton('article.cancel')">
+				        <?php echo JText::_('JCANCEL') ?>
+			        </button>
+			        </div>
 
-	</fieldset>
+			        <?php echo $this->form->getInput('articletext'); ?>
 
-	<fieldset>
-		<legend><?php echo JText::_('COM_CONTENT_PUBLISHING'); ?></legend>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('catid'); ?>
-		<?php echo $this->form->getInput('catid'); ?>
-		</div>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('created_by_alias'); ?>
-		<?php echo $this->form->getInput('created_by_alias'); ?>
-		</div>
+	        </fieldset>
 
-	<?php if ($this->item->params->get('access-change')): ?>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('state'); ?>
-		<?php echo $this->form->getInput('state'); ?>
-		</div>
+	        <fieldset>
+		        <legend><?php echo JText::_('COM_CONTENT_PUBLISHING'); ?></legend>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('catid'); ?>
+		        <?php echo $this->form->getInput('catid'); ?>
+		        </div>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('created_by_alias'); ?>
+		        <?php echo $this->form->getInput('created_by_alias'); ?>
+		        </div>
 
-		<div class="formelm">
-		<?php echo $this->form->getLabel('featured'); ?>
-		<?php echo $this->form->getInput('featured'); ?>
-		</div>
+	        <?php if ($this->item->params->get('access-change')): ?>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('state'); ?>
+		        <?php echo $this->form->getInput('state'); ?>
+		        </div>
 
-		<div class="formelm">
-		<?php echo $this->form->getLabel('publish_up'); ?>
-		<?php echo $this->form->getInput('publish_up'); ?>
-		</div>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('publish_down'); ?>
-		<?php echo $this->form->getInput('publish_down'); ?>
-		</div>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('featured'); ?>
+		        <?php echo $this->form->getInput('featured'); ?>
+		        </div>
 
-	<?php endif; ?>
-		<div class="formelm">
-		<?php echo $this->form->getLabel('access'); ?>
-		<?php echo $this->form->getInput('access'); ?>
-		</div>
-		<?php if (is_null($this->item->id)):?>
-			<div class="form-note">
-			<p><?php echo JText::_('COM_CONTENT_ORDERING'); ?></p>
-			</div>
-		<?php endif; ?>
-	</fieldset>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('publish_up'); ?>
+		        <?php echo $this->form->getInput('publish_up'); ?>
+		        </div>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('publish_down'); ?>
+		        <?php echo $this->form->getInput('publish_down'); ?>
+		        </div>
 
-	<fieldset>
-		<legend><?php echo JText::_('JFIELD_LANGUAGE_LABEL'); ?></legend>
-		<div class="formelm-area">
-		<?php echo $this->form->getLabel('language'); ?>
-		<?php echo $this->form->getInput('language'); ?>
-		</div>
-	</fieldset>
+	        <?php endif; ?>
+		        <div class="formelm">
+		        <?php echo $this->form->getLabel('access'); ?>
+		        <?php echo $this->form->getInput('access'); ?>
+		        </div>
+		        <?php if (is_null($this->item->id)):?>
+			        <div class="form-note">
+			        <p><?php echo JText::_('COM_CONTENT_ORDERING'); ?></p>
+			        </div>
+		        <?php endif; ?>
+	        </fieldset>
 
-	<fieldset>
-		<legend><?php echo JText::_('COM_CONTENT_METADATA'); ?></legend>
-		<div class="formelm-area">
-		<?php echo $this->form->getLabel('metadesc'); ?>
-		<?php echo $this->form->getInput('metadesc'); ?>
-		</div>
-		<div class="formelm-area">
-		<?php echo $this->form->getLabel('metakey'); ?>
-		<?php echo $this->form->getInput('metakey'); ?>
-		</div>
+	        <fieldset>
+		        <legend><?php echo JText::_('JFIELD_LANGUAGE_LABEL'); ?></legend>
+		        <div class="formelm-area">
+		        <?php echo $this->form->getLabel('language'); ?>
+		        <?php echo $this->form->getInput('language'); ?>
+		        </div>
+	        </fieldset>
 
-		<input type="hidden" name="task" value="" />
-		<input type="hidden" name="return" value="<?php echo $this->return_page;?>" />
-		<?php echo JHtml::_( 'form.token' ); ?>
-	</fieldset>
-</form>
-</div>
+	        <fieldset>
+		        <legend><?php echo JText::_('COM_CONTENT_METADATA'); ?></legend>
+		        <div class="formelm-area">
+		        <?php echo $this->form->getLabel('metadesc'); ?>
+		        <?php echo $this->form->getInput('metadesc'); ?>
+		        </div>
+		        <div class="formelm-area">
+		        <?php echo $this->form->getLabel('metakey'); ?>
+		        <?php echo $this->form->getInput('metakey'); ?>
+		        </div>
+
+		        <input type="hidden" name="task" value="" />
+		        <input type="hidden" name="return" value="<?php echo $this->return_page;?>" />
+		        <?php echo JHtml::_( 'form.token' ); ?>
+	        </fieldset>
+        </form>
+    </section>
