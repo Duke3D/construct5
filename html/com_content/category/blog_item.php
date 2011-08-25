@@ -133,7 +133,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 			$menu = JFactory::getApplication()->getMenu();
 			$active = $menu->getActive();
 			$itemId = $active->id;
-			$link1 = JRoute::_('index.php?option=com_users&view=login&Itemid=' . $itemId);
+			$link1 = JRoute::_('index.php?option=com_users&view=registration&Itemid=' . $itemId);
 			$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug));
 			$link = new JURI($link1);
 			$link->setVar('return', base64_encode($returnURL));
