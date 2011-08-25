@@ -145,7 +145,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		<?php echo $this->item->introtext; ?>
 		<?php //Optional link to let them register to see the whole article. ?>
 		<?php if ($params->get('show_readmore') && $this->item->fulltext != null) :
-			$link1 = JRoute::_('index.php?option=com_users&view=registration');
+			$link1 = JRoute::_('index.php?option=com_users&view=login');
 			$link = new JURI($link1);?>
 			<p class="readmore">
 				<a href="<?php echo $link; ?>">
