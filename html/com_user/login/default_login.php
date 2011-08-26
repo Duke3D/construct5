@@ -7,7 +7,7 @@
 */
 ?>
 
-<div class="login<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
+<section class="login<?php echo $this->escape($this->params->get( 'pageclass_sfx' )); ?>">
 
 	<?php if ( $this->params->get( 'show_login_title' ) ) : ?>
 	<header>
@@ -18,14 +18,14 @@
 	<?php endif; ?>
 	
 	<?php if ( $this->params->get( 'description_login' ) || isset( $this->image ) ) : ?>
-	<div class="login-description">
+	<p class="login-description">
 		<?php if ($this->params->get('description_login')) : ?>
 			<?php echo $this->params->get('description_login_text'); ?>
 		<?php endif; ?>		
 		<?php if (isset ($this->image)) : ?>
 			<?php echo $this->image; ?>
 		<?php endif; ?>
-	</div>
+	</p>
 	<?php endif; ?>
 
 	<form action="<?php echo JRoute::_( 'index.php', true, $this->params->get('usesecure')); ?>" method="post">
@@ -56,4 +56,24 @@
 		<input type="hidden" name="return" value="<?php echo $this->return; ?>">
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
-</div>
+
+	<ul>
+		<li>
+			<a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>">
+			<?php echo JText::_('COM_USERS_LOGIN_RESET'); ?></a>
+		</li>
+		<li>
+			<a href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>">
+			<?php echo JText::_('COM_USERS_LOGIN_REMIND'); ?></a>
+		</li>
+		<?php
+		$usersConfig = JComponentHelper::getParams('com_users');
+		if ($usersConfig->get('allowUserRegistration')) : ?>
+		<li>
+			<a href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
+				<?php echo JText::_('COM_USERS_LOGIN_REGISTER'); ?></a>
+		</li>
+		<?php endif; ?>
+	</ul>
+
+</section>
