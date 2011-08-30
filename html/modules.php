@@ -31,12 +31,10 @@
 	if (!empty($module->content))
 		{ ?>
 		<aside class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
-			<div>	 
-					<?php if ($module->showtitle) : ?>
-						<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
-					<?php endif; ?>
-					<?php echo $module->content; ?>
-			</div>
+			<?php if ($module->showtitle) : ?>
+				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
+			<?php endif; ?>
+			<?php echo $module->content; ?>
 		</aside>
 
 <?php	}
@@ -50,12 +48,10 @@
 	if (!empty($module->content))
 		{ ?>
 		<figure class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
-			<div>		 
-					<?php if ($module->showtitle) : ?>
-						<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
-					<?php endif; ?>
-					<?php echo $module->content; ?>
-			</div>
+			<?php if ($module->showtitle) : ?>
+				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
+			<?php endif; ?>
+			<?php echo $module->content; ?>
 		</figure>
 
 <?php	}
@@ -69,12 +65,10 @@
 	if (!empty($module->content))
 		{ ?>
 		<footer class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
-			<div>	 
-					<?php if ($module->showtitle) : ?>
-						<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
-					<?php endif; ?>
-					<?php echo $module->content; ?>
-			</div>
+			<?php if ($module->showtitle) : ?>
+				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
+			<?php endif; ?>
+			<?php echo $module->content; ?>
 		</footer>
 
 <?php	}
@@ -88,13 +82,45 @@
 	if (!empty($module->content))
 		{ ?>
 		<header class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
-			<div>	 
-					<?php if ($module->showtitle) : ?>
-						<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
-					<?php endif; ?>
-					<?php echo $module->content; ?>
-			</div>
+			<?php if ($module->showtitle) : ?>
+				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
+			<?php endif; ?>
+			<?php echo $module->content; ?>
 		</header>
+
+<?php	}
+	}			
+?>
+
+<?php function modChrome_nav( $module, &$params, &$attribs ) {
+	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 3;
+	$headerClass = isset($attribs['header-class']) ? $attribs['header-class'] : 'je-header';
+	$moduleClass = isset($attribs['module-class']) ? $attribs['module-class'] : null;
+	if (!empty($module->content))
+		{ ?>
+		<nav class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
+			<?php if ($module->showtitle) : ?>
+				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
+			<?php endif; ?>
+			<?php echo $module->content; ?>
+		</nav>
+
+<?php	}
+	}			
+?>
+
+<?php function modChrome_section( $module, &$params, &$attribs ) {
+	$headerLevel = isset($attribs['level']) ? (int) $attribs['level'] : 3;
+	$headerClass = isset($attribs['header-class']) ? $attribs['header-class'] : 'je-header';
+	$moduleClass = isset($attribs['module-class']) ? $attribs['module-class'] : null;
+	if (!empty($module->content))
+		{ ?>
+		<section class="moduletable<?php echo $params->get('moduleclass_sfx'); ?> <?php if($moduleClass) echo $moduleClass; ?>">
+			<?php if ($module->showtitle) : ?>
+				<h<?php echo $headerLevel; ?> class="<?php echo $headerClass; ?>"><?php echo $module->title; ?><?php echo '</h'.$headerLevel; ?>>
+			<?php endif; ?>
+			<?php echo $module->content; ?>
+		</section>
 
 <?php	}
 	}			
