@@ -7,15 +7,25 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/components/com_search/views/search/tmpl/default_error.php';
+// Joomla 1.6+
+?>
+
+    <?php if($this->error): ?>
+        <section class="error">
+	        <?php echo $this->escape($this->error); ?>
+        </section>
+    <?php endif; ?>
+
+<?php
 }
 else {
 // Joomla 1.5 
 ?>
 
-<?php if($this->error): ?>
-	<div class="error">
-		<?php echo $this->escape($this->error); ?>
-	</div>
-<?php endif; ?>
+    <?php if($this->error): ?>
+	    <section class="error">
+		    <?php echo $this->escape($this->error); ?>
+	    </section>
+    <?php endif; ?>
+
 <?php }

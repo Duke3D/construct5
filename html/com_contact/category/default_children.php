@@ -36,9 +36,13 @@ if (count($this->children[$this->category->id]) > 0 && $this->maxLevel != 0) :
             <?php endif; ?>
 
             <?php if ($this->params->get('show_cat_items') == 1) :?>
-			<dl><dt>
-				<?php echo JText::_('COM_CONTACT_CAT_NUM'); ?></dt>
-				<dd><?php echo $child->numitems; ?></dd>
+			<dl>
+			    <dt>
+				    <?php echo JText::_('COM_CONTACT_CAT_NUM'); ?>
+				</dt>
+				<dd>
+				    <?php echo $child->numitems; ?>
+				</dd>
 			</dl>
 		<?php endif; ?>
             <?php if(count($child->getChildren()) > 0 ) :

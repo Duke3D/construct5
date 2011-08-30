@@ -18,7 +18,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	?>
 
 	<?php if ($this->item->state == 0) : ?>
-	<div class="system-unpublished">
+	    <div class="system-unpublished">
 	<?php endif; ?>
 	
 	<?php if ($params->get('show_title')) : ?>

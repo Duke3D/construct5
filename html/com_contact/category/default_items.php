@@ -16,7 +16,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	?>
 	
 	<?php if (empty($this->items)) : ?>
-		<p> <?php echo JText::_('COM_CONTACT_NO_ARTICLES'); ?>	 </p>
+		<p><?php echo JText::_('COM_CONTACT_NO_ARTICLES'); ?></p>
 	<?php else : ?>
 
 	<form action="<?php echo JFilterOutput::ampReplace(JFactory::getURI()->toString()); ?>" method="post" name="adminForm" id="adminForm">

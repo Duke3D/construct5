@@ -10,9 +10,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 // Joomla 1.6+
 ?>
 
-<?php
-if ($feed != false)
-{
+<?php if ($feed != false) {
 	//image handling
 	$iUrl	= isset($feed->image->url)	? $feed->image->url	: null;
 	$iTitle = isset($feed->image->title) ? $feed->image->title : null;

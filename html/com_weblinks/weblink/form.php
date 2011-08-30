@@ -6,12 +6,7 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-$cparams = JComponentHelper::getParams ('com_media');
-if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/components/com_weblinks/views/form/tmpl/edit.php';
-}
-else {
-// Joomla 1.5 
+// Joomla 1.5 only
 ?>
 
 <div class="edit weblink<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
@@ -102,4 +97,3 @@ else {
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
 </div>
-<?php }

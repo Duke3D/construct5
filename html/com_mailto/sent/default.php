@@ -7,19 +7,34 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-	include JPATH_ROOT.'/components/com_mailto/views/sent/tmpl/default.php';
+// Joomla 1.6+
+?>
+
+    <section>
+       	<h2>
+		    <?php echo JText::_('COM_MAILTO_EMAIL_SENT'); ?>
+	    </h2>
+
+	    <a href="javascript: void window.close()">
+		    <?php echo JText::_('COM_MAILTO_CLOSE_WINDOW'); ?>
+		    <?php echo JHtml::_('image','mailto/close-x.png', NULL, NULL, true); ?>
+	    </a>
+    </section>
+
+<?php
 }
 else {
 // Joomla 1.5 
 ?>
-<div style="padding: 10px;">
-	<div style="text-align:right">
-		<a href="javascript: void window.close()">
-			<?php echo JText::_('Close Window'); ?> <img src="<?php echo JURI::base() ?>components/com_mailto/assets/close-x.png" border="0" alt="" title="" /></a>
-	</div>
 
-	<h2>
-		<?php echo JText::_('EMAIL_SENT'); ?>
-	</h2>
-</div>
+    <section>
+	    <h2>
+		    <?php echo JText::_('EMAIL_SENT'); ?>
+	    </h2>
+
+	    <a href="javascript: void window.close()">
+		    <?php echo JText::_('Close Window'); ?><img src="<?php echo JURI::base() ?>components/com_mailto/assets/close-x.png" border="0" alt="" title="" />
+	    </a>
+    </section>
+
 <?php }
