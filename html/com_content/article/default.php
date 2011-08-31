@@ -313,16 +313,5 @@ else {
 		<?php echo $this->article->event->afterDisplayContent; ?>
 	
 	</article>
-<?php }
-	<?php endif; ?>	
 
-	<?php if (isset ($this->article->toc)) :
-		echo $this->article->toc;
-	endif; ?>
-
-	<?php echo JFilterOutput::ampReplace($this->article->text); ?>
-
-	<?php echo $this->article->event->afterDisplayContent; ?>
-
-	</div>
 <?php }
