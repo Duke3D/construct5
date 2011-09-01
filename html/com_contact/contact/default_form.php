@@ -6,10 +6,9 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-if (substr(JVERSION, 0, 3) >= '1.6') 
-//Joomla 1.6+ ?>
-    
-    <?php
+if (substr(JVERSION, 0, 3) >= '1.6') {
+//Joomla 1.6+
+
     JHtml::_('behavior.keepalive');
     JHtml::_('behavior.formvalidation');
     JHtml::_('behavior.tooltip');
@@ -69,7 +68,8 @@ if (substr(JVERSION, 0, 3) >= '1.6')
 <?php
 }
 else {
-// Joomla 1.5 ?>
+// Joomla 1.5 
+?>
 
     <script type="text/javascript">
 	    function validateForm( frm ) {
@@ -130,4 +130,4 @@ else {
 		<?php echo JHTML::_( 'form.token' ); ?>	
 	</form>
 
-<?php } 
+<?php }
