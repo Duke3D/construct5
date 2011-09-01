@@ -119,6 +119,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		?>
 		</ol>
 	</div>
+	<?php } ?>
 
 <?php
 }
