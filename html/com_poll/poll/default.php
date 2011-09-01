@@ -5,9 +5,12 @@
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+// Joomla 1.5 only
+
 ?>
 
-<div class="poll<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+<section class="poll<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 	<?php JHTML::_('stylesheet', 'poll_bars.css', 'components/com_poll/assets/'); ?>
 	
@@ -29,4 +32,4 @@
 	<?php if (count($this->votes)) : ?>
 		<?php echo $this->loadTemplate( 'graph' ); ?>
 	<?php endif; ?>
-</div>
+</section>

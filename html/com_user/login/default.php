@@ -1,18 +1,8 @@
-<?php defined('_JEXEC') or die;
-/**
-* @package		Unified Template Framework for Joomla!
-* @author		Joomla Engineering http://joomlaengineering.com
-* @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
-* @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
-*/
-?>
-
-<?php if($this->params->get('show_page_title',1)) : ?>
-<header>
-	<h2>
-		<?php echo $this->params->get('page_title') ?>
-	</h2>
-</header>
+<?php defined('_JEXEC') or die('Restricted access'); ?>
+<?php if ($this->params->get( 'show_page_title', 1)) : ?>
+<div class="componentheading<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+	<?php echo $this->escape($this->params->get('page_title')); ?>
+</div>
 <?php endif; ?>
+<?php echo $this->loadTemplate($this->type); ?>
 
-<?php echo $this->loadTemplate( $this->type ); ?>

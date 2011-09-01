@@ -109,8 +109,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
 <ul id="archive-items">
 <?php foreach ($this->items as $i => $item) : ?>

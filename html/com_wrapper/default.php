@@ -7,8 +7,7 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla 1.6+
-?>
+// Joomla 1.6+ ?>
 
     <script type="text/javascript">
     function iFrameHeight() {
@@ -47,8 +46,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
 <script type="text/javascript">
 function iFrameHeight() {

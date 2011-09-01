@@ -7,8 +7,7 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla 1.6+
-?>
+// Joomla 1.6+ ?>
 
     <?php
     // Code to support edit links for weblinks
@@ -168,8 +167,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
 	<script type="text/javascript">
 		function tableOrdering(order, dir, task) {

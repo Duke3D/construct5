@@ -7,13 +7,14 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla 1.6+ 
-
-	JHtml::core();
-
-	$listOrder	= $this->escape($this->state->get('list.ordering'));
-	$listDirn	= $this->escape($this->state->get('list.direction'));
-	?>
+// Joomla 1.6+ ?>
+  
+    <?php
+    JHtml::core();
+    
+    $listOrder	= $this->escape($this->state->get('list.ordering'));
+    $listDirn	= $this->escape($this->state->get('list.direction'));
+    ?>
 	
 	<?php if (empty($this->items)) : ?>
 		<p><?php echo JText::_('COM_CONTACT_NO_ARTICLES'); ?></p>
@@ -173,8 +174,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
 	<?php foreach ($this->items as $item) : ?>
 	<tr>

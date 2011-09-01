@@ -7,8 +7,7 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla 1.6+
-?>
+// Joomla 1.6+ ?>
 
     <section class="weblink-category<?php echo $this->pageclass_sfx;?>">
         <?php if ($this->params->def('show_page_heading', 1)) : ?>
@@ -45,8 +44,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
 <section class="weblink-category<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 	<?php if ($this->params->get('show_page_title', 1)) : ?>

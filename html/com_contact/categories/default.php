@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') or die;
 /**
  * @version		$Id: default.php 21097 2011-04-07 15:38:03Z dextercowley $
  * @package		Joomla.Site
@@ -7,12 +7,12 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// no direct access
-defined('_JEXEC') or die;
+// Joomla 1.6+ only
 
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 ?>
+
 <section class="categories-list<?php echo $this->pageclass_sfx;?>">
 	<?php if ($this->params->get('show_page_heading', 1)) : ?>
 		<h1>
@@ -36,7 +36,5 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 		<?php  endif; ?>	
 	<?php endif; ?>
 	
-<?php
-echo $this->loadTemplate('items');
-?>
+    <?php echo $this->loadTemplate('items'); ?>
 </section>

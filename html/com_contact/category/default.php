@@ -6,8 +6,6 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-$cparams = JComponentHelper::getParams ('com_media');
-
 if (substr(JVERSION, 0, 3) >= '1.6') {
 //Joomla 1.6+
 ?>
@@ -58,9 +56,8 @@ else {
 			</h1>
 		<?php endif; ?>
 
-
 		<?php if ($this->category->image || $this->category->description) : ?>
-			<section class="category-desc">
+			<section class="category-desc clearfix">
 				<?php if ($this->params->get('image') != -1 && $this->params->get('image') != '') : ?>
 					<img src="<?php echo $this->baseurl .'/'. 'images/stories' . '/'. $this->params->get('image'); ?>" class="image_<?php echo $this->params->get('image_align'); ?>" alt="<?php echo JText::_( 'Contacts' ); ?>" />
 				<?php elseif($this->category->image): ?>

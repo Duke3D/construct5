@@ -7,6 +7,7 @@
 */
 
 // Joomla 1.5 only
+
 ?>
 
 <div class="edit weblink<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
@@ -45,49 +46,51 @@
 	<form  action="<?php echo $this->action ?>" method="post" name="adminForm" class="editor" id="adminForm">
 		<fieldset class="publishing">
 			<legend><?php echo JText::_( 'Submit A Web Link' );?></legend>
-			<div class="formelm">
-				<label for="jformtitle"><?php echo JText::_( 'Name' ); ?>:</label>
-				 <input class="inputbox" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>">
-			</div>
-			<div class="formelm">
-				<label for="jformcatid"><?php echo JText::_( 'Category' ); ?>:</label>
-				<?php echo $this->lists['catid']; ?>
-			</div>
-			<div class="formelm">
-				<label for="jformurl"><?php echo JText::_( 'URL' ); ?>:</label>
-				<input class="inputbox" type="url" id="jformurl" name="jform[url]" value="<?php echo $this->escape($this->weblink->url); ?>" size="50" maxlength="250">
-			</div>
-			<div class="formelm">
-				<label for="jformdescription"><?php echo JText::_( 'Description' ); ?>:</label>
-				<textarea class="inputbox" cols="30" rows="6" id="jformdescription" name="jform[description]" style="width:300px"><?php echo htmlspecialchars( $this->weblink->description, ENT_QUOTES );?></textarea>
-			</div>
+
+				<label for="jformtitle">
+				    <?php echo JText::_( 'Name' ); ?>:
+    				<input class="inputbox" type="text" id="jformtitle" name="jform[title]" size="50" maxlength="250" value="<?php echo $this->escape($this->weblink->title);?>">
+                </label>
+				 
+				<label for="jformcatid">
+				    <?php echo JText::_( 'Category' ); ?>:
+				    <?php echo $this->lists['catid']; ?>
+				</label>
+
+				<label for="jformurl">
+				    <?php echo JText::_( 'URL' ); ?>:
+				    <input class="inputbox" type="url" id="jformurl" name="jform[url]" value="<?php echo $this->escape($this->weblink->url); ?>" size="50" maxlength="250">
+                </label>
+				
+				<label for="jformdescription">
+				    <?php echo JText::_( 'Description' ); ?>:
+				    <textarea class="inputbox" cols="30" rows="6" id="jformdescription" name="jform[description]" style="width:300px">
+				        <?php echo htmlspecialchars( $this->weblink->description, ENT_QUOTES );?>
+				    </textarea>
+			    </label>			
 		</fieldset>
 	
 		<fieldset>
 			<legend><?php echo JText::_( 'Published' );?></legend>
-			<div class="formelm">
 				<label for="jformpublished">
 					<?php echo JText::_( 'Published' ); ?>:
+					<?php echo $this->lists['published']; ?>
 				</label>
-				<?php echo $this->lists['published']; ?>
-			</div>
-			<div class="formelm">
+				
 				<label for="jformordering">
 					<?php echo JText::_( 'Ordering' ); ?>:
+					<?php echo $this->lists['ordering']; ?>
 				</label>
-				<?php echo $this->lists['ordering']; ?>
-			</div>
+				
 		</fieldset>	
-		<div class="formelm-buttons">
-			<fieldset>
-				<button type="button" onclick="submitbutton('save')">
-						<?php echo JText::_('Save') ?>
-				</button>
-				<button type="button" onclick="submitbutton('cancel')" >
-						<?php echo JText::_('Cancel') ?>
-				</button>
-			</fieldset>
-		</div>
+
+		<button type="button" onclick="submitbutton('save')">
+				<?php echo JText::_('Save') ?>
+		</button>
+		<button type="button" onclick="submitbutton('cancel')" >
+				<?php echo JText::_('Cancel') ?>
+		</button>
+
 		<input type="hidden" name="jform[id]" value="<?php echo (int)$this->weblink->id; ?>">
 		<input type="hidden" name="jform[ordering]" value="<?php echo (int)$this->weblink->ordering; ?>">
 		<input type="hidden" name="jform[approved]" value="<?php echo $this->weblink->approved; ?>">

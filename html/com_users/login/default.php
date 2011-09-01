@@ -6,15 +6,14 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-// Joomla 1.5 only
+// Joomla 1.6+ only
 
 ?>
 
-<section class="registration-complete<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-	<h2>
-		<?php echo $this->escape($this->message->title); ?>
-	</h2>
-	<p class="message">
-		<?php echo $this->escape($this->message->text); ?>
-	</p>
-</section>
+<?php if($this->params->get('show_page_title',1)) : ?>
+    <h2>
+	    <?php echo $this->params->get('page_title') ?>
+    </h2>
+<?php endif; ?>
+
+<?php echo $this->loadTemplate( $this->type ); ?>

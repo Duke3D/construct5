@@ -7,8 +7,7 @@
 */
 
 if (substr(JVERSION, 0, 3) >= '1.6') {
-// Joomla 1.6+
-?>
+// Joomla 1.6+ ?>
 
     <section class="newsfeed-category<?php echo $this->pageclass_sfx;?>">
         <?php if ($this->params->def('show_page_heading', 1)) : ?>
@@ -45,32 +44,31 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
-<div class="newsfeed-category<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
+    <section class="newsfeed-category<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
-	<?php if ( $this->params->get( 'show_page_title',1)): ?>
-	<header>
-		<h2>
-			<?php echo $this->escape($this->params->get('page_title')); ?>
-		</h2>
-	</header>
-	<?php endif; ?>
+	    <?php if ( $this->params->get( 'show_page_title',1)): ?>
+	    <header>
+		    <h2>
+			    <?php echo $this->escape($this->params->get('page_title')); ?>
+		    </h2>
+	    </header>
+	    <?php endif; ?>
 	
-	<?php if ( $this->category->image || $this->category->description ) : ?>
-	<div class="category-desc">
-		<?php if ( $this->category->image ) : ?>
-			<img src="<?php echo $this->baseurl . '/' . $cparams->get('image_path').'/'.$this->category->image; ?>" class="image_<?php echo $this->category->image_position; ?>">
-		<?php endif; ?>
-			<?php if ( $this->params->get( 'description' ) ) : ?>
-			<p class="category-desc-text">
-				<?php echo $this->category->description; ?>
-			</p>
-			<?php endif; ?>
-	</div>
-	<?php endif; ?>
+	    <?php if ( $this->category->image || $this->category->description ) : ?>
+	    <section class="category-desc clearfix">
+		    <?php if ( $this->category->image ) : ?>
+			    <img src="<?php echo $this->baseurl . '/' . $cparams->get('image_path').'/'.$this->category->image; ?>" class="image_<?php echo $this->category->image_position; ?>">
+		    <?php endif; ?>
+			    <?php if ( $this->params->get( 'description' ) ) : ?>
+			    <p class="category-desc-text">
+				    <?php echo $this->category->description; ?>
+			    </p>
+			    <?php endif; ?>
+	    </section>
+	    <?php endif; ?>
 
-	<?php echo $this->loadTemplate('items'); ?>
-</div>
+	    <?php echo $this->loadTemplate('items'); ?>
+    </section>
 <?php }

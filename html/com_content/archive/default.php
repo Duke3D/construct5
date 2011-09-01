@@ -44,8 +44,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
     <form id="jForm" class="archive<?php echo $this->escape($this->params->get('pageclass_sfx')); ?> action="<?php JRoute::_('index.php')?>" method="post">
         <?php if ($this->params->get('show_page_title', 1)) : ?>

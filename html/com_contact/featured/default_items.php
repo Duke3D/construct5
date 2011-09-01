@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') or die;
 /**
  * @version		$Id: default_items.php 21097 2011-04-07 15:38:03Z dextercowley $
  * @package		Joomla.Site
@@ -7,8 +7,8 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// no direct access
-defined('_JEXEC') or die;
+// Joomla 1.6+ only
+
 JHtml::core();
 
 $listOrder	= $this->escape($this->state->get('list.ordering'));
@@ -16,6 +16,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 
 // Create a shortcut for params.
 $params = &$this->item->params;
+
 ?>
 
 <?php if (empty($this->items)) : ?>

@@ -6,8 +6,6 @@
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-$cparams = JComponentHelper::getParams ('com_media');
-
 if (substr(JVERSION, 0, 3) >= '1.6') {
 // Joomla 1.6+ ?>
 
@@ -132,8 +130,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 
-?>
+// Joomla 1.5 ?>
 
 	<section class="contact<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
