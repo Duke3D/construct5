@@ -14,7 +14,7 @@
 
 	<?php if ( $this->params->get( 'show_logout_title' ) ) : ?>
 		<h2>
-			<?php echo $this->params->get( 'masthead_logout' ); ?>
+			<?php echo $this->params->get( 'header_logout' ); ?>
 		</h2>
 	<?php endif; ?>
 	

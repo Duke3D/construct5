@@ -14,7 +14,7 @@
 
 	<?php if ( $this->params->get( 'show_login_title' ) ) : ?>
 	    <h2>
-		    <?php echo $this->params->get( 'masthead_login' ); ?>
+		    <?php echo $this->params->get( 'header_login' ); ?>
 	    </h2>
 	<?php endif; ?>
 	
