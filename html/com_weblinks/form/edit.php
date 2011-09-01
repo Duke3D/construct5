@@ -43,7 +43,7 @@ $params = $this->state->get('params');
 				<?php echo $this->form->getLabel('title'); ?>
 				<?php echo $this->form->getInput('title'); ?>
 			</div>
-
+			
 			<div class="formelm">
 				<?php echo $this->form->getLabel('alias'); ?>
 				<?php echo $this->form->getInput('alias'); ?>

@@ -157,27 +157,17 @@ textarea{font-size:100%;font-family:arial, serif}
 td{font-size:1em;vertical-align:top}
 th{font-weight:bold;text-align:left}
 strong{font-weight:bold}
+
+input[type="button"], input[type="submit"], input[type="reset"], button, .button2-left {text-align: center;cursor: default;color: buttontext;padding:2px 6px 3px;border: 2px outset buttonface;background-color: buttonface;box-sizing: border-box;}
+input, textarea, keygen, select, button, isindex, .button2-left {margin: 0em;color: initial;letter-spacing: normal;word-spacing: normal;line-height: normal;text-transform: none;text-indent: 0px;text-shadow: none;display: inline-block;}
  
 .actions {float:right}
 .actions li {float:left;list-style:none !important;margin:0 0 0 5px}
 .article-separator {display:none}
-.button2-left,
-.button2-left div {float:left}
-.button2-left a {font-size:.9em;display:block;float:left}
-.button2-left .page a,
-.button2-left .blank a,
-.button2-left .article a {padding:0 6px}
-.button2-left .image a,
-.button2-left .pagebreak a,
-.button2-left .readmore a {padding:0 25px 0 6px}
+.button2-left {appearance:button;-moz-appearance:button;-webkit-appearance:button;padding:0;}
+.button2-left div {float:left;}
+.button2-left a {display:block;padding:2px 6px 3px;float:left;color: buttontext;cursor: default;}
 .button2-left a:hover{text-decoration:none}
-.button2-left{background:url(../images/editor-buttons/j_button2_left.png) 0 0 no-repeat;float:left;margin-left:5px;padding-bottom:3px}
-.button2-right{background:url(../images/editor-buttons/j_button2_right.png) 100% 0 no-repeat;float:left;margin-left:5px}
-.button2-left .article {background:url(../images/editor-buttons/j_button2_blank.png) 100% 0 no-repeat}
-.button2-left .image{background:url(../images/editor-buttons/j_button2_image.png) 100% 0 no-repeat}
-.button2-left .readmore{background:url(../images/editor-buttons/j_button2_readmore.png) 100% 0 no-repeat}
-.button2-left .pagebreak{background:url(../images/editor-buttons/j_button2_pagebreak.png) 100% 0 no-repeat}
-.button2-left .blank{background:url(../images/editor-buttons/j_button2_blank.png) 100% 0 no-repeat}
 
 table.category {border:1px solid #000}
 .category thead {background:#333}
@@ -210,6 +200,7 @@ table.category {border:1px solid #000}
 .edit .formelm-area label{float:none !important;display:block;font-weight:bold}
 .even {background:#eeeeee}
 .footer-text {text-align:left;width:500px;margin:0 auto}
+.formelm-buttons {margin-bottom:1em;}
 ol.form{float:left; list-style:none; width:100%}
 ol.form li{clear:both;float:left;margin:0 0 10px;width:100%;position:relative}
 ol.form label{cursor:pointer;display:block;font-weight:bold;margin:0 10px 0 0}
@@ -259,6 +250,7 @@ ul.menu-horizontal li{float:left} /* Use -horizontal menu class suffix */
 .tip {float:left;background:#ffc;border:1px solid #D4D5AA;padding:5px;max-width:400px;z-index:50;-webkit-box-shadow:5px 5px 10px rgba(0,0,0,0.6);-moz-box-shadow:5px 5px 10px rgba(0,0,0,0.6);box-shadow:5px 5px 10px rgba(0,0,0,0.6)}
 .tip-title {padding:0;margin:0;font-size:1em;font-weight:bold;margin-top:-15px;padding-top:15px;padding-bottom:5px;background:url(../images/selector-arrow.png) no-repeat;}
 .tip-text {	font-size:1em;	margin:0;}
+.toggle-editor {margin-top:1em;float:left;padding-left: 3px;}
 .userdata dt{float:left}
 
 #access {float:left;clear:left}
@@ -274,7 +266,7 @@ ul.menu-horizontal li{float:left} /* Use -horizontal menu class suffix */
 #column-group-beta li{margin:0;padding:0}
 #column-group-beta p{padding:10px 0 0 0}
 #content-above {padding-bottom:15px}
-#editor-xtd-buttons{background:#efefef;margin-top:1em}
+#editor-xtd-buttons {margin-top:1em;float:left;}
 #diagnostics {float:right;clear:right}
 #footer {text-align:center;}
 #footer ul.menu, #footer ul.menu li {display:inline;list-style-image:none;list-style-position:outside;list-style-type:none;margin:0;padding:0;}

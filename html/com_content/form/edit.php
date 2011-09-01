@@ -1,4 +1,4 @@
-<?php
+<?php defined('_JEXEC') or die;
 /**
  * @version		$Id: edit.php 21020 2011-03-27 06:52:01Z infograf768 $
  * @package		Joomla.Site
@@ -7,8 +7,7 @@
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-// no direct access
-defined('_JEXEC') or die;
+// Joomla 1.6+ only
 
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.tooltip');
