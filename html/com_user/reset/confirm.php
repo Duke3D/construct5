@@ -5,18 +5,21 @@
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+// Joomla 1.5 only
+
 ?>
 
 
-<div class="reset-confirm<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-	<header>
-		<h2>
-			<?php echo JText::_('Confirm your Account'); ?>
-		</h2>
-	</header>
+<section class="reset-confirm<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
+	<h2>
+		<?php echo JText::_('Confirm your Account'); ?>
+	</h2>
 	<form action="<?php echo JRoute::_( 'index.php?option=com_user&task=confirmreset' ); ?>" method="post" class="josForm form-validate">
 		<fieldset>
-			<p><?php echo JText::_('RESET_PASSWORD_CONFIRM_DESCRIPTION'); ?></p>
+			<p>
+				<?php echo JText::_('RESET_PASSWORD_CONFIRM_DESCRIPTION'); ?>
+			</p>
 			<label for="username" class="hasTip" title="<?php echo JText::_('RESET_PASSWORD_USERNAME_TIP_TITLE'); ?>::<?php echo JText::_('RESET_PASSWORD_USERNAME_TIP_TEXT'); ?>">
 				<?php echo JText::_('User Name'); ?>:
 				<input id="username" name="username" type="text" class="required" size="36">
@@ -29,4 +32,4 @@
 		<button type="submit" class="validate"><?php echo JText::_('Submit'); ?></button>
 		<?php echo JHTML::_( 'form.token' ); ?>
 	</form>
-</div>
+</section>

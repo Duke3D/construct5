@@ -5,15 +5,16 @@
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+// Joomla 1.5 only
+
 ?>
 
-<div class="remind<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
-	<header>
-		<h2>
-			<?php echo $this->escape($this->message->title); ?>
-		</h2>
-	</header>
+<section class="remind<?php echo $this->escape($this->params->get('pageclass_sfx')) ?>">
+	<h2>
+		<?php echo $this->escape($this->message->title); ?>
+	</h2>
 	<p class="message">
 		<?php echo $this->escape($this->message->text); ?>
 	</p>
-</div>
+</section>
