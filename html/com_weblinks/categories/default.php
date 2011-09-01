@@ -46,26 +46,24 @@ else {
     <section class="categories-list<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 
 	    <?php if ($this->params->get('show_page_title',1)) : ?>
-		    <header>
 			    <h2>
 				    <?php echo $this->escape($this->params->get('page_title')); ?>
 			    </h2>
-		    </header>
 	    <?php endif; ?>
 
 	    <?php if ($this->params->def('show_comp_description', 1) || $this->params->def('image', -1) != -1) : ?>
-		    <div class="category-desc base-desc">
+		    <p class="category-desc base-desc">
 			    <?php if ($this->params->def('image', -1) != -1) : ?>
 				    <img src="<?php echo $this->baseurl . $this->escape($cparams->get('image_path')).'/'.$this->escape($this->params->get('image')); ?>" alt="" class="image_<?php echo $this->escape($this->params->get('image_align')); ?>">
 			    <?php endif; ?>
 			    <?php if ($this->params->get('show_comp_description')) : ?>
 				    <?php echo $this->params->get('comp_description'); ?>
 			    <?php endif; ?>
-		    </div>
+		    </p>
 	    <?php endif; ?>
 
 	    <?php if (count($this->categories)) : ?>
-		    <ul>
+		    <ol>
 			    <?php foreach ($this->categories as $category) : ?>
 			    <li>
 				    <h3 class="item-title">
@@ -83,7 +81,7 @@ else {
 				    </dl>
 			    </li>
 			    <?php endforeach; ?>
-		    </ul>
+		    </ol>
 	    <?php endif; ?>	
     </section>
     
