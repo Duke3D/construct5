@@ -61,7 +61,7 @@
 				</div><!-- end header-above -->
 			<?php endif; ?>
 
-		<div id="header" class="clear clearfix">
+		<header id="header" class="clear clearfix">
 			<div class="gutter clearfix">
 
 				<div class="date-container">
@@ -123,9 +123,9 @@
 				<?php endif; ?>	
 
 			</div><!--end gutter -->
-		</div><!-- end header-->
+		</header><!-- end header-->
 		   
-		<div id="body-container">
+		<section id="body-container">
 
 			<?php if ($headerBelowCount) : ?>
 				<div id="header-below" class="clearfix">						
@@ -173,7 +173,7 @@
 			
 			<?php if ($this->countModules('nav')) : ?>
 				<nav id="nav" class="clear clearfix">
-					<jdoc:include type="modules" name="nav" style="div" />
+					<jdoc:include type="modules" name="nav" style="raw" />
 				</nav><!-- end nav-->
 			<?php endif; ?>
 	  
@@ -394,7 +394,7 @@
 				<?php endif; ?>
 
 			</div><!-- end content-container -->
-		</div><!-- end body-container -->
+		</section><!-- end body-container -->
 	</div><!-- end footer-push -->
     
 	<footer id="footer" class="clear clearfix">

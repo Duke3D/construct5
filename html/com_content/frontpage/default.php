@@ -38,10 +38,10 @@
 		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
 			<div class="items-row cols-<?php echo $colcount; ?> row-<?php echo $y; ?>">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-					<div class="item column-<?php echo $z + 1; ?>">
+					<article class="item column-<?php echo $z + 1; ?>">
 						<?php $this->item =& $this->getItem($i, $this->params); ?>
 						<?php echo $this->loadTemplate('item'); ?>
-					</div>
+					</article>
 				<?php endfor; ?>
 			</div>
 		<?php endfor; ?>

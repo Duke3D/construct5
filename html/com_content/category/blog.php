@@ -62,26 +62,34 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		    $introcount=(count($this->intro_items));
 		    $counter=0;
 	    ?>
-	    <?php if (!empty($this->intro_items)) : ?>
+		<?php if (!empty($this->intro_items)) : ?>
+	        
+			<?php foreach ($this->intro_items as $key => &$item) : ?>
 
-		    <?php foreach ($this->intro_items as $key => &$item) : ?>
-		        <?php
-			        $key= ($key-$leadingcount)+1;
-			        $rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
-			        $row = $counter / $this->columns ;
+	        <?php
+		        $key= ($key-$leadingcount)+1;
+		        $rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
+		        $row = $counter / $this->columns ;
 
-			        if ($rowcount==1) : ?>
-		                <div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?>">
-		            <?php endif; ?>
-		            <div class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished' : null; ?>">
-			            <?php $this->item = &$item; ?>
-				        <?php echo $this->loadTemplate('item'); ?>
-		            </div>
-		        <?php $counter++; ?>		    
-		    <?php endforeach; ?>
+                if ($rowcount==1) : ?>
+			        <section class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> clearfix">
+		        <?php endif; ?>
 
+		        <article class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
+			        <?php
+					        $this->item = &$item;
+					        echo $this->loadTemplate('item');
+			        ?>
+		        </article>
+		      
+		        <?php $counter++; ?>
+				
+				<?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
+					</section>
+				<?php endif; ?>
+	        <?php endforeach; ?>
+        <?php endif; ?>
 
-	    <?php endif; ?>
 
 	    <?php if (!empty($this->link_items)) : ?>
 
