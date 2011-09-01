@@ -14,7 +14,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 	$iUrl	= isset($feed->image->url)	? $feed->image->url	: null;
 	$iTitle = isset($feed->image->title) ? $feed->image->title : null;
 	?>
-	<section style="direction: <?php echo $rssrtl ? 'rtl' :'ltr'; ?>; text-align: <?php echo $rssrtl ? 'right' :'left'; ?> ! important"  class="feed<?php echo $moduleclass_sfx; ?>">
+	<div style="direction: <?php echo $rssrtl ? 'rtl' :'ltr'; ?>; text-align: <?php echo $rssrtl ? 'right' :'left'; ?> ! important"  class="feed<?php echo $moduleclass_sfx; ?>">
 	<?php
 	// feed title
 	if (!is_null($feed->title) && $params->get('rsstitle', 1)) {
@@ -118,7 +118,7 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		}
 		?>
 		</ol>
-	</section>
+	</div>
 
 <?php
 }
@@ -132,7 +132,7 @@ else {
 		$iUrl 	= isset($feed->image->url)   ? $feed->image->url   : null;
 		$iTitle = isset($feed->image->title) ? $feed->image->title : null;
 		?>
-		<section style="direction: <?php echo $rssrtl ? 'rtl' :'ltr'; ?>; text-align: <?php echo $rssrtl ? 'right' :'left'; ?> ! important" class="feed<?php echo $params->get('moduleclass_sfx'); ?>">
+		<div style="direction: <?php echo $rssrtl ? 'rtl' :'ltr'; ?>; text-align: <?php echo $rssrtl ? 'right' :'left'; ?> ! important" class="feed<?php echo $params->get('moduleclass_sfx'); ?>">
 		<?php
 		// feed description
 		if (!is_null( $feed->title ) && $params->get('rsstitle', 1)) {
@@ -238,7 +238,7 @@ else {
 			}
 			?>
 			</ol>
-	</section>
+	</div>
 	<?php } ?>
 
 <?php }

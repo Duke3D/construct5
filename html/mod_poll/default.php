@@ -5,9 +5,14 @@
 * @copyright	Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.
 * @license		GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
 */
+
+// Joomla 1.5 only
+
 ?>
 
-<h4><?php echo $poll->title; ?></h4>
+<h4>
+	<?php echo $poll->title; ?>
+</h4>
 <form name="form2" method="post" action="index.php" class="poll">
 	<fieldset>
 		<?php for ($i = 0, $n = count($options); $i < $n; $i++) : ?>
