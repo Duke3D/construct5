@@ -166,7 +166,7 @@ else {
 			$rowcount = (int) $introcount / $colcount;
 			$ii = 0;
 			for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-				<section class="items-row cols-<?php echo $colcount; ?> row-<?php echo $y; ?>">
+				<section class="items-row cols-<?php echo $colcount; ?> row-<?php echo $y; ?> clearfix">
 					<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
 						<article class="item column-<?php echo $z + 1; ?>">
 							<?php $this->item =& $this->getItem($i, $this->params);
