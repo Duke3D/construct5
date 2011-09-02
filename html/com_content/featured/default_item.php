@@ -8,7 +8,7 @@
  */
 
 // Create a shortcut for params.
-$params = &$this->item->params;
+$params 	= &$this->item->params;
 $canEdit	= $this->item->params->get('access-edit');
 ?>
 

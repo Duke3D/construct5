@@ -180,11 +180,11 @@ table.category {border:1px solid #000}
 .category-desc-text,
 .section-desc-text {clear:left;}
 .contact{margin:10px 0}
-.contact label{float:left;width:12em;margin:10px 0 0}
+.contact button {float:left;margin:1em 0 0 1em;}
+.contact label{float:left;clear:left;width:12em;margin:10px 0 0}
 .contact form{padding:20px;margin:10px 0}
 .contact input{padding:2px 2px 0;margin:10px 0 0}
-.contact textarea {width:80%}
-.contact label.copy {padding:0 0 0 10px;width:90%;float:none;}
+.contact label.copy {padding:0 0 0 10px;width:auto;float:left;}
 .content_vote{margin:0 0 10px;display:block}
 .content_vote input{margin:0 5px}
 .content_vote .button{border:0;font-weight:bold;margin:20px 10px 0 0;padding:0 0 0 30px;cursor:pointer} 

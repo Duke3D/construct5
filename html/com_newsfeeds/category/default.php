@@ -44,7 +44,9 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 <?php
 }
 else {
-// Joomla 1.5 ?>
+// Joomla 1.5
+$cparams = JComponentHelper::getParams ('com_media');
+?>
 
     <section class="newsfeed-category<?php echo $this->escape($this->params->get('pageclass_sfx')); ?>">
 

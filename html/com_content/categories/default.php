@@ -24,7 +24,8 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');?>
 			<p class="category-desc">
 				<?php  echo JHtml::_('content.prepare', $this->parent->description); ?>
 			</p>
-		<?php  endif; ?>		
+			<?php  endif; ?>
+		<?php  endif; ?>
 	<?php endif; ?>
 	
     <?php echo $this->loadTemplate('items'); ?>
