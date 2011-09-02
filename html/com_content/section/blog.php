@@ -48,8 +48,9 @@ $cparams = JComponentHelper::getParams ('com_media');
 			$colcount = 1;
 		endif;
 		$rowcount = (int) $introcount / $colcount;
-		$ii = 0;
-		for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
+		$ii = 0;?>
+		<section class="items-intro">
+		<?php for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
 			<div class="items-row cols-<?php echo $colcount; ?> row-<?php echo $y; ?> clearfix">
 				<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
 					<div class="item column-<?php echo $z + 1; ?>" >
@@ -58,8 +59,9 @@ $cparams = JComponentHelper::getParams ('com_media');
 					</div>
 				<?php endfor; ?>
 			</div>
-		<?php endfor;
-	endif; ?>
+		<?php endfor;?>
+		</section>
+	<?php endif; ?>
 
 	<?php $numlinks = (int)$this->params->def('num_links', 4); ?>
 	<?php if ($numlinks && $i < $this->total) : ?>	

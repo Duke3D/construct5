@@ -61,7 +61,8 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		    $counter=0;
 	    ?>
 		<?php if (!empty($this->intro_items)) : ?>
-	        
+			<section class="items-intro">
+				
 			<?php foreach ($this->intro_items as $key => &$item) : ?>
 
 	        <?php
@@ -69,8 +70,8 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		        $rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
 		        $row = $counter / $this->columns ;
 
-                if ($rowcount==1) : ?>
-			        <section class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> clearfix">
+                if ($rowcount==1) : ?>												 
+					<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> clearfix">
 		        <?php endif; ?>
 
 		        <article class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
@@ -83,9 +84,10 @@ if (substr(JVERSION, 0, 3) >= '1.6') {
 		        <?php $counter++; ?>
 				
 				<?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
-					</section>
+					</div>					
 				<?php endif; ?>
 	        <?php endforeach; ?>
+			</section>
         <?php endif; ?>
 
 
@@ -163,18 +165,20 @@ $cparams = JComponentHelper::getParams ('com_media');
 				$colcount = 1;
 			endif;
 			$rowcount = (int) $introcount / $colcount;
-			$ii = 0;
-			for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
-				<section class="items-row cols-<?php echo $colcount; ?> row-<?php echo $y; ?> clearfix">
-					<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
-						<article class="item column-<?php echo $z + 1; ?>">
-							<?php $this->item =& $this->getItem($i, $this->params);
-							echo $this->loadTemplate('item'); ?>
-						</article>
-					<?php endfor; ?>
-				</section>
-			<?php endfor;
-		endif; ?>
+			$ii = 0;?>
+			<section class="items-intro">
+				<?php for ($y = 0; $y < $rowcount && $i < $this->total; $y++) : ?>
+					<div class="items-row cols-<?php echo $colcount; ?> row-<?php echo $y; ?> clearfix">
+						<?php for ($z = 0; $z < $colcount && $ii < $introcount && $i < $this->total; $z++, $i++, $ii++) : ?>
+							<article class="item column-<?php echo $z + 1; ?>">
+								<?php $this->item =& $this->getItem($i, $this->params);
+								echo $this->loadTemplate('item'); ?>
+							</article>
+						<?php endfor; ?>
+					</div>
+				<?php endfor;?>
+			</section>
+		<?php endif; ?>
 
 		<?php $numlinks = $this->params->def('num_links', 4);
 		if ($numlinks && $i < $this->total) : ?>

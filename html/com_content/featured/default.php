@@ -39,8 +39,9 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');?>
 	        $introcount=(count($this->intro_items));
 	        $counter=0;
         ?>
-        <?php if (!empty($this->intro_items)) : ?>
-	        
+		<?php if (!empty($this->intro_items)) : ?>
+			<section class="items-intro">
+				
 			<?php foreach ($this->intro_items as $key => &$item) : ?>
 
 	        <?php
@@ -48,8 +49,8 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');?>
 		        $rowcount=( ((int)$key-1) %	(int) $this->columns) +1;
 		        $row = $counter / $this->columns ;
 
-                if ($rowcount==1) : ?>
-			        <section class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> clearfix">
+                if ($rowcount==1) : ?>												 
+					<div class="items-row cols-<?php echo (int) $this->columns;?> <?php echo 'row-'.$row ; ?> clearfix">
 		        <?php endif; ?>
 
 		        <article class="item column-<?php echo $rowcount;?><?php echo $item->state == 0 ? ' system-unpublished"' : null; ?>">
@@ -62,9 +63,10 @@ JHtml::addIncludePath(JPATH_COMPONENT.DS.'helpers');?>
 		        <?php $counter++; ?>
 				
 				<?php if (($rowcount == $this->columns) or ($counter ==$introcount)): ?>
-					</section>
+					</div>					
 				<?php endif; ?>
 	        <?php endforeach; ?>
+			</section>
         <?php endif; ?>
 
         <?php if (!empty($this->link_items)) : ?>
