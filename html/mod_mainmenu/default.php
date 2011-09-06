@@ -115,4 +115,4 @@ function CmodMainMenuXMLCallback(&$node, $args)
 ob_start();
 modMainMenuHelper::render($params, 'CmodMainMenuXMLCallback');
 $mainMenuContent = ob_get_clean();
-echo str_replace(array('<span>','</span>','<ul class="menu">'), array('','','<ul class="menu" data-role="listview" data-inset="true" data-theme="'.$tparams->get('mNavDataTheme').'">'), $mainMenuContent);
+echo str_replace(array('<span>','</span>','<ul class="menu">'), array('','','<ul class="menu clearfix" data-role="listview" data-inset="true" data-theme="'.$tparams->get('mNavDataTheme').'">'), $mainMenuContent);
