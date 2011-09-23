@@ -39,7 +39,6 @@ class JFormFieldGooglewebfont extends JFormFieldList
         $options	= array();
 
         $options[]	= JHtml::_('select.option', '', '- None Selected -');
-        $options[]	= JHtml::_('select.option', '', '- None Selected -');
         $options[]	= JHtml::_('select.option', 'Abel', 'Abel');
         $options[]	= JHtml::_('select.option', 'Abril+Fatface', 'Abril Fatface');
         $options[]	= JHtml::_('select.option', 'Aclonica', 'Aclonica');
