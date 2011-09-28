@@ -206,7 +206,7 @@
 						<?php endif; ?>													
 					</nav><!-- end nav-below -->
 				<?php endif; ?>
-			
+
 				<div id="load-first" class="clearfix">
 					<a id="content" name="content"></a>     
 					<div id="content-main">
@@ -248,7 +248,7 @@
 										<div id="content-above-6" class="<?php echo $contentAboveClass ?>">
 											<jdoc:include type="modules" name="content-above-6" style="div" module-class="gutter" />
 										</div><!-- end content-above-6 -->
-									<?php endif; ?>									
+									<?php endif; ?>
 								</div><!-- end content-above -->
 							<?php endif; ?>
 					  
