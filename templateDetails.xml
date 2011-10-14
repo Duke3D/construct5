@@ -3,10 +3,10 @@
 <install version="1.6" type="template" client="site" method="upgrade">
 	<name>construct5</name>
 	<creationDate>September 27th, 2011</creationDate>
-	<author>Joomla Engineering</author>
-	<authorEmail>support@joomlaengineering.com</authorEmail>
-	<authorUrl>http://joomlaengineering.com</authorUrl>
-	<copyright>Copyright (C) 2010, 2011 Matt Thomas | Joomla Engineering. All rights reserved.</copyright>
+	<author>Matt Thomas</author>
+	<authorEmail>support@construct-framework.com</authorEmail>
+	<authorUrl>http://construct-framework.com</authorUrl>
+	<copyright>Copyright (C) 2009 - 2011 Matt Thomas. All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<version>2.5.2 Beta</version>
 	<description><![CDATA[
@@ -31,12 +31,12 @@
 		div.panel fieldset {margin-bottom:0;padding-bottom:0;}
 		table.admintable td.key, table.admintable td.paramlist_key {border:none;}
 	</style>
-	<a href="http://joomlaengineering.com/" target="_blank"><img src="../templates/construct5/images/logo.png"></a>	
+	<a href="http://construct-framework.com/" target="_blank"><img src="../templates/construct5/images/logo.png"></a>
 		<div class="clr"></div>		
 		<div class="t"><div class="t"><div class="t"></div></div></div><!-- top -->		
 		<div class="m">									
-			<p>Unified HTML5 Template Development Framework &copy; 2010, 2011 Joomla Engineering&trade;</p>
-			<p>For more information and support, visit <a href="http://joomlaengineering.com/" target="_blank">Joomla Engineering</a></p>
+			<p>Unified HTML5 Template Development Framework &copy; 2009 - 2011 Matt Thomas</p>
+			<p>For more information and support, visit <a href="http://construct-framework.com/" target="_blank">Construct Framework</a></p>
 			<div class="clr"></div>
 		</div><!--end m -->
 	<div class="b"><div class="b"><div class="b"></div></div></div><!-- bottom -->
@@ -153,7 +153,7 @@
 					<option value="0">Hide</option>
 				</field>	
 				<field name="customStyleSheet" type="filelist" default="example.css" label="TPL_CONSTRUCT5_CUSTOM_STYLE_SHEET_LABEL" directory="templates/construct5/css" filter="\.css" exclude="core-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|ie6\.css|wireframe\.css|mobile\.css|mobile\.css" description="TPL_CONSTRUCT5_CUSTOM_STYLE_SHEET_DESC" />
-				<field name="setGeneratorTag" type="text" default="Joomla Engineering | http://JoomlaEngineering.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />		
+				<field name="setGeneratorTag" type="text" default="Construct Framework | http://Construct-Framework.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />
 			</fieldset>
 			<fieldset name="IE">
 				<field name="IECSS3" type="radio" default="1" label="TPL_CONSTRUCT5_IE_CSS3_LABEL" description="TPL_CONSTRUCT5_IE_CSS3_DESC">
@@ -233,7 +233,7 @@
     	<option value="0">Hide</option>
     </param>
 		<param name="customStyleSheet" type="filelist" default="example.css" label="Custom style sheet" directory="templates/construct5/css" filter="\.css" exclude="core-css-classes-ids\.css|diagnostic\.css|editor\.css|modal\.css|normal\.css|print\.css|rtl\.css|screen\.css|core-classes-ids\.css|ie6\.css|overrides\.css|mobile\.css|wireframe\.css" description="Name of the style sheet that contains your custom CSS declarations. Default is custom.css." />		
-		<param name="setGeneratorTag" type="text" default="Joomla Engineering | http://JoomlaEngineering.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />				
+		<param name="setGeneratorTag" type="text" default="Construct Framework | http://Construct-Framework.com" label="Generator Meta Tag" description="Customize the generator meta tag output by your template." size="56" />
 <param type="panel" title="Internet Explorer" />		
 		<param name="IECSS3" type="radio" default="1" label="Add CSS3 Support to IE" description="Enable the use of PIE (http://css3pie.com/) to add CSS3 support to Internet Explorer version 8 and before. Also adds pie_hover class to non-link items on hover. For performance reason, you must define the tagret elements below.">
       <option value="1">Yes</option>
